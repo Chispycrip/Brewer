@@ -7,21 +7,26 @@ using UnityEngine;
 /// </summary>
 public class ThirdPersonMovement : MonoBehaviour
 {
+    // used to attach the player controller and main camera
     public CharacterController controller;
     public Transform cam;
 
-    public float speed = 6f;
+    // public speed variable mess around with
+    public float speed = 12f;
 
-    public float turnSmoothTime = 0.1f;
+    // camera / player rotation stuff
+    public float turnSmoothTime = 0.4f;
     float turnSmoothVelocity;
 
     // Update is called once per frame
     void Update()
     {
+        // grabbing raw axis to feed a normalized direction
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
+        // if player is moving
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
