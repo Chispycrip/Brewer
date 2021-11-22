@@ -11,6 +11,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
 
+    Rigidbody rb;
+
     // public speed variable mess around with
     public float speed = 12f;
 
@@ -36,5 +38,11 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(speed * Time.deltaTime * moveDir.normalized);
         }
+    }
+
+    // start is called once before the first update frame
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
     }
 }

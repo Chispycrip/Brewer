@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19f634e37a3788849bb9dfba95005003, type: 3}
-  m_Name: New Potion Data
+  m_Name: Golden
   m_EditorClassIdentifier: 
   typeName: 
   tier: 0
