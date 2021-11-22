@@ -117,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5504613444830784848, guid: 91039e175f4b9ef4580ee47315223319, type: 3}
       propertyPath: m_Name
-      value: CornerBlock1Template
+      value: CornerBlock1Template Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6132895398829577101, guid: 91039e175f4b9ef4580ee47315223319, type: 3}
       propertyPath: m_Mesh
