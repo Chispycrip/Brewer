@@ -11,6 +11,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
 
+    // (r)igid(b)ody for collision
     Rigidbody rb;
 
     // public speed variable mess around with
@@ -38,6 +39,11 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(speed * Time.deltaTime * moveDir.normalized);
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+
     }
 
     // start is called once before the first update frame
