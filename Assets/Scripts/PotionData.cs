@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PotionData : ScriptableObject
 {
     public string typeName; //name of the potion type
-    public int tier; //tier 1-3, golden is 3
+    public int tier; //tier 1-2, golden is 3
     public string trait; //speed, stealth or golden
     public string description; //brief flavour text
 

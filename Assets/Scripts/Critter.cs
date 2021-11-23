@@ -16,14 +16,6 @@ public class Critter : MonoBehaviour
     }
 
 
-    //Update is called once per frame
-    public void Update(float deltaTime)
-    {
-        //call update behaviour
-        OnUpdate(deltaTime);
-    }
-
-
     //calls required behaviour on updates
     protected virtual void OnUpdate(float deltaTime)
     { 
@@ -48,12 +40,6 @@ public class Critter : MonoBehaviour
     //returns if critter is catchable
     public bool IsCaught()
     {
-        //if the bug is caught, send it to the journal
-        if (catchable)
-        {
-            AddToJournal();
-        }
-        
         return catchable;
     }
 
@@ -62,12 +48,5 @@ public class Critter : MonoBehaviour
     public CritterData GetData()
     {
         return data;
-    }
-
-
-    //adds critter to the journal
-    private void AddToJournal()
-    { 
-        //to be implemented in Beta
     }
 }
