@@ -15,6 +15,7 @@ public class CritterData : ScriptableObject
     public GameObject model; //3D model
     public Material modelMaterial; //material used on the model
 
+    public int movementPath; //the id of the movement path this bug follows
     public float wanderDistance; //the distance the critter can wander from spawn, 0 for immobile
     public float detectionDistance; //the distance the critter can detect the player at, 0 for no detection
 }
