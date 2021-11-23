@@ -7291,7 +7291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1146478852864706235, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.69413394
+      value: 0.6941339
       objectReference: {fileID: 0}
     - target: {fileID: 1146478852864706235, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7299,15 +7299,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1146478852864706235, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.69413364
+      value: 0.6941337
       objectReference: {fileID: 0}
     - target: {fileID: 1146478852886480011, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07360574
+      value: 0.07360573
       objectReference: {fileID: 0}
     - target: {fileID: 1146478852886480011, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7032656
+      value: 0.70326555
       objectReference: {fileID: 0}
     - target: {fileID: 1146478852886480011, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7315,7 +7315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1146478852886480011, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70326525
+      value: 0.7032652
       objectReference: {fileID: 0}
     - target: {fileID: 1146478852886480011, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7411,7 +7411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1146478853185194575, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
       propertyPath: m_XAxis.m_MaxSpeed
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1146478853185194575, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
       propertyPath: m_Orbits.Array.data[0].m_Radius
@@ -92012,10 +92012,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.4284997
+  m_Height: 1.5457656
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.035379887, y: 0.0024706125, z: 0.036120415}
 --- !u!43 &1930060478
 Mesh:
   m_ObjectHideFlags: 0
