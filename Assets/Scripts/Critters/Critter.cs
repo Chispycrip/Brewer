@@ -5,7 +5,7 @@ using UnityEngine;
 public class Critter : MonoBehaviour
 {
     protected CritterData data; //the object holding all of this critter's data
-    protected bool catchable; //if this critter is currently catchable, false if inactive
+    protected bool catchable = true; //if this critter is currently catchable, false if inactive
     protected string state; //the current behavioural state of the critter
 
 
@@ -41,6 +41,13 @@ public class Critter : MonoBehaviour
     public bool IsCaught()
     {
         return catchable;
+    }
+
+
+    //sets the critterData
+    public void SetData(CritterData cData)
+    {
+        data = cData;
     }
 
 
