@@ -22,6 +22,9 @@ public class Inventory : MonoBehaviour
                 {
                     //add item to empty slot
                     items[i] = item;
+
+                    //break once slot is found
+                    break;
                 }
             }
 
