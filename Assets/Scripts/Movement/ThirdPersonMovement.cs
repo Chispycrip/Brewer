@@ -4,6 +4,7 @@ using UnityEngine;
 /// <summary>
 /// ThirdPersonMovement is the script necessary for being able to move our character in the world.
 /// This is the case of us not using Assets for a ThirdPersonController, and making one ourselves.
+/// This controls the characters movement in the 3D world using a Character Controller.
 /// </summary>
 public class ThirdPersonMovement : MonoBehaviour
 {
@@ -40,25 +41,24 @@ public class ThirdPersonMovement : MonoBehaviour
         // if player is moving
         if (direction.magnitude >= 0.1f)
         {
+            // for camera rotation
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
+            // when the player is facing a direction, input is based on the axis relative to the camera not the playermodel
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
+            // simply... move
             controller.SimpleMove(moveDir.normalized * speed);
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-
     }
 
     // start is called once before the first update frame
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void EnableMovement()
