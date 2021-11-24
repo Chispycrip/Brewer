@@ -6,6 +6,7 @@ using TMPro;
 
 public class Tutorial : MonoBehaviour
 {
+    // changing properties of the canvas (and possibly text)
     public Canvas canvas;
     public TextMeshProUGUI tutText;
 
