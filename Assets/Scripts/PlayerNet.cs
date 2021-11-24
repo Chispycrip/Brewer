@@ -23,6 +23,7 @@ public class PlayerNet : MonoBehaviour
     void StopSwing()
     {
         animator.SetBool("SwingNet", false);
+        animator.SetBool("ResetNet", true);
     }
 
 
