@@ -21,6 +21,12 @@ public class StealthCritter : Critter
         {
             willHide = true;
         }
+
+        //set state to idle
+        state = "Idle";
+
+        //set tag
+        gameObject.tag = "Stealth";
     }
 
 

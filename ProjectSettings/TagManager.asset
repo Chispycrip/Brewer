@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Speed
+  - Stealth
+  - Golden
   layers:
   - Default
   - TransparentFX

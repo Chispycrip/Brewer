@@ -5,7 +5,7 @@ using UnityEngine;
 public class Critter : MonoBehaviour
 {
     protected CritterData data; //the object holding all of this critter's data
-    protected bool catchable; //if this critter is currently catchable, false if inactive
+    protected bool catchable = true; //if this critter is currently catchable, false if inactive
     protected string state; //the current behavioural state of the critter
 
 
@@ -13,14 +13,6 @@ public class Critter : MonoBehaviour
     public virtual void Init()
     {
         //overwritten by subclasses
-    }
-
-
-    //Update is called once per frame
-    public void Update(float deltaTime)
-    {
-        //call update behaviour
-        OnUpdate(deltaTime);
     }
 
 
@@ -48,13 +40,14 @@ public class Critter : MonoBehaviour
     //returns if critter is catchable
     public bool IsCaught()
     {
-        //if the bug is caught, send it to the journal
-        if (catchable)
-        {
-            AddToJournal();
-        }
-        
         return catchable;
+    }
+
+
+    //sets the critterData
+    public void SetData(CritterData cData)
+    {
+        data = cData;
     }
 
 
@@ -62,12 +55,5 @@ public class Critter : MonoBehaviour
     public CritterData GetData()
     {
         return data;
-    }
-
-
-    //adds critter to the journal
-    private void AddToJournal()
-    { 
-        //to be implemented in Beta
     }
 }

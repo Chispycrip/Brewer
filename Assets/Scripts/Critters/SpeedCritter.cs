@@ -19,6 +19,15 @@ public class SpeedCritter : Critter
         {
             defaultCatchable = false;
         }
+
+        //set state to idle
+        state = "Idle";
+
+        //set catchable to default value
+        catchable = defaultCatchable;
+
+        //set tag
+        gameObject.tag = "Speed";
     }
 
 
