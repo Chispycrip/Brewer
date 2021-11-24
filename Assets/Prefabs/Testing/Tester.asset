@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tester
   m_EditorClassIdentifier: 
   typeName: tester
-  tier: 2
+  tier: 1
   trait: Speed
   description: Gotta go fast
   icon: {fileID: 0}

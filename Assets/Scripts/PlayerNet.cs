@@ -8,6 +8,7 @@ public class PlayerNet : MonoBehaviour
 
     private Animator animator = null;
     private ThirdPersonMovement player = null;
+    private BoxCollider netCollider = null;
   
 
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class PlayerNet : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         player = transform.parent.gameObject.GetComponent<ThirdPersonMovement>();
+        netCollider = transform.Find("NetCollider").GetComponent<BoxCollider>();
     }   
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class PlayerNet : MonoBehaviour
     void StartSwing()
     {
         animator.SetBool("SwingNet", true);
+        netCollider.enabled = true;
         if(player)
         {
             player.DisableMovement();
@@ -40,6 +43,7 @@ public class PlayerNet : MonoBehaviour
     {
         animator.SetBool("SwingNet", false);
         animator.SetBool("ResetNet", true);
+        netCollider.enabled = false;
         if (player)
         {
             player.EnableMovement();
