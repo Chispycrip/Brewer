@@ -68,7 +68,8 @@ public class Critter : MonoBehaviour
 
             if (catchable == true && inventoryFull == false)
             {
-                other.GetComponent<PlayerNet>().CatchCritter(this);
+                PlayerNet net = other.transform.parent.gameObject.GetComponent<PlayerNet>();
+                net.CatchCritter(this);
 
                 //destroy critter
                 Destroy(gameObject);
