@@ -1,0 +1,50 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class Timer : MonoBehaviour
+{
+    // timer related stuff
+    public float timeRemaining = 180;
+    public bool timerIsRunning = false;
+
+    // the actual timer counting down
+    public TextMeshProUGUI timerText;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        timerIsRunning = true;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // while timer is above 0 seconds
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                timeRemaining = 0;
+                timerIsRunning = false;
+            }
+        }
+        DisplayTime(timeRemaining);
+    }
+
+    // using a maths thing to make it appear as minutes and seconds
+    void DisplayTime(float timeToDisplay)
+    {
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        // format the text in digital time
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+}
