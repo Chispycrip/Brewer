@@ -55,20 +55,4 @@ public class SpeedCritter : Critter
             catchable = true;
         }
     }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            RespondToPlayer();
-        }
-        else if(other.tag == "Net")
-        {
-            if(catchable)
-            {
-                other.GetComponent<PlayerNet>().CatchCritter(this);
-            }
-        }
-    }
 }
