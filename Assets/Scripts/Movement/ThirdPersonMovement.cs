@@ -21,9 +21,17 @@ public class ThirdPersonMovement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
+    // turns on and off player movement
+    bool inputsActive = true;
+
     // Update is called once per frame
     void Update()
     {
+        if(!inputsActive)
+        {
+            return;
+        }
+
         // grabbing raw axis to feed a normalized direction
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -51,5 +59,15 @@ public class ThirdPersonMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    public void EnableMovement()
+    {
+        inputsActive = true;
+    }
+
+    public void DisableMovement()
+    {
+        inputsActive = false;
     }
 }
