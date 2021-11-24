@@ -95,4 +95,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
-  spawnRotation: {x: 0, y: 0, z: 0, w: 1}
+  spawnRotation: {x: 0, y: 0, z: 1.57, w: 1}

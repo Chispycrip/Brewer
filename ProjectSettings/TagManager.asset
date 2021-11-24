@@ -8,6 +8,7 @@ TagManager:
   - Speed
   - Stealth
   - Golden
+  - Net
   layers:
   - Default
   - TransparentFX
