@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(menuName = "DataTemplates/PotionData")]
-public class PotionData : ScriptableObject
+public class Data : ScriptableObject
 {
     public string typeName; //name of the potion type
-    public int tier; //tier 1-3, golden is 3
+    public int tier; //tier 1-4, golden is 4
     public string trait; //speed, stealth or golden
     public string description; //brief flavour text
 
