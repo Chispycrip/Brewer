@@ -4695,15 +4695,15 @@ Transform:
   - {fileID: 568685029}
   - {fileID: 1312141989}
   - {fileID: 581113921}
-  - {fileID: 1830090576}
   - {fileID: 1458336329}
   - {fileID: 586441987}
   - {fileID: 395396821}
   - {fileID: 2115498791}
   - {fileID: 940683167}
+  - {fileID: 265792374}
+  - {fileID: 1830090576}
   - {fileID: 143308321}
   - {fileID: 923655479}
-  - {fileID: 265792374}
   - {fileID: 763321465}
   - {fileID: 1294308858}
   - {fileID: 1291812813}
@@ -24665,6 +24665,14 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1971069881}
+    - target: {fileID: 4230491753331774871, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
+      propertyPath: m_Orbits.Array.data[0].m_Height
+      value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230491753331774871, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
+      propertyPath: m_SplineCurvature
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9509340eae16e044a08f34618a7f9e7, type: 3}
 --- !u!43 &1307388918
