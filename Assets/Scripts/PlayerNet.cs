@@ -29,6 +29,7 @@ public class PlayerNet : MonoBehaviour
         if(player)
         {
             player.DisableMovement();
+            player.GetComponent<BoxCollider>().enabled = true;
         }
     }
 
@@ -39,6 +40,7 @@ public class PlayerNet : MonoBehaviour
         if (player)
         {
             player.EnableMovement();
+            player.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
