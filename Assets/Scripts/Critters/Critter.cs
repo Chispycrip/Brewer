@@ -7,6 +7,7 @@ public class Critter : MonoBehaviour
     protected CritterData data; //the object holding all of this critter's data
     protected bool catchable = true; //if this critter is currently catchable, false if inactive
     protected string state; //the current behavioural state of the critter
+    public bool inventoryFull = false; //if the inventory is full
 
 
     //Init is called upon instantiation by the spawnpoint 
@@ -56,4 +57,27 @@ public class Critter : MonoBehaviour
     {
         return data;
     }
+
+
+    //called when the critter detects a collision with the net
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Net"))
+        {
+            //get script from collider
+
+            if (catchable == true && inventoryFull == false)
+            {
+                //call net event true
+
+                //destroy critter
+                Destroy(gameObject);
+            }
+            else
+            { 
+                //call net event false
+            }
+        }
+    }
+
 }
