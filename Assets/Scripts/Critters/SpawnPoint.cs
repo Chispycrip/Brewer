@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour
 {
     public CritterData data; //all of the data needed to create a critter
+    [Header("Spawn Rotation")]
     public float x; //the rotation around the x axis
     public float y; //the rotation around the y axis
     public float z; //the rotation around the z axis
