@@ -11,13 +11,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
 
+    // public speed variable mess around with
+    public float speed = 4f;
+
+    // rigidbody for player
     Rigidbody rb;
 
-    // public speed variable mess around with
-    public float speed = 12f;
-
     // camera / player rotation stuff
-    public float turnSmoothTime = 0.4f;
+    public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
     // Update is called once per frame
@@ -32,12 +33,18 @@ public class ThirdPersonMovement : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, Time.deltaTime);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(speed * Time.deltaTime * moveDir.normalized);
+
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+
     }
 
     // start is called once before the first update frame
