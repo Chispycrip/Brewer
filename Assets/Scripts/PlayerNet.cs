@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerNet : MonoBehaviour
 {
+    public Inventory playerInventory = null;
+
     private Animator animator = null;
     private ThirdPersonMovement player = null;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,9 @@ public class PlayerNet : MonoBehaviour
         }
     }
 
-
+    public void CatchCritter(Critter critter)
+    {
+        playerInventory.AddToInventory(critter.GetData());
+    }
 
 }

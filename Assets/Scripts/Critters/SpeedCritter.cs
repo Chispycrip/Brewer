@@ -63,5 +63,12 @@ public class SpeedCritter : Critter
         {
             RespondToPlayer();
         }
+        else if(other.tag == "Net")
+        {
+            if(catchable)
+            {
+                other.GetComponent<PlayerNet>().CatchCritter(this);
+            }
+        }
     }
 }
