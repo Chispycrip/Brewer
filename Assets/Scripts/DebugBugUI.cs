@@ -12,7 +12,14 @@ public class DebugBugUI : MonoBehaviour
     {
         if (playerInventory)
         {
-            GetComponent<Text>().text = "Bugs Caught: "+playerInventory.itemsStored;
+            if (playerInventory.itemsStored < 4)
+            {
+                GetComponent<Text>().text = "Bugs Caught: " + playerInventory.itemsStored;
+            }
+            else
+            {
+                GetComponent<Text>().text = "Inventory full with 4 bugs";
+            }
         }
     }
 }
