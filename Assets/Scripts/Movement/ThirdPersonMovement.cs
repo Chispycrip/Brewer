@@ -1,11 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// ThirdPersonMovement is the script necessary for being able to move our character in the world.
-/// This is the case of us not using Assets for a ThirdPersonController, and making one ourselves.
-/// This controls the characters movement in the 3D world using a Character Controller.
-/// </summary>
+
 public class ThirdPersonMovement : MonoBehaviour
 {
     // used to attach the player controller and main camera
@@ -59,6 +55,18 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void EnableCursorLock()
+    {
+        // unlocking cursor state to be able to interact with the UI (for now)
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    public void DisableCursorLock()
+    {
+        // locking cursor state to be able to play game normally (for now)
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void EnableMovement()
