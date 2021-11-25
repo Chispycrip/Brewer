@@ -48,13 +48,22 @@ public class ThirdPersonMovement : MonoBehaviour
             // simply... move
             controller.SimpleMove(moveDir.normalized * speed);
         }
+
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            EnableCursorLock();
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            DisableCursorLock();
+        }
     }
 
     // start is called once before the first update frame
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void EnableCursorLock()
@@ -66,7 +75,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public void DisableCursorLock()
     {
         // locking cursor state to be able to play game normally (for now)
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void EnableMovement()
