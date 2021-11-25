@@ -24,5 +24,19 @@ public class ItemUI : Draggable
 
     //swaps the contents of the jars
     protected override void Swap(Jar newParent)
-    {}
+    {
+        //read in other item
+        ItemUI other = newParent.draggable as ItemUI;
+
+        //if the other jar has an itemUI
+        if (other)
+        {
+            //store both item Data and then swap them into the opposite jar
+            Data ours = item;
+            Data theirs = other.item;
+
+            jar.UpdateItem(theirs);
+            other.jar.UpdateItem(ours);
+        }
+    }
 }

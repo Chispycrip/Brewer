@@ -9,6 +9,7 @@ TagManager:
   - Stealth
   - Golden
   - Net
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
