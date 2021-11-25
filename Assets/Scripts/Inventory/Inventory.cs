@@ -8,6 +8,9 @@ public class Inventory : MonoBehaviour
     public bool isPlayerInv; //if this is the player's inventory
     public int itemsStored = 0; //how many items are in this inventory
 
+    public bool acceptsPotions = true; //if this Inventory accepts Potions
+    public bool jarsVisibile = true; //if this Inventory has visible jars
+
 
     //adds item to the inventory
     public void AddToInventory(Data item)

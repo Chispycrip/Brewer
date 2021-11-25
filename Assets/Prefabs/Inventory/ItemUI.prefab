@@ -95,6 +95,9 @@ MonoBehaviour:
   slot: {fileID: 0}
   image: {fileID: 4112469021869669773}
   item: {fileID: 0}
+  jar: {fileID: 3389627660650932929}
+  acceptsPotions: 0
+  jarVisibile: 0
 --- !u!1 &5467128931017611476
 GameObject:
   m_ObjectHideFlags: 0

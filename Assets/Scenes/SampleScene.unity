@@ -402,6 +402,8 @@ MonoBehaviour:
   - {fileID: 0}
   isPlayerInv: 1
   itemsStored: 0
+  acceptsPotions: 1
+  jarsVisibile: 1
 --- !u!4 &175817937
 Transform:
   m_ObjectHideFlags: 0
@@ -1526,6 +1528,8 @@ MonoBehaviour:
   - {fileID: 0}
   isPlayerInv: 1
   itemsStored: 0
+  acceptsPotions: 1
+  jarsVisibile: 1
 --- !u!4 &1459400135
 Transform:
   m_ObjectHideFlags: 0

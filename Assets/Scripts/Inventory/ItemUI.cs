@@ -7,6 +7,10 @@ public class ItemUI : Draggable
 {
     public Image image; //the displayed image of the item
     public Data item; //the data of the stored object
+    public Image jar; //the jar image childed to this ItemUI
+
+    public bool acceptsPotions; //if this ItemUI accepts Potions
+    public bool jarVisible; //if this ItemUI has a visible jar
 
     //set the contents of the slot
     public void SetContents(Data newItem)
@@ -41,17 +45,21 @@ public class ItemUI : Draggable
     protected override void Swap(Slot newParent)
     {
         //read in other item
-        ItemUI other = newParent.draggable as ItemUI;
+        ItemUI other = newParent.itemUI;
 
         //if the other slot has an itemUI
         if (other)
         {
-            //store both item Data and then swap them into the opposite slot
-            Data ours = item;
-            Data theirs = other.item;
+            //if the other slot accepts potions or the transfered data is a not a potion
+            if (other.acceptsPotions || !(item is PotionData))
+            {
+                //store both item Data and then swap them into the opposite slot
+                Data ours = item;
+                Data theirs = other.item;
 
-            slot.UpdateItem(theirs);
-            other.slot.UpdateItem(ours);
+                slot.UpdateItem(theirs);
+                other.slot.UpdateItem(ours);
+            }
         }
     }
 

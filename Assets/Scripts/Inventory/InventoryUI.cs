@@ -21,7 +21,7 @@ public class InventoryUI : MonoBehaviour
             slots[i] = Instantiate(slotPrefab, transform);
             slots[i].itemUI = Instantiate(itemPrefab, slots[i].transform);
             slots[i].itemUI.SetContents(inventory.items[i]);
-            slots[i].Init(this, i, slots[i].itemUI);
+            slots[i].Init(this, i, slots[i].itemUI, inventory.jarsVisibile, inventory.acceptsPotions);
         }
     }
 }
