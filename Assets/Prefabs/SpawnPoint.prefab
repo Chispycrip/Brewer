@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3920758433290652311}
   m_Layer: 0
   m_Name: SpawnPoint
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,4 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
-  spawnRotation: {x: 0, y: 0, z: 1.57, w: 1}
+  x: 0
+  y: 0
+  z: 0
