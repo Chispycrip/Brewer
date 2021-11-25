@@ -6,12 +6,23 @@ using UnityEngine.UI;
 public class ItemUI : Draggable
 {
     public Image image; //the displayed image of the item
-    private Data item; //the data of the stored object
+    public Data item; //the data of the stored object
 
     //set the contents of the jar
     public void SetContents(Data newItem)
     {
         item = newItem;
+
+        //if an item exists, set the ItemUI to display its icon
+        if (image)
+        {
+            if (item)
+            {
+                image.sprite = item.icon;
+                image.color = item.colour;
+            }
+            gameObject.SetActive(item != null);
+        }
     }
 
 
