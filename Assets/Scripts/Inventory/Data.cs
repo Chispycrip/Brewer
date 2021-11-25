@@ -13,7 +13,7 @@ public class Data : ScriptableObject
 
     [Header("Appearance")]
     public Sprite icon; //2D image for UI
-    public Color colour = Color.white; //the colour the sprite will appear, defaulted to white
+    public Color spriteColour = Color.white; //the colour the sprite will appear, defaulted to white
     public GameObject model; //3D model
     public Material modelMaterial; //material used on the model
 }

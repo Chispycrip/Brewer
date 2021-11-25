@@ -9,7 +9,7 @@ public abstract class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler
     public Transform originalParent; //original parent of this object that it will snap back to after drag has ended
     public Canvas canvas; //canvas that parent is attached to
 
-    public Jar jar;
+    public Slot slot;
 
     List<RaycastResult> hits = new List<RaycastResult>();
 
@@ -47,35 +47,50 @@ public abstract class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler
     }
 
 
-    //if the object has ended dragging, set it back to its original position and if dragged onto another jar, move around jars
+    //if the object has ended dragging, set it back to its original position and if dragged onto another slot, move around slots
     public void OnEndDrag(PointerEventData eventData)
     {
         //snap back to the parent
         transform.SetParent(originalParent);
         transform.localPosition = Vector3.zero;
 
-        //check if there is there a jar underneath the object
-        Jar jarFound = null;
+        //check if there is there a slot or cauldron underneath the object
+        Slot slotFound = null;
+        Cauldron caulFound = null;
         EventSystem.current.RaycastAll(eventData, hits);
         foreach (RaycastResult hit in hits)
         {
-            Jar j = hit.gameObject.GetComponent<Jar>();
+            Slot j = hit.gameObject.GetComponent<Slot>();
+            Cauldron c = hit.gameObject.GetComponent<Cauldron>();
             if (j)
             {
-                jarFound = j;
+                slotFound = j;
+            }
+            else if (c)
+            {
+                caulFound = c;
             }
         }
 
-        //if there is a jar under the object, swap its contents with that of the jar at the original position
-        if (jarFound)
+        //if there is a slot under the object, swap its contents with that of the slot at the original position
+        if (slotFound)
         {
-            Swap(jarFound);
+            Swap(slotFound);
+        }
+        //if there is a cauldron under the object and the object is empty, take the contents from the cauldron
+        else if (caulFound)
+        {
+            TakePotionFromCauldron(caulFound);
         }
 
         //set dragging back to false
         dragging = false;
     }
 
-    //sbstract function that swaps the contents of two jars
-    protected abstract void Swap(Jar newParent);
+    //abstract function that swaps the contents of two slots
+    protected abstract void Swap(Slot newParent);
+
+
+    //abstract function the puts the cauldron's contents into the dragged slot
+    protected abstract void TakePotionFromCauldron(Cauldron cauldron);
 }

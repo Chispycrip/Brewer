@@ -6,22 +6,22 @@ public class InventoryUI : MonoBehaviour
 {
     public Inventory inventory; //the attached inventory
     public ItemUI itemPrefab; //the prefab for ItemUI
-    public Jar jarPrefab; //the prefab for Jar
-    private Jar[] jars; //array of jars
+    public Slot slotPrefab; //the prefab for Slot
+    private Slot[] slots; //array of slots
     
     //Start is called before the first frame update
     void Start()
     {
-        //create an array of jars the same size as the inventory
-        jars = new Jar[inventory.items.Length];
+        //create an array of slots the same size as the inventory
+        slots = new Slot[inventory.items.Length];
 
-        //instantiate and initialise all jars in array and create an ItemUI for each jar
+        //instantiate and initialise all slots in array and create an ItemUI for each slot
         for (int i = 0; i < inventory.items.Length; i++)
         {
-            jars[i] = Instantiate(jarPrefab, transform);
-            jars[i].itemUI = Instantiate(itemPrefab, jars[i].transform);
-            jars[i].itemUI.SetContents(inventory.items[i]);
-            jars[i].Init(this, i, jars[i].itemUI);
+            slots[i] = Instantiate(slotPrefab, transform);
+            slots[i].itemUI = Instantiate(itemPrefab, slots[i].transform);
+            slots[i].itemUI.SetContents(inventory.items[i]);
+            slots[i].Init(this, i, slots[i].itemUI);
         }
     }
 }

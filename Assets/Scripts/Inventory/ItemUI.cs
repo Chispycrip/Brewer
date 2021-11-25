@@ -8,7 +8,7 @@ public class ItemUI : Draggable
     public Image image; //the displayed image of the item
     public Data item; //the data of the stored object
 
-    //set the contents of the jar
+    //set the contents of the slot
     public void SetContents(Data newItem)
     {
         item = newItem;
@@ -19,9 +19,13 @@ public class ItemUI : Draggable
             if (item)
             {
                 image.sprite = item.icon;
-                image.color = item.colour;
+                image.color = item.spriteColour;
+                gameObject.GetComponent<Image>().enabled = true;
             }
-            gameObject.SetActive(item != null);
+            else
+            {
+                gameObject.GetComponent<Image>().enabled = false;
+            }
         }
     }
 
@@ -33,21 +37,33 @@ public class ItemUI : Draggable
     }
 
 
-    //swaps the contents of the jars
-    protected override void Swap(Jar newParent)
+    //swaps the contents of the slots
+    protected override void Swap(Slot newParent)
     {
         //read in other item
         ItemUI other = newParent.draggable as ItemUI;
 
-        //if the other jar has an itemUI
+        //if the other slot has an itemUI
         if (other)
         {
-            //store both item Data and then swap them into the opposite jar
+            //store both item Data and then swap them into the opposite slot
             Data ours = item;
             Data theirs = other.item;
 
-            jar.UpdateItem(theirs);
-            other.jar.UpdateItem(ours);
+            slot.UpdateItem(theirs);
+            other.slot.UpdateItem(ours);
+        }
+    }
+
+
+    //puts the cauldron's contents into the dragged slot
+    protected override void TakePotionFromCauldron(Cauldron cauldron)
+    {
+        //if this itemUI is empty, fill it with the contents of the cauldron and empty the cauldron
+        if (item == null)
+        {
+            SetContents(cauldron.GetPotion());
+            cauldron.ClearPotion();
         }
     }
 }
