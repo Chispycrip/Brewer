@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class PlayerNet : MonoBehaviour
 {
+    public Inventory playerInventory = null;
+
     private Animator animator = null;
     private ThirdPersonMovement player = null;
+    private BoxCollider netCollider = null;
+  
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         player = transform.parent.gameObject.GetComponent<ThirdPersonMovement>();
+        netCollider = transform.Find("NetCollider").GetComponent<BoxCollider>();
     }   
 
     // Update is called once per frame
@@ -26,9 +31,11 @@ public class PlayerNet : MonoBehaviour
     void StartSwing()
     {
         animator.SetBool("SwingNet", true);
+        netCollider.enabled = true;
         if(player)
         {
             player.DisableMovement();
+            player.GetComponent<BoxCollider>().enabled = true;
         }
     }
 
@@ -36,12 +43,17 @@ public class PlayerNet : MonoBehaviour
     {
         animator.SetBool("SwingNet", false);
         animator.SetBool("ResetNet", true);
+        netCollider.enabled = false;
         if (player)
         {
             player.EnableMovement();
+            player.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
-
+    public void CatchCritter(Critter critter)
+    {
+        playerInventory.AddToInventory(critter.GetData());
+    }
 
 }

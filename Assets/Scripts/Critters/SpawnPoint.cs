@@ -5,7 +5,10 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour
 {
     public CritterData data; //all of the data needed to create a critter
-    public Quaternion spawnRotation = Quaternion.identity; //the angle offset from the SpawnPoint that the critter will spawn at
+    [Header("Spawn Rotation")]
+    public float x; //the rotation around the x axis
+    public float y; //the rotation around the y axis
+    public float z; //the rotation around the z axis
 
 
     //Temporary method for triggering spawns, will need to be handled another way for daily resets post alpha
@@ -23,7 +26,7 @@ public class SpawnPoint : MonoBehaviour
         gameObject.SetActive(false);
         
         //clone critter model at the spawnpoint's position and stored rotation
-        GameObject critter = Instantiate(data.model, gameObject.transform.position, spawnRotation);
+        GameObject critter = Instantiate(data.model, gameObject.transform.position, Quaternion.Euler(x,y,z));
 
         //set the critter's material
         critter.GetComponent<Renderer>().material = data.modelMaterial;
