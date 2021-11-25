@@ -24,4 +24,20 @@ public class InventoryUI : MonoBehaviour
             slots[i].Init(this, i, slots[i].itemUI, inventory.jarsVisibile, inventory.acceptsPotions);
         }
     }
+
+
+    //every update, clear Data from itemUIs that are empty in the Inventory
+    private void Update()
+    {
+        //check through all the slots in the inventory
+        for (int i = 0; i < inventory.items.Length; i++)
+        {
+            //if the inventory slot is empty, clear the matching ItemUI and disable its image
+            if (inventory.items[i] == null)
+            {
+                slots[i].itemUI.item = null;
+                slots[i].itemUI.image.enabled = false;
+            }
+        }
+    }
 }

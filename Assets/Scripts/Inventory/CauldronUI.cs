@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cauldron : MonoBehaviour
+public class CauldronUI : MonoBehaviour
 {
     public PotionData data = null;
 

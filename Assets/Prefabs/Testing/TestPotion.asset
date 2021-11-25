@@ -21,3 +21,5 @@ MonoBehaviour:
   model: {fileID: 0}
   modelMaterial: {fileID: 0}
   effectsIntensity: 0
+  critter1: {fileID: 11400000, guid: 78983c678b3736b468b5e0345be5bd81, type: 2}
+  critter2: {fileID: 11400000, guid: 1d0e1c61311aa974d8fb88577909e4b2, type: 2}
