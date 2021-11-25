@@ -7,15 +7,18 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     // timer related stuff
-    public float timeRemaining = 180;
+    public float timerLength = 180;
     public bool timerIsRunning = false;
+    private float timeRemaining;
 
     // the actual timer counting down
     public TextMeshProUGUI timerText;
 
-    // Start is called before the first frame update
-    void Start()
+    //starts the timer
+    public void StartTimer()
     {
+        //reset time remaining and start timer
+        timeRemaining = timerLength;
         timerIsRunning = true;
     }
 
