@@ -20,6 +20,9 @@ public class GameController : MonoBehaviour
 
         //start will be used to display any opening menu/animation desired//
 
+        //attach the player to the critter controller
+        critterControl.player = player;
+
         //Begin the first day
         StartNewDay();
     }
@@ -29,7 +32,7 @@ public class GameController : MonoBehaviour
     public void StartNewDay()
     {
         //set up critters
-        critterControl.StartNewDay(player);
+        critterControl.StartNewDay();
         
         //set player to start position
         player.transform.position = playerStartPos;

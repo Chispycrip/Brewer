@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class CritterController : MonoBehaviour
 {
+    public GameObject player;
+
     //spawn in all the critters to start a new day
-    public void StartNewDay(GameObject player)
+    public void StartNewDay()
     {
         //find all spawners
         GameObject[] spawners = GameObject.FindGameObjectsWithTag("SpawnPoint");
