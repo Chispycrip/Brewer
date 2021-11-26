@@ -42,5 +42,8 @@ public class Inventory : MonoBehaviour
     {
         //remove the item in the given index
         items[index] = null;
+
+        //remove the item from the ItemUI
+
     }
 }

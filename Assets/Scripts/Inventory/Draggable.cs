@@ -56,12 +56,12 @@ public abstract class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler
 
         //check if there is there a slot or cauldron underneath the object
         Slot slotFound = null;
-        Cauldron caulFound = null;
+        CauldronUI caulFound = null;
         EventSystem.current.RaycastAll(eventData, hits);
         foreach (RaycastResult hit in hits)
         {
             Slot j = hit.gameObject.GetComponent<Slot>();
-            Cauldron c = hit.gameObject.GetComponent<Cauldron>();
+            CauldronUI c = hit.gameObject.GetComponent<CauldronUI>();
             if (j)
             {
                 slotFound = j;
@@ -92,5 +92,5 @@ public abstract class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler
 
 
     //abstract function the puts the cauldron's contents into the dragged slot
-    protected abstract void TakePotionFromCauldron(Cauldron cauldron);
+    protected abstract void TakePotionFromCauldron(CauldronUI cauldron);
 }
