@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
@@ -63,7 +64,12 @@ public class ThirdPersonMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
+
+        //if the current scene is brewer, lock the cursor
+        if (SceneManager.GetActiveScene().name == "Brewer")
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void EnableCursorLock()
