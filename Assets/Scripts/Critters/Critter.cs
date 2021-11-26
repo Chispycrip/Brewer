@@ -17,6 +17,13 @@ public class Critter : MonoBehaviour
     }
 
 
+    //Update is called once per frame
+    public void Update()
+    {
+        OnUpdate(0.015f);
+    }
+
+
     //calls required behaviour on updates
     protected virtual void OnUpdate(float deltaTime)
     { 

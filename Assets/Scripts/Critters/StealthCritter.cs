@@ -8,6 +8,7 @@ public class StealthCritter : Critter
     public bool willHide;
     //the player object, used to track its proximity to the critter
     public GameObject playerObject;
+    public float distance; //DEBUG//
 
     //Init is called upon instantiation by the spawnpoint 
     public override void Init()
@@ -33,7 +34,13 @@ public class StealthCritter : Critter
     //change behaviour to respond to player's actions
     protected override void RespondToPlayer()
     {
-        //to be implemented later in Alpha
+        //movement to be implemented in Beta
+
+        //if above tier 1, set to inactive
+        if (data.tier > 1)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 
@@ -46,6 +53,9 @@ public class StealthCritter : Critter
 
         //create vector between the two positions
         Vector3 difference = playerPos - critterPos;
+
+        //DEBUG//
+        distance = difference.magnitude;
 
         //return if distance to player is less than detection distance
         if (difference.magnitude <= data.detectionDistance)
