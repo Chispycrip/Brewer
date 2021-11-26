@@ -12,31 +12,6 @@ public class Inventory : MonoBehaviour
     public bool jarsVisibile = true; //if this Inventory has visible jars
 
 
-    //adds item to the inventory
-    public void AddToInventory(Data item)
-    {
-        //if there is space, add this item to inventory
-        if (itemsStored < items.Length)
-        {
-            //check the slots until an empty one is found
-            for (int i = 0; i < items.Length; i++)
-            {
-                if (items[i] == null)
-                {
-                    //add item to empty slot
-                    items[i] = item;
-
-                    //break once slot is found
-                    break;
-                }
-            }
-
-            //increase items count by one
-            itemsStored++;
-        }
-    }
-
-
     //removes an item from the inventory
     public void RemoveFromInventory(int index)
     {
