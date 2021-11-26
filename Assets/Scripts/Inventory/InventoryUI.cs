@@ -33,11 +33,39 @@ public class InventoryUI : MonoBehaviour
         for (int i = 0; i < inventory.items.Length; i++)
         {
             //if the inventory slot is empty, clear the matching ItemUI and disable its image
-            if (inventory.items[i] == null)
+            if (inventory.items[i] == null && slots[i] != null)
             {
                 slots[i].itemUI.item = null;
                 slots[i].itemUI.image.enabled = false;
             }
+        }
+    }
+
+
+    //adds item to the inventory
+    public void AddToInventory(Data item)
+    {
+        //if there is space, add this item to inventory
+        if (inventory.itemsStored < inventory.items.Length)
+        {
+            //check the slots until an empty one is found
+            for (int i = 0; i < inventory.items.Length; i++)
+            {
+                if (inventory.items[i] == null)
+                {
+                    //add item to empty slot
+                    inventory.items[i] = item;
+
+                    //add item to ItemUI
+                    slots[i].UpdateItem(item);
+
+                    //break once slot is found
+                    break;
+                }
+            }
+
+            //increase items count by one
+            inventory.itemsStored++;
         }
     }
 }

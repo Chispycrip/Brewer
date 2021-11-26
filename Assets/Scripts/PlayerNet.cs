@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerNet : MonoBehaviour
 {
-    public Inventory playerInventory = null;
+    public InventoryUI playerInventory = null;
 
     private Animator animator = null;
     private ThirdPersonMovement player = null;
