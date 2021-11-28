@@ -28,6 +28,16 @@ public class GameController : MonoBehaviour
         StartNewDay();
     }
 
+    // Update is called once per frame
+    private void Update()
+    {
+        // check if timer running (i.e. if 3 mins is up)
+        if(!timer.timerIsRunning)
+        {
+            // end the day
+            EndOfDay();
+        }
+    }
 
     //sets up all objects in their initial positions for a new day cycle
     public void StartNewDay()
@@ -41,6 +51,9 @@ public class GameController : MonoBehaviour
 
         //start timer
         timer.StartTimer();
+
+        // show timer text
+        timer.timerText.enabled = true;
 
         // update brewing controller
         brewingController.StartNewDay();
@@ -57,5 +70,8 @@ public class GameController : MonoBehaviour
 
         // update brewing controller
         brewingController.EndOfDay();
+
+        // hide timer text
+        timer.timerText.enabled = false;
     }
 }

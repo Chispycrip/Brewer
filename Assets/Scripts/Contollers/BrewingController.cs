@@ -6,7 +6,10 @@ public class BrewingController : MonoBehaviour
 {
     public GameObject cauldronUI;
     public GameObject cauldronInventoryUI;
+    public GameObject workbenchInventoryUI;
     public GameObject endDayUI;
+
+    public ThirdPersonMovement player;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,11 @@ public class BrewingController : MonoBehaviour
         // deactivate caudron UI
         cauldronInventoryUI.SetActive(false);
         cauldronUI.SetActive(false);
+        workbenchInventoryUI.SetActive(false);
+
+        // disable player movement and cursor lock
+        player.DisableCursorLock();
+        player.EnableMovement();
     }
 
     //swaps to the brewing UI
@@ -34,6 +42,7 @@ public class BrewingController : MonoBehaviour
         // activate caudron UI
         cauldronInventoryUI.SetActive(true);
         cauldronUI.SetActive(true);
+        workbenchInventoryUI.SetActive(true);
     }
 
     public void ContinueDay()
@@ -44,6 +53,20 @@ public class BrewingController : MonoBehaviour
         // deactivate caudron UI
         cauldronInventoryUI.SetActive(false);
         cauldronUI.SetActive(false);
+        workbenchInventoryUI.SetActive(false);
+
+        // enable player movement and cursor lock
+        player.DisableCursorLock();
+        player.EnableMovement();
+    }
+
+    private void EnableEndDayUI()
+    {
+        endDayUI.SetActive(true);
+
+        // disable player movement and cursor lock
+        player.EnableCursorLock();
+        player.DisableMovement();
     }
 
     // collision trigger for day end collider
@@ -51,7 +74,7 @@ public class BrewingController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            endDayUI.SetActive(true);
+            EnableEndDayUI();
         }
     }
 }
