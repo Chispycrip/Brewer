@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Brewer.unity
+    guid: b4f9081c38e0cc244b6846071945a7ea
   m_configObjects: {}
