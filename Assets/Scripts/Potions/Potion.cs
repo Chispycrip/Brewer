@@ -17,4 +17,11 @@ public class Potion : MonoBehaviour
     { 
         //overwritten by subclass
     }
+
+    // Set potion data
+    public void SetData(PotionData pData)
+    {
+        data = pData;
+    }
+
 }

@@ -37,7 +37,7 @@ public class StealthCritter : Critter
         //movement to be implemented in Beta
 
         //if above tier 1, set to inactive
-        if (data.tier > 1)
+        if (willHide)
         {
             gameObject.SetActive(false);
         }

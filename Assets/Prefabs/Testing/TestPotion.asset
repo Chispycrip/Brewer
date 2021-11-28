@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f634e37a3788849bb9dfba95005003, type: 3}
   m_Name: TestPotion
   m_EditorClassIdentifier: 
-  typeName: 
-  tier: 0
-  trait: 
+  typeName: Stealth1
+  tier: 1
+  trait: Stealth
   description: 
   icon: {fileID: 21300000, guid: 7e98228f7b912c04a8cce47f61fbb205, type: 3}
   spriteColour: {r: 1, g: 1, b: 1, a: 1}
