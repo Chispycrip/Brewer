@@ -10,15 +10,4 @@ public class Inventory : MonoBehaviour
 
     public bool acceptsPotions = true; //if this Inventory accepts Potions
     public bool jarsVisibile = true; //if this Inventory has visible jars
-
-
-    //removes an item from the inventory
-    public void RemoveFromInventory(int index)
-    {
-        //remove the item in the given index
-        items[index] = null;
-
-        //remove the item from the ItemUI
-
-    }
 }
