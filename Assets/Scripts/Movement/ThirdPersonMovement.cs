@@ -50,13 +50,24 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.SimpleMove(moveDir.normalized * speed);
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+        // if Middle mouse button is pressed, enable the cursor for UI.
+        if (Input.GetMouseButtonDown(2))
         {
-            EnableCursorLock();
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            DisableCursorLock();
+            switch (Cursor.lockState)
+            {
+                case CursorLockMode.Confined:
+                    DisableCursorLock();
+                    break;
+                case CursorLockMode.Locked:
+                    EnableCursorLock();
+                    break;
+                case CursorLockMode.None:
+                    DisableCursorLock();
+                    break;
+                default:
+                    DisableCursorLock();
+                    break;
+            }
         }
     }
 
@@ -68,7 +79,7 @@ public class ThirdPersonMovement : MonoBehaviour
         //if the current scene is brewer, lock the cursor
         if (SceneManager.GetActiveScene().name == "Brewer")
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            DisableCursorLock();
         }
     }
 
