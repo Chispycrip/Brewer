@@ -39,10 +39,10 @@ public class SpeedCritter : Critter
 
 
     //calls required behaviour on updates
-    protected override void OnUpdate(float deltaTime)
+    protected override void OnUpdate()
     {
         //speed critters follow only idle movement on updates
-        IdleMovement(deltaTime);
+        IdleMovement();
     }
 
 
