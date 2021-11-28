@@ -7,9 +7,7 @@ public class GameController : MonoBehaviour
     public Timer timer;
     public GameObject player;
     public CritterController critterControl;
-    public GameObject cauldronUI;
-    public GameObject cauldronInventoryUI;
-    public GameObject endDayUI;
+    public BrewingController brewingController;
 
     private Vector3 playerStartPos;
     private Quaternion playerStartRot;
@@ -43,6 +41,9 @@ public class GameController : MonoBehaviour
 
         //start timer
         timer.StartTimer();
+
+        // update brewing controller
+        brewingController.StartNewDay();
     }
 
 
@@ -54,31 +55,7 @@ public class GameController : MonoBehaviour
 
         //play any day ending animations/transistions//
 
-        // deactivate endDayUI
-        endDayUI.SetActive(false);
-
-        // activate caudron UI
-        cauldronInventoryUI.SetActive(true);
-        cauldronUI.SetActive(true);
+        // update brewing controller
+        brewingController.EndOfDay();
     }
-
-    public void ContinueDay()
-    {
-        // deactivate endDayUI
-        endDayUI.SetActive(false);
-
-        // deactivate caudron UI
-        cauldronInventoryUI.SetActive(false);
-        cauldronUI.SetActive(false);
-    }
-
-    // collision trigger for day end collider
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            endDayUI.SetActive(true);
-        }
-    }
-
 }
