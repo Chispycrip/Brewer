@@ -70,7 +70,7 @@ public class StealthCritter : Critter
 
 
     //calls required behaviour on updates
-    protected override void OnUpdate(float deltaTime)
+    protected override void OnUpdate()
     {
         //stealth critters check player proximity on updates to decide behaviour
         if (PlayerWithin())
@@ -79,7 +79,7 @@ public class StealthCritter : Critter
         }
         else
         {
-            IdleMovement(deltaTime);
+            IdleMovement();
         }
     }
 

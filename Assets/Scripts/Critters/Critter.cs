@@ -20,12 +20,12 @@ public class Critter : MonoBehaviour
     //Update is called once per frame
     public void Update()
     {
-        OnUpdate(0.015f);
+        OnUpdate();
     }
 
 
     //calls required behaviour on updates
-    protected virtual void OnUpdate(float deltaTime)
+    protected virtual void OnUpdate()
     { 
         //overwritten by subclasses
     }
@@ -39,7 +39,7 @@ public class Critter : MonoBehaviour
 
 
     //performs idle movement behaviour
-    protected void IdleMovement(float deltaTime)
+    protected void IdleMovement()
     { 
         //to be implemented in Beta
     }

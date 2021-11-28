@@ -68,4 +68,12 @@ public class InventoryUI : MonoBehaviour
             inventory.itemsStored++;
         }
     }
+
+
+    //removes an item from the inventory
+    public void RemoveFromInventory(int index)
+    {
+        //remove the item from the ItemUI and the inventory
+        slots[index].UpdateItem(null);
+    }
 }
