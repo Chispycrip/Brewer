@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class BrewingController : MonoBehaviour
 {
-    public GameObject cauldronUI;
-    public GameObject cauldronInventoryUI;
-    public GameObject workbenchInventoryUI;
+    public GameObject brewUI;
     public GameObject endDayUI;
 
     public ThirdPersonMovement player;
@@ -24,9 +22,7 @@ public class BrewingController : MonoBehaviour
         endDayUI.SetActive(false);
 
         // deactivate caudron UI
-        cauldronInventoryUI.SetActive(false);
-        cauldronUI.SetActive(false);
-        workbenchInventoryUI.SetActive(false);
+        brewUI.SetActive(false);
 
         // disable player movement and cursor lock
         player.DisableCursorLock();
@@ -40,9 +36,7 @@ public class BrewingController : MonoBehaviour
         endDayUI.SetActive(false);
 
         // activate caudron UI
-        cauldronInventoryUI.SetActive(true);
-        cauldronUI.SetActive(true);
-        workbenchInventoryUI.SetActive(true);
+        brewUI.SetActive(true);
     }
 
     public void ContinueDay()
@@ -51,9 +45,7 @@ public class BrewingController : MonoBehaviour
         endDayUI.SetActive(false);
 
         // deactivate caudron UI
-        cauldronInventoryUI.SetActive(false);
-        cauldronUI.SetActive(false);
-        workbenchInventoryUI.SetActive(false);
+        brewUI.SetActive(false);
 
         // enable player movement and cursor lock
         player.DisableCursorLock();
