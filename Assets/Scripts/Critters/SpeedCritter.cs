@@ -29,8 +29,9 @@ public class SpeedCritter : Critter
         //set tag
         gameObject.tag = "Speed";
 
-        //set initial position
+        //set previous and initial position
         initialPos = gameObject.transform.position;
+        previousPos = initialPos;
     }
 
 

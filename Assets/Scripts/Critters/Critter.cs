@@ -11,6 +11,7 @@ public class Critter : MonoBehaviour
     public bool inventoryFull = false; //if the inventory is full
 
     protected Vector3 initialPos; //the starting position of the critter
+    protected Vector3 previousPos; //the position of the critter last frame it moved
 
 
     //Init is called upon instantiation by the spawnpoint 
@@ -58,6 +59,15 @@ public class Critter : MonoBehaviour
             //the movement is applied relative to the starting position of the critter
             gameObject.transform.position = (initialPos + translation);
         }
+
+        //get the direction the critter is moving
+        Vector3 currentDirection = gameObject.transform.position - previousPos;
+
+        //set the critter to face the direction it is moving
+        gameObject.transform.rotation = Quaternion.LookRotation(currentDirection);
+
+        //end movement by updating previous position to current position
+        previousPos = gameObject.transform.position;
     }
 
 
