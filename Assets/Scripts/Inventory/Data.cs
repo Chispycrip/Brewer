@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Traits { Speed, Stealth, Golden };
+
 public class Data : ScriptableObject
 {
     [Header("Basic Info")]
     public string typeName; //name of the potion type
     public int tier; //tier 1-4, golden is 4
-    public string trait; //speed, stealth or golden
+    public Traits trait; //speed, stealth or golden
     public string description; //brief flavour text
 
     [Header("Appearance")]

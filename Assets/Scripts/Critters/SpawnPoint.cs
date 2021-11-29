@@ -32,12 +32,12 @@ public class SpawnPoint : MonoBehaviour
         Critter script;
 
         //create critter script based on trait
-        if (data.trait == "Speed")
+        if (data.trait == Traits.Speed)
         {
             //add SpeedCritter script
             script = critter.AddComponent<SpeedCritter>();
         }
-        else if (data.trait == "Stealth")
+        else if (data.trait == Traits.Stealth)
         {
             //add StealthCritter script
             script = critter.AddComponent<StealthCritter>();

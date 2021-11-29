@@ -46,7 +46,7 @@ public class Critter : MonoBehaviour
     protected void IdleMovement()
     {
         //create offset vector that determines how far from initialPos the critter is
-        Vector3 offset = Vector3.zero;
+        Vector3 offset;
         
         //make movement based on stored data
         switch (data.movementPath)
@@ -71,6 +71,14 @@ public class Critter : MonoBehaviour
                     float x = (float)Math.Cos(Time.time);
                     float z = (float)Math.Sin(Time.time);
                     offset = new Vector3(x, 0.0f, z);
+
+                    break;
+                }
+            //no movement path
+            default:
+                {
+                    //set offset to zero
+                    offset = Vector3.zero;
 
                     break;
                 }

@@ -39,7 +39,7 @@ public class ConsumptionController : MonoBehaviour
             if (item && item is PotionData)
             {
                 // if speed
-                if(item.trait == "Speed")
+                if(item.trait == Traits.Speed)
                 {
                     // construct potion from potion data
                     SpeedPotion potion = new SpeedPotion();
@@ -48,7 +48,7 @@ public class ConsumptionController : MonoBehaviour
                     // consume potion
                     potion.Consume();
                 }
-                else if (item.trait == "Stealth") // if stealth
+                else if (item.trait == Traits.Stealth) // if stealth
                 {
                     // construct potion from potion data
                     StealthPotion potion = new StealthPotion();
