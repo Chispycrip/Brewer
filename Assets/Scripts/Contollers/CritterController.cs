@@ -5,16 +5,26 @@ using UnityEngine;
 public class CritterController : MonoBehaviour
 {
     public GameObject player;
+    private GameObject[] spawnpoints;
+
+    //initial setup
+    public void Init(GameObject playerObject)
+    {
+        //attach the player object
+        player = playerObject;
+        
+        //find all spawners and store them
+        spawnpoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+    }
+    
 
     //spawn in all the critters to start a new day
     public void StartNewDay()
     {
-        //find all spawners
-        GameObject[] spawners = GameObject.FindGameObjectsWithTag("SpawnPoint");
-
-        //spawn critters at every spawnpoint
-        foreach (GameObject s in spawners)
+       //set spawnpoints active then spawn critters
+        foreach (GameObject s in spawnpoints)
         {
+            s.SetActive(true);
             s.GetComponent<SpawnPoint>().SpawnCritter();
         }
 
