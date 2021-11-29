@@ -24,11 +24,11 @@ public class ItemUI : Draggable
             {
                 image.sprite = item.icon;
                 image.color = item.spriteColour;
-                gameObject.GetComponent<Image>().enabled = true;
+                image.enabled = true;
             }
             else
             {
-                gameObject.GetComponent<Image>().enabled = false;
+                image.enabled = false;
             }
         }
     }
