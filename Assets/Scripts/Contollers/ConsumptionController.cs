@@ -36,7 +36,7 @@ public class ConsumptionController : MonoBehaviour
         {
             // get inventory data item
             Data item = playerInventory.inventory.items[slot];
-            if (item)
+            if (item && item is PotionData)
             {
                 // if speed
                 if(item.trait == "Speed")
