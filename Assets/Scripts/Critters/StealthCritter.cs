@@ -28,6 +28,9 @@ public class StealthCritter : Critter
 
         //set tag
         gameObject.tag = "Stealth";
+
+        //set initial position
+        initialPos = gameObject.transform.position;
     }
 
 

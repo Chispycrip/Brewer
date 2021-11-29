@@ -21,8 +21,8 @@ public class GameController : MonoBehaviour
 
         //start will be used to display any opening menu/animation desired//
 
-        //attach the player to the critter controller
-        critterControl.player = player;
+        //initialise the critter controller
+        critterControl.Init(player);
 
         //Begin the first day
         StartNewDay();
