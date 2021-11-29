@@ -11,12 +11,9 @@ public class SpawnPoint : MonoBehaviour
     public float z; //the rotation around the z axis
 
 
-    //Temporary method for triggering spawns, will need to be handled another way for daily resets post alpha
     //Start is called before the first frame update
     void Start()
-    {
-        //SpawnCritter();
-    }
+    {}
 
 
     //spawns a critter based on the stored data and rotation

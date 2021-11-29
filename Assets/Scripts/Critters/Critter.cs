@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Critter : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Critter : MonoBehaviour
     protected bool catchable = true; //if this critter is currently catchable, false if inactive
     protected string state; //the current behavioural state of the critter
     public bool inventoryFull = false; //if the inventory is full
+
+    protected Vector3 initialPos; //the starting position of the critter
 
 
     //Init is called upon instantiation by the spawnpoint 
@@ -40,8 +43,21 @@ public class Critter : MonoBehaviour
 
     //performs idle movement behaviour
     protected void IdleMovement()
-    { 
-        //to be implemented in Beta
+    {
+        //movement path 1 is a figure-8
+        if (data.movementPath == 1)
+        {
+            //the scale curves in the figure-8 for a better looking shape
+            float scale = 2.0f / (3.0f - (float)Math.Cos((2.0f * Time.time)));
+
+            //the x and y positions are set and then assigned to a vector
+            float x = scale * (float)Math.Cos(Time.time);
+            float z = scale * (float)Math.Sin(2.0f * Time.time) / 2.0f;
+            Vector3 translation = new Vector3(x, 0.0f, z);
+
+            //the movement is applied relative to the starting position of the critter
+            gameObject.transform.position = (initialPos + translation);
+        }
     }
 
 
