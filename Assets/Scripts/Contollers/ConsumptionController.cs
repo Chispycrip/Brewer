@@ -59,8 +59,7 @@ public class ConsumptionController : MonoBehaviour
                 }
 
                 // clear slot
-                // FIXME: Feels like it should happen in InventoryUI?
-                playerInventory.inventory.RemoveFromInventory(slot);
+                playerInventory.RemoveFromInventory(slot);
             }
         }
     }
