@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//public list of trait options
 public enum Traits { Speed, Stealth, Golden };
 
 public class Data : ScriptableObject
