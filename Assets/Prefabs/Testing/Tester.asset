@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: tester
   tier: 1
-  trait: Speed
+  trait: 0
   description: Gotta go fast
   icon: {fileID: 21300000, guid: 01befc3cc4c6be2428ab270308eba3db, type: 3}
   spriteColour: {r: 1, g: 1, b: 1, a: 1}
@@ -23,3 +23,4 @@ MonoBehaviour:
   movementPath: 3
   wanderDistance: 0
   detectionDistance: 0
+  movementSpeed: 1

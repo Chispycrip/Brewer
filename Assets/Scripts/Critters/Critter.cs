@@ -13,6 +13,9 @@ public class Critter : MonoBehaviour
     protected Vector3 initialPos; //the starting position of the critter
     protected Vector3 previousPos; //the position of the critter last frame it moved
 
+    private Vector3[] waypoints; //the waypoints the critter can follow as its idle movement path
+    private int waypointIndex = 0; //the index of the waypoint currently being moved towards
+
 
     //Init is called upon instantiation by the spawnpoint 
     public virtual void Init()
@@ -62,6 +65,9 @@ public class Critter : MonoBehaviour
                     float z = scale * (float)Math.Sin(2.0f * Time.time) / 2.0f;
                     offset = new Vector3(x, 0.0f, z);
 
+                    //apply the correct position relative to the starting position of the critter
+                    gameObject.transform.position = (initialPos + offset);
+
                     break;
                 }
             //movement path circle
@@ -72,6 +78,29 @@ public class Critter : MonoBehaviour
                     float z = (float)Math.Sin(Time.time);
                     offset = new Vector3(x, 0.0f, z);
 
+                    //apply the correct position relative to the starting position of the critter
+                    gameObject.transform.position = (initialPos + offset);
+
+                    break;
+                }
+            //waypoint movement system
+            case Movements.Waypoint:
+                {
+                    //move the critter towards the next waypoint
+                    transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex], Time.deltaTime * data.movementSpeed);
+
+                    //if the critter is at a waypoint, increase waypoint index
+                    if (transform.position == waypoints[waypointIndex])
+                    {
+                        waypointIndex++;
+                    }
+
+                    //if the critter is at the last waypoint, reset index
+                    if (waypointIndex == waypoints.Length)
+                    {
+                        waypointIndex = 0;
+                    }
+
                     break;
                 }
             //no movement path
@@ -80,12 +109,12 @@ public class Critter : MonoBehaviour
                     //set offset to zero
                     offset = Vector3.zero;
 
+                    //apply the correct position relative to the starting position of the critter
+                    gameObject.transform.position = (initialPos + offset);
+
                     break;
                 }
         }
-
-        //apply the correct position relative to the starting position of the critter
-        gameObject.transform.position = (initialPos + offset);
 
         //get the direction the critter is moving
         Vector3 currentDirection = gameObject.transform.position - previousPos;
@@ -146,4 +175,14 @@ public class Critter : MonoBehaviour
         }
     }
 
+
+    //sets the waypoints the critter will follow if its movement path uses them
+    public void SetWaypoints(Vector3[] way)
+    {
+        //only set the waypoints if the critter will use them
+        if (data.movementPath == Movements.Waypoint)
+        {
+            waypoints = way;
+        }
+    }
 }

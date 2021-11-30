@@ -10,6 +10,9 @@ public class SpawnPoint : MonoBehaviour
     public float y; //the rotation around the y axis
     public float z; //the rotation around the z axis
 
+    private Vector3[] waypoints;
+    private Vector3[] dodgepoints;
+
 
     //Start is called before the first frame update
     void Start()
@@ -19,38 +22,96 @@ public class SpawnPoint : MonoBehaviour
     //spawns a critter based on the stored data and rotation
     public void SpawnCritter()
     {
-        //set the spawnpoint inactive
-        gameObject.SetActive(false);
-        
-        //clone critter model at the spawnpoint's position and stored rotation
-        GameObject critter = Instantiate(data.model, gameObject.transform.position, Quaternion.Euler(x,y,z));
-
-        //set the critter's material
-        critter.GetComponent<Renderer>().material = data.modelMaterial;
-
-        //create bool to hold the script
-        Critter script;
-
-        //create critter script based on trait
-        if (data.trait == Traits.Speed)
+        //if this spawnpoint has data
+        if (data)
         {
-            //add SpeedCritter script
-            script = critter.AddComponent<SpeedCritter>();
-        }
-        else if (data.trait == Traits.Stealth)
-        {
-            //add StealthCritter script
-            script = critter.AddComponent<StealthCritter>();
-        }
-        else 
-        {
-            //add GoldenCritter script
-            //to be added
-            script = critter.AddComponent<SpeedCritter>();
-        }
+            //clone critter model at the spawnpoint's position and stored rotation
+            GameObject critter = Instantiate(data.model, gameObject.transform.position, Quaternion.Euler(x, y, z));
 
-        //add data file and run initial setup
-        script.SetData(data);
-        script.Init();
+            //set the critter's material
+            critter.GetComponent<Renderer>().material = data.modelMaterial;
+
+            //create bool to hold the script
+            Critter script;
+
+            //create critter script based on trait
+            if (data.trait == Traits.Speed)
+            {
+                //add SpeedCritter script
+                script = critter.AddComponent<SpeedCritter>();
+
+                //add dodgepoints array to critter
+                script.GetComponent<SpeedCritter>().SetDodgepoints(dodgepoints);
+            }
+            else if (data.trait == Traits.Stealth)
+            {
+                //add StealthCritter script
+                script = critter.AddComponent<StealthCritter>();
+            }
+            else
+            {
+                //add GoldenCritter script
+                //to be added
+                script = critter.AddComponent<SpeedCritter>();
+            }
+
+            //add data file
+            script.SetData(data);
+
+            //initialise the critter
+            script.Init();
+
+            //set up and add waypoints
+            SetupWaypoints();
+            script.SetWaypoints(waypoints);
+
+            //set the spawnpoint inactive
+            gameObject.SetActive(false);
+        }
     }
+
+
+    //sets up the waypoint system
+    private void SetupWaypoints()
+    {
+        //set transform to variable
+        Transform transform = gameObject.transform;
+
+        //check if this spawnpoint has any children
+        if (transform.childCount > 0)
+        {
+            //iterate through each child, adding all object positions to the waypoints and dodgepoints arrays
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                //set child to variable
+                Transform child = transform.GetChild(i);
+
+                //if there is a child object named waypoints, set the position of every child it has to the waypoints array
+                if (child.name == "Waypoints")
+                {
+                    //set size of waypoints array
+                    waypoints = new Vector3[child.childCount];
+
+                    //add all children into waypoints
+                    for (int j = 0; j < child.childCount; j++)
+                    {
+                        waypoints[j] = child.GetChild(j).position;
+                    }
+                }
+                //if there is a child object named dodgepoints, set the position of every child it has to the dodgepoints array
+                else if (child.name == "Dodgepoints")
+                {
+                    //set size of dodgepoints array
+                    dodgepoints = new Vector3[child.childCount];
+
+                    //add all childrern into dodgepoints
+                    for (int j = 0; j < child.childCount; j++)
+                    {
+                        dodgepoints[j] = child.GetChild(j).position;
+                    }
+                }
+            }
+        }
+    }
+
 }

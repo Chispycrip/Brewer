@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class SpeedCritter : Critter
 {
-    //if the critter is catchable by default, true only for tier 1
-    public bool defaultCatchable;
+    public bool defaultCatchable;//if the critter is catchable by default, true only for tier 1
+
+    //DEBUG// public during testing
+    public Vector3[] dodgepoints;//the points the speed critter will jump to if it detects the net swinging
 
     //Init is called upon instantiation by the spawnpoint 
     public override void Init()
@@ -58,5 +60,12 @@ public class SpeedCritter : Critter
         {
             catchable = true;
         }
+    }
+
+
+    //sets the array of dodgepoints
+    public void SetDodgepoints(Vector3[] dodge)
+    {
+        dodgepoints = dodge;
     }
 }
