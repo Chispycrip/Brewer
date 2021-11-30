@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnPoint : MonoBehaviour
 {
@@ -16,7 +17,13 @@ public class SpawnPoint : MonoBehaviour
 
     //Start is called before the first frame update
     void Start()
-    {}
+    {
+        //DEBUG// allows mechanic testing in SampleScene
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            SpawnCritter();
+        }
+    }
 
 
     //spawns a critter based on the stored data and rotation
