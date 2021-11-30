@@ -9,7 +9,7 @@ public enum Traits { Speed, Stealth, Golden };
 public class Data : ScriptableObject
 {
     [Header("Basic Info")]
-    public string typeName; //name of the potion type
+    public string typeName; //name of this item
     public int tier; //tier 1-4, golden is 4
     public Traits trait; //speed, stealth or golden
     public string description; //brief flavour text

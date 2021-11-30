@@ -11,8 +11,9 @@ public class SpawnPoint : MonoBehaviour
     public float y; //the rotation around the y axis
     public float z; //the rotation around the z axis
 
-    private Vector3[] waypoints;
-    private Vector3[] dodgepoints;
+    private Vector3[] waypoints; //array of all attached waypoint locations
+    private Vector3[] dodgepoints; //array of all attached dodgepoint locations - only for Speed/Golden
+    private Vector3[] hidepoints; //array of all attached hidepoint locations - only for Stealth/Golden
 
 
     //Start is called before the first frame update
@@ -54,6 +55,9 @@ public class SpawnPoint : MonoBehaviour
             {
                 //add StealthCritter script
                 script = critter.AddComponent<StealthCritter>();
+
+                //add hidepoints array to critter
+                script.GetComponent<StealthCritter>().SetHidepoints(hidepoints);
             }
             else
             {
@@ -87,7 +91,7 @@ public class SpawnPoint : MonoBehaviour
         //check if this spawnpoint has any children
         if (transform.childCount > 0)
         {
-            //iterate through each child, adding all object positions to the waypoints and dodgepoints arrays
+            //iterate through each child, adding all object positions to the waypoints, dodgepoints and hidepoints arrays
             for (int i = 0; i < transform.childCount; i++)
             {
                 //set child to variable
@@ -117,8 +121,19 @@ public class SpawnPoint : MonoBehaviour
                         dodgepoints[j] = child.GetChild(j).position;
                     }
                 }
+                //if there is a child object named hidepoints, set the position of every child it has to the hidepoints array
+                else if (child.name == "Hidepoints")
+                {
+                    //set size of hidepoints array
+                    hidepoints = new Vector3[child.childCount];
+
+                    //add all childrern into hidepoints
+                    for (int j = 0; j < child.childCount; j++)
+                    {
+                        hidepoints[j] = child.GetChild(j).position;
+                    }
+                }
             }
         }
     }
-
 }

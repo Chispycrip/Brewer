@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class StealthCritter : Critter
 {
-    //if the critter will hide when it sees the player, default false only for tier 1
-    public bool willHide;
-    //the player object, used to track its proximity to the critter
-    public GameObject playerObject;
+    public bool willHide; //if the critter will hide when it sees the player, default false only for tier 1
+    public GameObject playerObject; //the player object, used to track its proximity to the critter
+
+    public Vector3[] hidepoints; //the points the stealth critter will follow to hide if it detects the player nearby //DEBUG// public during testing
+    public int hidepointIndex = 0; //the current hidepoint the critter is moving towards if it is hiding
 
     //Init is called upon instantiation by the spawnpoint 
     public override void Init()
@@ -37,12 +38,14 @@ public class StealthCritter : Critter
     //change behaviour to respond to player's actions
     protected override void RespondToPlayer()
     {
-        //movement to be implemented in Beta
-
-        //if above tier 1, set to inactive
+        //if this critter will hide, set to hiding
         if (willHide)
         {
-            gameObject.SetActive(false);
+            state = "Hiding";
+        }
+        else
+        {
+            state = "Idle";
         }
     }
 
@@ -72,14 +75,27 @@ public class StealthCritter : Critter
     //calls required behaviour on updates
     protected override void OnUpdate()
     {
-        //stealth critters check player proximity on updates to decide behaviour
-        if (PlayerWithin())
+        //if the critter is inactive, there is no need to update this frame
+        if (state != "Inactive")
         {
-            RespondToPlayer();
-        }
-        else
-        {
-            IdleMovement();
+            //if the player is nearby and the critter is not already hiding, respond to the player
+            if (PlayerWithin() && state != "Hiding")
+            {
+                //update state and respond to player
+                state = "RespondingToPlayer";
+                RespondToPlayer();
+            }
+
+            //if the critter is hiding, continue to update its position as it moves
+            if (state == "Hiding")
+            {
+                Hide();
+            }
+            //if the critter is idle, continue its idle movement
+            else if (state == "Idle")
+            {
+                IdleMovement();
+            }
         }
     }
 
@@ -91,6 +107,34 @@ public class StealthCritter : Critter
         if (potionTier + 1 >= data.tier)
         {
             willHide = false;
+        }
+    }
+
+
+    //sets the array of hidepoints
+    public void SetHidepoints(Vector3[] hide)
+    {
+        hidepoints = hide;
+    }
+
+
+    //move the critter into a hiding location via a waypoint system using the hidepoints
+    private void Hide()
+    {
+        //move the critter towards the next hidepoint
+        transform.position = Vector3.MoveTowards(transform.position, hidepoints[hidepointIndex], Time.deltaTime * data.movementSpeed);
+
+        //if the critter is at a hidepoint, increase hidepoint index
+        if (transform.position == hidepoints[hidepointIndex])
+        {
+            hidepointIndex++;
+        }
+
+        //if the critter is at the last hidepoint, set it to inactive
+        if (hidepointIndex == hidepoints.Length)
+        {
+            state = "Inactive";
+            gameObject.SetActive(false);
         }
     }
 }
