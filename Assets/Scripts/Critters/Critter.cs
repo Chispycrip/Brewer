@@ -39,7 +39,7 @@ public class Critter : MonoBehaviour
 
 
     //change behaviour to respond to player's actions
-    protected virtual void RespondToPlayer()
+    public virtual void RespondToPlayer()
     { 
         //overwritten by subclasses
     }
@@ -126,9 +126,8 @@ public class Critter : MonoBehaviour
             gameObject.transform.rotation = Quaternion.LookRotation(currentDirection);
         }
 
-
-            //end movement by updating previous position to current position
-            previousPos = gameObject.transform.position;
+        //end movement by updating previous position to current position
+        previousPos = gameObject.transform.position;
     }
 
 

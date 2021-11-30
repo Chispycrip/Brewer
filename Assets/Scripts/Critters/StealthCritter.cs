@@ -10,6 +10,7 @@ public class StealthCritter : Critter
     public Vector3[] hidepoints; //the points the stealth critter will follow to hide if it detects the player nearby //DEBUG// public during testing
     public int hidepointIndex = 0; //the current hidepoint the critter is moving towards if it is hiding
 
+
     //Init is called upon instantiation by the spawnpoint 
     public override void Init()
     {
@@ -36,7 +37,7 @@ public class StealthCritter : Critter
 
 
     //change behaviour to respond to player's actions
-    protected override void RespondToPlayer()
+    public override void RespondToPlayer()
     {
         //if this critter will hide, set to hiding
         if (willHide)
@@ -136,5 +137,18 @@ public class StealthCritter : Critter
             state = "Inactive";
             gameObject.SetActive(false);
         }
+
+        //get the direction the critter is moving
+        Vector3 currentDirection = gameObject.transform.position - previousPos;
+
+        //remove error message from unity console
+        if (currentDirection != Vector3.zero)
+        {
+            //set the critter to face the direction it is moving
+            gameObject.transform.rotation = Quaternion.LookRotation(currentDirection);
+        }
+
+        //end movement by updating previous position to current position
+        previousPos = gameObject.transform.position;
     }
 }

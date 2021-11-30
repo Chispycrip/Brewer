@@ -37,7 +37,7 @@ public class SpeedCritter : Critter
 
 
     //change behaviour to respond to player's actions
-    protected override void RespondToPlayer()
+    public override void RespondToPlayer()
     {
         //to be implemented later in Alpha
 

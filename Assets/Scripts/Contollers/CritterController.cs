@@ -21,7 +21,7 @@ public class CritterController : MonoBehaviour
     //spawn in all the critters to start a new day
     public void StartNewDay()
     {
-       //set spawnpoints active then spawn critters
+        //set spawnpoints active then spawn critters
         foreach (GameObject s in spawnpoints)
         {
             s.SetActive(true);
