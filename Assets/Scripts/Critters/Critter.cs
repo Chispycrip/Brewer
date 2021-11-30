@@ -60,10 +60,10 @@ public class Critter : MonoBehaviour
                     //the scale changes the curve of the figure-8 for a better looking shape
                     float scale = 2.0f / (3.0f - (float)Math.Cos((2.0f * Time.time)));
 
-                    //the x and y positions are set and then assigned to a vector
-                    float x = scale * (float)Math.Cos(Time.time);
-                    float z = scale * (float)Math.Sin(2.0f * Time.time) / 2.0f;
-                    offset = new Vector3(x, 0.0f, z);
+                    //the x and y positions are set and then assigned to a vector that is multiplied by the stored scaling factor
+                    float x = scale * (float)Math.Cos(Time.time * data.movementSpeed);
+                    float z = scale * (float)Math.Sin(2.0f * Time.time * data.movementSpeed) / 2.0f;
+                    offset = new Vector3(x, 0.0f, z) * data.movementPathScale;
 
                     //apply the correct position relative to the starting position of the critter
                     gameObject.transform.position = (initialPos + offset);
@@ -73,10 +73,10 @@ public class Critter : MonoBehaviour
             //movement path circle
             case Movements.Circle:
                 {
-                    //the x and y positions are set and then assigned to a vector
-                    float x = (float)Math.Cos(Time.time);
-                    float z = (float)Math.Sin(Time.time);
-                    offset = new Vector3(x, 0.0f, z);
+                    //the x and y positions are set and then assigned to a vector that is multiplied by the stored scaling factor
+                    float x = (float)Math.Cos(Time.time * data.movementSpeed);
+                    float z = (float)Math.Sin(Time.time * data.movementSpeed);
+                    offset = new Vector3(x, 0.0f, z) * data.movementPathScale;
 
                     //apply the correct position relative to the starting position of the critter
                     gameObject.transform.position = (initialPos + offset);

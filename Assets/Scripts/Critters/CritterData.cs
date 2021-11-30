@@ -13,7 +13,7 @@ public class CritterData : Data
 {
     [Header("Critter Behaviours")]
     public Movements movementPath; //the movement path this critter follows
-    public float wanderDistance; //the distance the critter can wander from spawn, 0 for immobile
-    public float detectionDistance; //the distance the critter can detect the player at, 0 for no detection
-    public float movementSpeed; //the speed the critter moves at
+    public float movementPathScale = 1.0f; //the scaling factor of the critter's preset path
+    public float movementSpeed = 1.0f; //the speed the critter moves at
+    public float detectionDistance = 0.0f; //the distance the critter can detect the player at, 0 for no detection
 }
