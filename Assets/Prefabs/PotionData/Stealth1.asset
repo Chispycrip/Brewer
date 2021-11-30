@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Stealth1
   m_EditorClassIdentifier: 
   typeName: 
-  tier: 0
-  trait: 
+  tier: 1
+  trait: 1
   description: 
   icon: {fileID: 0}
+  spriteColour: {r: 1, g: 1, b: 1, a: 1}
   model: {fileID: 0}
   modelMaterial: {fileID: 0}
+  effectsIntensity: 0
+  critter1: {fileID: 0}
+  critter2: {fileID: 0}

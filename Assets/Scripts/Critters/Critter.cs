@@ -52,7 +52,7 @@ public class Critter : MonoBehaviour
         switch (data.movementPath)
         {
             //movement path figure-8
-            case Movements.Figure8 :
+            case Movements.Figure8:
                 {
                     //the scale changes the curve of the figure-8 for a better looking shape
                     float scale = 2.0f / (3.0f - (float)Math.Cos((2.0f * Time.time)));
@@ -65,7 +65,7 @@ public class Critter : MonoBehaviour
                     break;
                 }
             //movement path circle
-            case Movements.Circle :
+            case Movements.Circle:
                 {
                     //the x and y positions are set and then assigned to a vector
                     float x = (float)Math.Cos(Time.time);

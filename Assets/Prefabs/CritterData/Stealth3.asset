@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Stealth3
   m_EditorClassIdentifier: 
   typeName: 
-  tier: 0
-  trait: 
+  tier: 3
+  trait: 1
   description: 
   icon: {fileID: 0}
+  spriteColour: {r: 1, g: 1, b: 1, a: 1}
   model: {fileID: 0}
   modelMaterial: {fileID: 0}
+  movementPath: 0
   wanderDistance: 0
   detectionDistance: 0
