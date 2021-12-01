@@ -25,7 +25,7 @@ public class StealthCritter : Critter
         }
 
         //set state to idle
-        state = "Idle";
+        state = States.Idle;
 
         //set tag
         gameObject.tag = "Stealth";
@@ -42,11 +42,11 @@ public class StealthCritter : Critter
         //if this critter will hide, set to hiding
         if (willHide)
         {
-            state = "Hiding";
+            state = States.Hiding;
         }
         else
         {
-            state = "Idle";
+            state = States.Idle;
         }
     }
 
@@ -77,23 +77,23 @@ public class StealthCritter : Critter
     protected override void OnUpdate()
     {
         //if the critter is inactive, there is no need to update this frame
-        if (state != "Inactive")
+        if (state != States.Inactive)
         {
             //if the player is nearby and the critter is not already hiding, respond to the player
-            if (PlayerWithin() && state != "Hiding")
+            if (PlayerWithin() && state != States.Hiding)
             {
                 //update state and respond to player
-                state = "RespondingToPlayer";
+                state = States.RespondingToPlayer;
                 RespondToPlayer();
             }
 
             //if the critter is hiding, continue to update its position as it moves
-            if (state == "Hiding")
+            if (state == States.Hiding)
             {
                 Hide();
             }
             //if the critter is idle, continue its idle movement
-            else if (state == "Idle")
+            else if (state == States.Idle)
             {
                 IdleMovement();
             }
@@ -123,7 +123,7 @@ public class StealthCritter : Critter
     private void Hide()
     {
         //move the critter towards the next hidepoint
-        transform.position = Vector3.MoveTowards(transform.position, hidepoints[hidepointIndex], Time.deltaTime * data.movementSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, hidepoints[hidepointIndex], Time.deltaTime * data.responseSpeed);
 
         //if the critter is at a hidepoint, increase hidepoint index
         if (transform.position == hidepoints[hidepointIndex])
@@ -134,7 +134,7 @@ public class StealthCritter : Critter
         //if the critter is at the last hidepoint, set it to inactive
         if (hidepointIndex == hidepoints.Length)
         {
-            state = "Inactive";
+            state = States.Inactive;
             gameObject.SetActive(false);
         }
 
