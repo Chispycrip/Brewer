@@ -55,7 +55,7 @@ public class SpeedCritter : Critter
             float magnitude = difference.magnitude;
 
             //check if it is closer than the current minimum distance, and the critter is not already very close to it
-            if (magnitude < minDist && magnitude > 0.5f)
+            if (magnitude < minDist && magnitude > 3.0f)
             {
                 //set this dodgepoint to the new closest
                 minIndex = i;
@@ -113,7 +113,8 @@ public class SpeedCritter : Critter
         //if the critter is at a dodgepoint
         if (transform.position == dodgepoints[dodgeIndex])
         {
-            //TBD
+            state = States.Idle;
+            initialPos = transform.position;
         }
 
         //get the direction the critter is moving
@@ -128,5 +129,36 @@ public class SpeedCritter : Critter
 
         //end movement by updating previous position to current position
         previousPos = gameObject.transform.position;
+    }
+
+    //called when the critter detects a collision with the net
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Net"))
+        {
+            if (catchable == true && inventoryFull == false)
+            {
+                //get script from collider
+                PlayerNet net = other.transform.parent.gameObject.GetComponent<PlayerNet>();
+                net.CatchCritter(this);
+
+                //set critter state to caught
+                state = States.Caught;
+
+                //destroy critter
+                Destroy(gameObject);
+
+                //the critter object no longer exists, set state to inactive
+                state = States.Inactive;
+            }
+            else
+            {
+                //call net event false
+            }
+        }
+        else if(other.CompareTag("Player"))
+        {
+            RespondToPlayer();
+        }
     }
 }

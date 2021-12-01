@@ -151,4 +151,31 @@ public class StealthCritter : Critter
         //end movement by updating previous position to current position
         previousPos = gameObject.transform.position;
     }
+
+    //called when the critter detects a collision with the net
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Net"))
+        {
+            if (catchable == true && inventoryFull == false)
+            {
+                //get script from collider
+                PlayerNet net = other.transform.parent.gameObject.GetComponent<PlayerNet>();
+                net.CatchCritter(this);
+
+                //set critter state to caught
+                state = States.Caught;
+
+                //destroy critter
+                Destroy(gameObject);
+
+                //the critter object no longer exists, set state to inactive
+                state = States.Inactive;
+            }
+            else
+            {
+                //call net event false
+            }
+        }
+    }
 }

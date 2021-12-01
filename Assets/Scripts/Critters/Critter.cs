@@ -6,7 +6,7 @@ using System;
 public class Critter : MonoBehaviour
 {
     protected CritterData data; //the object holding all of this critter's data
-    protected bool catchable = true; //if this critter is currently catchable, false if inactive
+    public bool catchable = true; //if this critter is currently catchable, false if inactive
     public enum States { Idle, RespondingToPlayer, Hiding, Dodging, Caught, Inactive }; //the list of states the critter can have
     public States state = States.Idle; //the current behavioural state of the critter //DEBUG// public during testing
     public bool inventoryFull = false; //if the inventory is full
@@ -164,35 +164,6 @@ public class Critter : MonoBehaviour
     {
         return data;
     }
-
-
-    //called when the critter detects a collision with the net
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Net"))
-        {
-            if (catchable == true && inventoryFull == false)
-            {
-                //get script from collider
-                PlayerNet net = other.transform.parent.gameObject.GetComponent<PlayerNet>();
-                net.CatchCritter(this);
-
-                //set critter state to caught
-                state = States.Caught;
-
-                //destroy critter
-                Destroy(gameObject);
-
-                //the critter object no longer exists, set state to inactive
-                state = States.Inactive;
-            }
-            else
-            { 
-                //call net event false
-            }
-        }
-    }
-
 
     //sets the waypoints the critter will follow if its movement path uses them
     public void SetWaypoints(Vector3[] way)
