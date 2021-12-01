@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3026080738073780362}
   - component: {fileID: 2184553616906727215}
   - component: {fileID: 4158476917505645541}
-  - component: {fileID: 8997462326204166583}
   - component: {fileID: -4789574228566556908}
+  - component: {fileID: -7769786832698956018}
   m_Layer: 0
   m_Name: StealthCrtterDebug
   m_TagString: Untagged
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8997462326204166583
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2500936819369736752}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2770902692602415678, guid: a981dc10d1075b849b7cd70a3ba38cf3, type: 3}
 --- !u!54 &-4789574228566556908
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -113,3 +99,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &-7769786832698956018
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2500936819369736752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}

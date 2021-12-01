@@ -158,7 +158,10 @@ public class SpeedCritter : Critter
         }
         else if(other.CompareTag("Player"))
         {
-            RespondToPlayer();
+            if (!catchable)
+            {
+                RespondToPlayer();
+            }
         }
     }
 }

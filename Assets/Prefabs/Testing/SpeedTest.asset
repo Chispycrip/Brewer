@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f634e37a3788849bb9dfba95005003, type: 3}
+  m_Name: SpeedTest
+  m_EditorClassIdentifier: 
+  typeName: Speed1
+  tier: 1
+  trait: 0
+  description: 
+  icon: {fileID: 21300000, guid: 7e98228f7b912c04a8cce47f61fbb205, type: 3}
+  spriteColour: {r: 1, g: 1, b: 1, a: 1}
+  model: {fileID: 0}
+  modelMaterial: {fileID: 0}
+  effectsIntensity: 0
+  critter1: {fileID: 11400000, guid: b59e25a6ebdb8bb42afd1c62b859e12a, type: 2}
+  critter2: {fileID: 11400000, guid: 4290ecccd29f01940876fd0d342d72e1, type: 2}
