@@ -123,7 +123,7 @@ public class StealthCritter : Critter
     private void Hide()
     {
         //move the critter towards the next hidepoint
-        transform.position = Vector3.MoveTowards(transform.position, hidepoints[hidepointIndex], Time.deltaTime * data.movementSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, hidepoints[hidepointIndex], Time.deltaTime * data.responseSpeed);
 
         //if the critter is at a hidepoint, increase hidepoint index
         if (transform.position == hidepoints[hidepointIndex])
