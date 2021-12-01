@@ -84,6 +84,19 @@ public class Critter : MonoBehaviour
 
                     break;
                 }
+            //movement path oval
+            case Movements.Oval:
+                {
+                    //the x and y positions are set and then assigned to a vector that is multiplied by the stored scaling factor
+                    float x = 2.0f * (float)Math.Cos(Time.time * data.movementSpeed);
+                    float z = (float)Math.Sin(Time.time * data.movementSpeed);
+                    offset = new Vector3(x, 0.0f, z) * data.movementPathScale;
+
+                    //apply the correct position relative to the starting position of the critter
+                    gameObject.transform.position = (initialPos + offset);
+
+                    break;
+                }
             //waypoint movement system
             case Movements.Waypoint:
                 {
