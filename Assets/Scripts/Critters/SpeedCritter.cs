@@ -6,8 +6,7 @@ public class SpeedCritter : Critter
 {
     public bool defaultCatchable;//if the critter is catchable by default, true only for tier 1
 
-    //DEBUG// public during testing
-    public Vector3[] dodgepoints;//the points the speed critter will jump to if it detects the net swinging
+    public Vector3[] dodgepoints;//the points the speed critter will jump to if it detects the net swinging //DEBUG// public during testing
 
     //Init is called upon instantiation by the spawnpoint 
     public override void Init()
@@ -38,17 +37,21 @@ public class SpeedCritter : Critter
 
 
     //change behaviour to respond to player's actions
-    protected override void RespondToPlayer()
+    public override void RespondToPlayer()
     {
         //to be implemented later in Alpha
+
     }
 
 
     //calls required behaviour on updates
     protected override void OnUpdate()
     {
-        //speed critters follow only idle movement on updates
-        IdleMovement();
+        //check the state of the critter
+        if (state == "Idle")
+        {
+            IdleMovement();
+        }
     }
 
 

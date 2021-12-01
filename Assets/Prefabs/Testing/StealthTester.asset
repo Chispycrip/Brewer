@@ -20,6 +20,7 @@ MonoBehaviour:
   spriteColour: {r: 1, g: 1, b: 1, a: 1}
   model: {fileID: 901831451450761077, guid: 78b7572926c0b6344bb9e60c3960b8e0, type: 3}
   modelMaterial: {fileID: 2100000, guid: 6f07184199856d54ab9b45ac5f0b3e5f, type: 2}
-  movementPath: 0
-  wanderDistance: 0
+  movementPath: 1
+  movementPathScale: 1
+  movementSpeed: 1
   detectionDistance: 5

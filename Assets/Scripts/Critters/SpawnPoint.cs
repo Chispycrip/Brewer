@@ -11,19 +11,14 @@ public class SpawnPoint : MonoBehaviour
     public float y; //the rotation around the y axis
     public float z; //the rotation around the z axis
 
-    private Vector3[] waypoints;
-    private Vector3[] dodgepoints;
+    public Vector3[] waypoints; //array of all attached waypoint locations //DEBUG// public during testing
+    public Vector3[] dodgepoints; //array of all attached dodgepoint locations - only for Speed/Golden
+    public Vector3[] hidepoints; //array of all attached hidepoint locations - only for Stealth/Golden
 
 
     //Start is called before the first frame update
     void Start()
-    {
-        //DEBUG// allows mechanic testing in SampleScene
-        if (SceneManager.GetActiveScene().name == "SampleScene")
-        {
-            SpawnCritter();
-        }
-    }
+    { }
 
 
     //spawns a critter based on the stored data and rotation
@@ -41,6 +36,9 @@ public class SpawnPoint : MonoBehaviour
             //create bool to hold the script
             Critter script;
 
+            //set up waypoints
+            SetupWaypoints();
+
             //create critter script based on trait
             if (data.trait == Traits.Speed)
             {
@@ -54,6 +52,9 @@ public class SpawnPoint : MonoBehaviour
             {
                 //add StealthCritter script
                 script = critter.AddComponent<StealthCritter>();
+
+                //add hidepoints array to critter
+                script.GetComponent<StealthCritter>().SetHidepoints(hidepoints);
             }
             else
             {
@@ -68,8 +69,7 @@ public class SpawnPoint : MonoBehaviour
             //initialise the critter
             script.Init();
 
-            //set up and add waypoints
-            SetupWaypoints();
+            //add waypoints
             script.SetWaypoints(waypoints);
 
             //set the spawnpoint inactive
@@ -87,7 +87,7 @@ public class SpawnPoint : MonoBehaviour
         //check if this spawnpoint has any children
         if (transform.childCount > 0)
         {
-            //iterate through each child, adding all object positions to the waypoints and dodgepoints arrays
+            //iterate through each child, adding all object positions to the waypoints, dodgepoints and hidepoints arrays
             for (int i = 0; i < transform.childCount; i++)
             {
                 //set child to variable
@@ -111,14 +111,25 @@ public class SpawnPoint : MonoBehaviour
                     //set size of dodgepoints array
                     dodgepoints = new Vector3[child.childCount];
 
-                    //add all childrern into dodgepoints
+                    //add all children into dodgepoints
                     for (int j = 0; j < child.childCount; j++)
                     {
                         dodgepoints[j] = child.GetChild(j).position;
                     }
                 }
+                //if there is a child object named hidepoints, set the position of every child it has to the hidepoints array
+                else if (child.name == "Hidepoints")
+                {
+                    //set size of hidepoints array
+                    hidepoints = new Vector3[child.childCount];
+
+                    //add all children into hidepoints
+                    for (int j = 0; j < child.childCount; j++)
+                    {
+                        hidepoints[j] = child.GetChild(j).position;
+                    }
+                }
             }
         }
     }
-
 }

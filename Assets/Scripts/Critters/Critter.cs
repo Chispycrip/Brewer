@@ -7,7 +7,7 @@ public class Critter : MonoBehaviour
 {
     protected CritterData data; //the object holding all of this critter's data
     protected bool catchable = true; //if this critter is currently catchable, false if inactive
-    protected string state; //the current behavioural state of the critter
+    public string state = "Idle"; //the current behavioural state of the critter //DEBUG// public during testing
     public bool inventoryFull = false; //if the inventory is full
 
     protected Vector3 initialPos; //the starting position of the critter
@@ -39,7 +39,7 @@ public class Critter : MonoBehaviour
 
 
     //change behaviour to respond to player's actions
-    protected virtual void RespondToPlayer()
+    public virtual void RespondToPlayer()
     { 
         //overwritten by subclasses
     }
@@ -126,9 +126,8 @@ public class Critter : MonoBehaviour
             gameObject.transform.rotation = Quaternion.LookRotation(currentDirection);
         }
 
-
-            //end movement by updating previous position to current position
-            previousPos = gameObject.transform.position;
+        //end movement by updating previous position to current position
+        previousPos = gameObject.transform.position;
     }
 
 
@@ -158,10 +157,9 @@ public class Critter : MonoBehaviour
     {
         if (other.CompareTag("Net"))
         {
-            //get script from collider
-
             if (catchable == true && inventoryFull == false)
             {
+                //get script from collider
                 PlayerNet net = other.transform.parent.gameObject.GetComponent<PlayerNet>();
                 net.CatchCritter(this);
 
