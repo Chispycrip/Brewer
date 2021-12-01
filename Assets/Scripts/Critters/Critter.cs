@@ -7,7 +7,8 @@ public class Critter : MonoBehaviour
 {
     protected CritterData data; //the object holding all of this critter's data
     protected bool catchable = true; //if this critter is currently catchable, false if inactive
-    public string state = "Idle"; //the current behavioural state of the critter //DEBUG// public during testing
+    public enum States { Idle, RespondingToPlayer, Hiding, Dodging, Caught, Inactive }; //the list of states the critter can have
+    public States state = States.Idle; //the current behavioural state of the critter //DEBUG// public during testing
     public bool inventoryFull = false; //if the inventory is full
 
     protected Vector3 initialPos; //the starting position of the critter
@@ -163,8 +164,14 @@ public class Critter : MonoBehaviour
                 PlayerNet net = other.transform.parent.gameObject.GetComponent<PlayerNet>();
                 net.CatchCritter(this);
 
+                //set critter state to caught
+                state = States.Caught;
+
                 //destroy critter
                 Destroy(gameObject);
+
+                //the critter object no longer exists, set state to inactive
+                state = States.Inactive;
             }
             else
             { 
