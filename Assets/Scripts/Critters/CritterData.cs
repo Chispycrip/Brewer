@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 //public list of movement patterns
-public enum Movements { None, Circle, Figure8, Waypoint };
+public enum Movements { None, Circle, Oval, Figure8, Waypoint };
 
 [CreateAssetMenu(menuName = "DataTemplates/CritterData")]
 
