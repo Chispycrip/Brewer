@@ -59,6 +59,18 @@ public class ItemUI : Draggable
 
                 slot.UpdateItem(theirs);
                 other.slot.UpdateItem(ours);
+
+                //update the inventory counts if either item was empty
+                if (ours == null)
+                {
+                    slot.parentInv.UpdateStoredCount(1);
+                    other.slot.parentInv.UpdateStoredCount(-1);
+                }
+                if (theirs == null)
+                {
+                    slot.parentInv.UpdateStoredCount(-1);
+                    other.slot.parentInv.UpdateStoredCount(1);
+                }
             }
         }
     }
@@ -75,6 +87,9 @@ public class ItemUI : Draggable
 
             //clear the potion's contents
             cauldron.ClearPotion();
+
+            //update the inventory count
+            slot.parentInv.UpdateStoredCount(1);
         }
     }
 }
