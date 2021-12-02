@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999ecc06338056f49b203ba2ee4382b9, type: 3}
   m_Name: Speed1A
   m_EditorClassIdentifier: 
-  typeName: 
+  typeName: Speed1Red
   tier: 1
   trait: 0
   description: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 01befc3cc4c6be2428ab270308eba3db, type: 3}
   spriteColour: {r: 1, g: 1, b: 1, a: 1}
-  model: {fileID: 0}
-  modelMaterial: {fileID: 0}
-  movementPath: 0
-  wanderDistance: 0
-  detectionDistance: 0
+  model: {fileID: 4498013374843947852, guid: 7b4063944b9944c4b81be9d83d0e1f1c, type: 3}
+  modelMaterial: {fileID: 2100000, guid: 974ded1d02cc74a46b0b2151aea79e7a, type: 2}
+  movementPath: 2
+  movementPathScale: 1
+  movementSpeed: 1.5
+  responseSpeed: 3
+  detectionDistance: 5
