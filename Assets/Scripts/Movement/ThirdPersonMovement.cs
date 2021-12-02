@@ -1,21 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    // used to attach the player controller and main camera
+    [Header("Controller & Camera")]
     public CharacterController controller;
     public Transform cam;
 
-    // public speed variable mess around with
+    [Header("Player Settings")]
     public float speed = 4f;
 
-    // rigidbody for player
-    Rigidbody rb;
-
-    // camera / player rotation stuff
+    [Header("Camera Settings")]
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
@@ -25,7 +20,7 @@ public class ThirdPersonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!inputsActive)
+        if (!inputsActive)
         {
             return;
         }
@@ -36,7 +31,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         // if player is moving
-        if (direction.magnitude >= 0.1f)
+        if (direction.magnitude >= 0.1f && controller.isGrounded)
         {
             // for camera rotation
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -47,7 +42,24 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
             // simply... move
-            controller.SimpleMove(moveDir.normalized * speed);
+            controller.SimpleMove(moveDir * speed);
+        }
+        else
+        {
+            if (!controller.isGrounded)
+            {
+                // for camera rotation
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                // when the player is facing a direction, input is based on the axis relative to the camera not the playermodel
+                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+
+                moveDir += Physics.gravity;
+
+                controller.SimpleMove(moveDir * speed);
+            }
         }
 
         // if Middle mouse button is pressed, enable the cursor for UI.
@@ -74,7 +86,7 @@ public class ThirdPersonMovement : MonoBehaviour
     // start is called once before the first update frame
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //controller = GetComponent<CharacterController>();
 
         //if the current scene is brewer, lock the cursor
         if (SceneManager.GetActiveScene().name == "Brewer")
