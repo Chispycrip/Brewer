@@ -76,4 +76,11 @@ public class InventoryUI : MonoBehaviour
         //remove the item from the ItemUI and the inventory
         slots[index].UpdateItem(null);
     }
+
+
+    //updates the inventory stored count by the given value
+    public void UpdateStoredCount(int value)
+    {
+        inventory.itemsStored += value;
+    }
 }

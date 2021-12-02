@@ -56,6 +56,9 @@ public class Cauldron : Inventory
                 //clear the inventory
                 items[0] = null;
                 items[1] = null;
+
+                //update stored count
+                itemsStored = 0;
             }
             else
             { 
