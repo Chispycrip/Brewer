@@ -172,7 +172,7 @@ public class SpeedCritter : Critter
             if (catchable == true && inventoryFull == false)
             {
                 //get script from collider
-                PlayerNet net = other.transform.parent.gameObject.GetComponent<PlayerNet>();
+                PlayerNet net = other.transform.gameObject.GetComponent<PlayerNet>();
                 net.CatchCritter(this);
 
                 //set critter state to caught
