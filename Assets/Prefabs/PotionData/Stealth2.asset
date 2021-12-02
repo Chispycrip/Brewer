@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f634e37a3788849bb9dfba95005003, type: 3}
   m_Name: Stealth2
   m_EditorClassIdentifier: 
-  typeName: 
+  typeName: Stealth 2
   tier: 2
   trait: 1
   description: 
-  icon: {fileID: 0}
-  spriteColour: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 21300000, guid: 7e98228f7b912c04a8cce47f61fbb205, type: 3}
+  spriteColour: {r: 0.0041384934, g: 0.20106718, b: 0.8773585, a: 1}
   model: {fileID: 0}
   modelMaterial: {fileID: 0}
   effectsIntensity: 0
-  critter1: {fileID: 0}
-  critter2: {fileID: 0}
+  critter1: {fileID: 11400000, guid: b855276c5577f374186c5628468a7ee5, type: 2}
+  critter2: {fileID: 11400000, guid: 7441fc0bfb50c8f4d8adb0a647d03598, type: 2}
