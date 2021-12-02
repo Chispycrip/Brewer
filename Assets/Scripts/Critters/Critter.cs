@@ -14,8 +14,8 @@ public class Critter : MonoBehaviour
     protected Vector3 initialPos; //the starting position of the critter
     protected Vector3 previousPos; //the position of the critter last frame it moved
 
-    private Vector3[] waypoints; //the waypoints the critter can follow as its idle movement path
-    private int waypointIndex = 0; //the index of the waypoint currently being moved towards
+    protected Vector3[] waypoints; //the waypoints the critter can follow as its idle movement path
+    protected int waypointIndex = 0; //the index of the waypoint currently being moved towards
 
 
     //Init is called upon instantiation by the spawnpoint 

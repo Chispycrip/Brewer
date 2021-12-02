@@ -113,8 +113,41 @@ public class SpeedCritter : Critter
         //if the critter is at a dodgepoint
         if (transform.position == dodgepoints[dodgeIndex])
         {
+            //reset state to idle
             state = States.Idle;
-            initialPos = transform.position;
+            
+            //check if critter is using waypoints or not
+            if (data.movementPath == Movements.Waypoint)
+            {
+                //find the nearest waypoint and set its index as the next waypoint
+                //set variables to find nearest waypoint
+                int minIndex = 0;
+                float minDist = 10000.0f;
+
+                //check each waypoint against the minimum distance found
+                for (int i = 0; i < waypoints.Length; i++)
+                {
+                    //create vector between dodgepoint and critter
+                    Vector3 difference = gameObject.transform.position - waypoints[i];
+                    float magnitude = difference.magnitude;
+
+                    //check if it is closer than the current minimum distance
+                    if (magnitude < minDist)
+                    {
+                        //set this waypoint to the new closest
+                        minIndex = i;
+                        minDist = magnitude;
+                    }
+                }
+
+                //set closest waypoint to the next waypoint
+                waypointIndex = minIndex;
+            }
+            //if not following waypoints, move idle path to new position
+            else
+            {
+                initialPos = transform.position;
+            }
         }
 
         //get the direction the critter is moving
