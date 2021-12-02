@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Potion : MonoBehaviour
+public class Potion
 {
     protected PotionData data; //the object holding all of this potion's data
 
