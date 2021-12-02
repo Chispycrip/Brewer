@@ -35,7 +35,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if (direction.magnitude >= 0.1f && controller.isGrounded)
         {
             // start walking animation
-            animator.SetBool("Walking",true);
+            animator.SetBool("Walking", true);
 
             // for camera rotation
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -48,10 +48,8 @@ public class ThirdPersonMovement : MonoBehaviour
             // simply... move
             controller.SimpleMove(moveDir * speed);
         }
-        else
+        else if(!controller.isGrounded)
         {
-            if (!controller.isGrounded)
-            {
                 // for camera rotation
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -63,7 +61,6 @@ public class ThirdPersonMovement : MonoBehaviour
                 moveDir += Physics.gravity;
 
                 controller.SimpleMove(moveDir * speed);
-            }
         }
         else
         {
