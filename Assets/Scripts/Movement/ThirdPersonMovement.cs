@@ -8,6 +8,7 @@ public class ThirdPersonMovement : MonoBehaviour
     // used to attach the player controller and main camera
     public CharacterController controller;
     public Transform cam;
+    public Animator animator = null;
 
     // public speed variable mess around with
     public float speed = 4f;
@@ -38,6 +39,9 @@ public class ThirdPersonMovement : MonoBehaviour
         // if player is moving
         if (direction.magnitude >= 0.1f)
         {
+            // start walking animation
+            animator.SetBool("Walking",true);
+
             // for camera rotation
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -48,6 +52,11 @@ public class ThirdPersonMovement : MonoBehaviour
 
             // simply... move
             controller.SimpleMove(moveDir.normalized * speed);
+        }
+        else
+        {
+            // stop walking animation
+            animator.SetBool("Walking", false);
         }
 
         // if Middle mouse button is pressed, enable the cursor for UI.

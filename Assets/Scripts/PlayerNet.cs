@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerNet : MonoBehaviour
 {
     public InventoryUI playerInventory = null;
+    public ThirdPersonMovement player = null;
+    public Animator animator = null;
 
-    private Animator animator = null;
-    private ThirdPersonMovement player = null;
     private BoxCollider netCollider = null;
+
+    bool swinging = false;
   
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-        player = transform.parent.gameObject.GetComponent<ThirdPersonMovement>();
-        netCollider = transform.Find("NetCollider").GetComponent<BoxCollider>();
+        netCollider = GetComponent<BoxCollider>();
     }   
 
     // Update is called once per frame
@@ -26,12 +26,27 @@ public class PlayerNet : MonoBehaviour
         {
             StartSwing();
         }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Swing") && animator.GetBool("Swinging"))
+        {
+            // flags swing as active
+            swinging = true;
+            // flags swing to exit at end
+            animator.SetBool("Swinging", false);
+        }
+        else if (swinging && animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            StopSwing();
+        }
     }
 
     void StartSwing()
     {
+
+        animator.SetBool("Walking", false);
+
         // start unity swing animation
-        animator.SetBool("SwingNet", true);
+        animator.SetBool("Swinging", true);
         // turn on net collider
         netCollider.enabled = true;
         if(player)
@@ -45,10 +60,8 @@ public class PlayerNet : MonoBehaviour
 
     void StopSwing()
     {
-        // end unity swing animation
-        animator.SetBool("SwingNet", false);
-        // bring net into idle state
-        animator.SetBool("ResetNet", true);
+        swinging = false;
+
         // turn off net collider
         netCollider.enabled = false;
         if (player)
