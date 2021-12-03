@@ -8,8 +8,10 @@ public enum Traits { Speed, Stealth, Golden };
 
 public class Data : ScriptableObject
 {
+    public enum Names { None, Speed1A, Speed1B, Speed2A, Speed2B, Speed3, Stealth1A, Stealth1B, Stealth2A, Stealth2B, Stealth3, Golden, SpeedPotion1, SpeedPotion2, StealthPotion1, StealthPotion2, GoldenPotion}
+    
     [Header("Basic Info")]
-    public string typeName; //name of this item
+    public Names typeName; //name of this item
     public int tier; //tier 1-4, golden is 4
     public Traits trait; //speed, stealth or golden
     public string description; //brief flavour text
