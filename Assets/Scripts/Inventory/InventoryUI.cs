@@ -29,6 +29,9 @@ public class InventoryUI : MonoBehaviour
     //every update, clear Data from itemUIs that are empty in the Inventory
     private void Update()
     {
+        //reset the stored count
+        inventory.itemsStored = 0;
+        
         //check through all the slots in the inventory
         for (int i = 0; i < inventory.items.Length; i++)
         {
@@ -37,6 +40,10 @@ public class InventoryUI : MonoBehaviour
             {
                 slots[i].itemUI.item = null;
                 slots[i].itemUI.image.enabled = false;
+            }
+            else if (inventory.items[i] != null)
+            {
+                inventory.itemsStored++;
             }
         }
     }
@@ -75,12 +82,5 @@ public class InventoryUI : MonoBehaviour
     {
         //remove the item from the ItemUI and the inventory
         slots[index].UpdateItem(null);
-    }
-
-
-    //updates the inventory stored count by the given value
-    public void UpdateStoredCount(int value)
-    {
-        inventory.itemsStored += value;
     }
 }
