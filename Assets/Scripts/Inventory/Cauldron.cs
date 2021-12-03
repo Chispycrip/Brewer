@@ -6,7 +6,7 @@ public class Cauldron : Inventory
 {
     public CauldronUI cauldronUI; //the image of the cauldron that can interact with itemUIs
     public PotionData[] recipes; //the potion recipes
-    public CritterData secondCritter; //the critter that matches the critter in the first slot
+    public Data.Names secondCritter; //the critter that matches the critter in the first slot
     public PotionData potentialPotion; //the potion that the critter in the first slot can make
 
     //Update is called once per frame
@@ -19,14 +19,14 @@ public class Cauldron : Inventory
             foreach (PotionData r in recipes)
             {
                 //if this potion's first critter matches the critter in the inventory, store the potion's second critter and the potion
-                if (r.critter1.name == items[0].name)
+                if (r.critter1 == items[0].typeName)
                 {
                     secondCritter = r.critter2;
                     potentialPotion = r;
                     break;
                 }
                 //if this potion's second critter matches the critter in the inventory, store the potion's first critter and the potion
-                else if (r.critter2.name == items[0].name)
+                else if (r.critter2 == items[0].typeName)
                 {
                     secondCritter = r.critter1;
                     potentialPotion = r;
@@ -37,16 +37,16 @@ public class Cauldron : Inventory
         //if the first inventory slot is empty, erase any stored critter data
         else
         {
-            secondCritter = null;
+            secondCritter = Data.Names.None;
             potentialPotion = null;
         }
 
 
         //if the second inventory slot is occupied, and there is stored data, compare them
-        if (items[1] != null && secondCritter != null)
+        if (items[1] != null && secondCritter != Data.Names.None)
         {
             //check if the second critter can make a potion with the first critter
-            if (items[1].name == secondCritter.name)
+            if (items[1].typeName == secondCritter)
             {
                 //possible player interaction or animation//
                 
