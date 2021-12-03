@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f634e37a3788849bb9dfba95005003, type: 3}
   m_Name: Stealth2
   m_EditorClassIdentifier: 
-  typeName: Stealth 2
+  typeName: 15
   tier: 2
   trait: 1
   description: 
@@ -21,5 +21,5 @@ MonoBehaviour:
   model: {fileID: 0}
   modelMaterial: {fileID: 0}
   effectsIntensity: 0
-  critter1: {fileID: 11400000, guid: b855276c5577f374186c5628468a7ee5, type: 2}
-  critter2: {fileID: 11400000, guid: 7441fc0bfb50c8f4d8adb0a647d03598, type: 2}
+  critter1: 0
+  critter2: 0

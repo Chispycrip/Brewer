@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19f634e37a3788849bb9dfba95005003, type: 3}
-  m_Name: Stealth1_West
+  m_Name: Speed1
   m_EditorClassIdentifier: 
-  typeName: Stealth 1
+  typeName: 12
   tier: 1
-  trait: 1
+  trait: 0
   description: 
   icon: {fileID: 21300000, guid: 7e98228f7b912c04a8cce47f61fbb205, type: 3}
-  spriteColour: {r: 0.3931559, g: 0.5587071, b: 0.8962264, a: 1}
+  spriteColour: {r: 0.9245283, g: 0.44918123, b: 0.4518518, a: 1}
   model: {fileID: 0}
   modelMaterial: {fileID: 0}
   effectsIntensity: 0
-  critter1: {fileID: 11400000, guid: 0d6b7710e9390e4459199519a659ce19, type: 2}
-  critter2: {fileID: 11400000, guid: e521d79f6eceb7a4fa16d2556f76d59c, type: 2}
+  critter1: 0
+  critter2: 0
