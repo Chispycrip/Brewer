@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999ecc06338056f49b203ba2ee4382b9, type: 3}
   m_Name: Stealth1B_East
   m_EditorClassIdentifier: 
-  typeName: Stealth1Blue
+  typeName: 7
   tier: 1
   trait: 1
   description: 

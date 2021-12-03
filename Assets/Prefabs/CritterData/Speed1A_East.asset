@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999ecc06338056f49b203ba2ee4382b9, type: 3}
   m_Name: Speed1A_East
   m_EditorClassIdentifier: 
-  typeName: Speed1Red
+  typeName: 1
   tier: 1
   trait: 0
   description: 
