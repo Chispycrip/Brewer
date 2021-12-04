@@ -111,6 +111,7 @@ public class StealthCritter : Critter
         if (potionTier + 1 >= data.tier)
         {
             willHide = false;
+            catchable = true;
         }
     }
 
