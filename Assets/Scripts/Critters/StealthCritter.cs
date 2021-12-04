@@ -27,6 +27,9 @@ public class StealthCritter : Critter
         //set state to idle
         state = States.Idle;
 
+        //set catchable to inverse of hide state
+        catchable = !willHide;
+
         //set tag
         gameObject.tag = "Stealth";
 

@@ -16,12 +16,12 @@ MonoBehaviour:
   tier: 3
   trait: 1
   description: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 01befc3cc4c6be2428ab270308eba3db, type: 3}
   spriteColour: {r: 1, g: 1, b: 1, a: 1}
-  model: {fileID: 0}
-  modelMaterial: {fileID: 0}
-  movementPath: 0
+  model: {fileID: 3427298496871567865, guid: fec42643419ba564faba5a865210f4e0, type: 3}
+  modelMaterial: {fileID: 2100000, guid: 0208cb5fb8c166842890bdfb2aed8209, type: 2}
+  movementPath: 4
   movementPathScale: 1
-  movementSpeed: 1
-  responseSpeed: 1
-  detectionDistance: 0
+  movementSpeed: 3
+  responseSpeed: 30
+  detectionDistance: 1
