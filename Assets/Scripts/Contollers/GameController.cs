@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public CritterController critterControl;
     public BrewingController brewingController;
+    public ConsumptionController consumptionController;
 
     private Vector3 playerStartPos;
     private Quaternion playerStartRot;
@@ -68,6 +69,9 @@ public class GameController : MonoBehaviour
 
         //play any day ending animations/transistions//
 
+        //clear potion effects
+        consumptionController.EndOfDay();
+        
         // update brewing controller
         brewingController.EndOfDay();
 

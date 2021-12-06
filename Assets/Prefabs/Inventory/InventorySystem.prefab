@@ -545,7 +545,7 @@ RectTransform:
   - {fileID: 8746293228115614535}
   - {fileID: 5404048431117660116}
   m_Father: {fileID: 7080512083587192057}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -583,7 +583,6 @@ RectTransform:
   - {fileID: 423153530625425212}
   - {fileID: 3580299231672203082}
   - {fileID: 59075113767254955}
-  - {fileID: 7080512082747035439}
   - {fileID: 7080512083694903229}
   - {fileID: 7080512082703828620}
   m_Father: {fileID: 7080512083587192057}
@@ -916,8 +915,6 @@ MonoBehaviour:
   cauldronUI: {fileID: 7080512082747035434}
   recipes:
   - {fileID: 11400000, guid: 8a09e874d4144df4ebb884f13db9559d, type: 2}
-  secondCritter: {fileID: 0}
-  potentialPotion: {fileID: 0}
 --- !u!1 &7080512082611024385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +999,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4336709177706464658}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
@@ -1078,8 +1075,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4336709177706464658}
-  m_RootOrder: 4
+  m_Father: {fileID: 7080512083587192057}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1099,6 +1096,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
+  cauldronWater: {fileID: 0}
+  bubbles: {fileID: 0}
 --- !u!222 &7080512082747035437
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1253,6 +1252,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4336709177706464658}
+  - {fileID: 7080512082747035439}
   - {fileID: 7080512084302834467}
   - {fileID: 1066413283311948020}
   m_Father: {fileID: 4147421861215150546}
@@ -1353,7 +1353,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4336709177706464658}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1429,7 +1429,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7080512083587192057}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
