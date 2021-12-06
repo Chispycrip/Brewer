@@ -18,10 +18,9 @@ MonoBehaviour:
   description: 
   icon: {fileID: 21300000, guid: 01befc3cc4c6be2428ab270308eba3db, type: 3}
   spriteColour: {r: 1, g: 1, b: 1, a: 1}
-  model: {fileID: 4498013374843947852, guid: 7b4063944b9944c4b81be9d83d0e1f1c, type: 3}
-  modelMaterial: {fileID: 2100000, guid: ba2d921980eead7428d497296af6e848, type: 2}
+  model: {fileID: 8109423327453225338, guid: 76f8359870e73704e99fab4cf98ac2eb, type: 3}
   movementPath: 1
   movementPathScale: 0.8
-  movementSpeed: 1
+  movementSpeed: 1.5
   responseSpeed: 20
   detectionDistance: 5

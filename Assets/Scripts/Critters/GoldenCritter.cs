@@ -32,13 +32,22 @@ public class GoldenCritter : Critter
         previousPos = initialPos;
     }
 
+    //makes changes to critter from potion consumption
+    public void GoldenPotion()
+    {
+        //set catchable to true
+        catchable = true;
+        
+    }
+
     void OnTriggerEnter(Collider other)
     {
 
         if (other.CompareTag("Player"))
         {
-            if (catchable == false)
+            if (!catchable)
             {
+                // throw player off ledge
                 other.GetComponent<PlayerForcer>().ApplyForce();
             }
         }

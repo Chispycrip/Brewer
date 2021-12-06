@@ -69,6 +69,15 @@ public class ConsumptionController : MonoBehaviour
                     // consume potion
                     potion.Consume();
                 }
+                else if (item.trait == Traits.Golden) // if golden
+                {
+                    // construct potion from potion data
+                    GoldenPotion potion = new GoldenPotion();
+                    potion.SetData((PotionData)item);
+
+                    // consume potion
+                    potion.Consume();
+                }
 
                 // clear slot
                 playerInventory.RemoveFromInventory(slot);
