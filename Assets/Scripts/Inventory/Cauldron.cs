@@ -6,8 +6,9 @@ public class Cauldron : Inventory
 {
     public CauldronUI cauldronUI; //the image of the cauldron that can interact with itemUIs
     public PotionData[] recipes; //the potion recipes
-    public Data.Names secondCritter; //the critter that matches the critter in the first slot
-    public PotionData potentialPotion; //the potion that the critter in the first slot can make
+
+    private Data.Names secondCritter; //the critter that matches the critter in the first slot
+    private PotionData potentialPotion; //the potion that the critter in the first slot can make
 
     //Update is called once per frame
     void Update()

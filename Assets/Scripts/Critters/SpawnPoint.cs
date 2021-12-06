@@ -30,9 +30,6 @@ public class SpawnPoint : MonoBehaviour
             //clone critter model at the spawnpoint's position and stored rotation
             GameObject critter = Instantiate(data.model, gameObject.transform.position, Quaternion.Euler(x, y, z));
 
-            //set the critter's material
-            critter.GetComponent<Renderer>().material = data.modelMaterial;
-
             //create bool to hold the script
             Critter script;
 

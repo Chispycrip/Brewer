@@ -6,6 +6,11 @@ public class ConsumptionController : MonoBehaviour
 {
     public InventoryUI playerInventory;
 
+    [Header("Potion Visual Effects")]
+    public ParticleSystem stealthParticles;
+    public ParticleSystem speedParticles;
+    public Material playerMaterial;
+
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +50,9 @@ public class ConsumptionController : MonoBehaviour
                     SpeedPotion potion = new SpeedPotion();
                     potion.SetData((PotionData)item);
 
+                    //set speed particles active
+                    speedParticles.gameObject.SetActive(true);
+
                     // consume potion
                     potion.Consume();
                 }
@@ -53,6 +61,9 @@ public class ConsumptionController : MonoBehaviour
                     // construct potion from potion data
                     StealthPotion potion = new StealthPotion();
                     potion.SetData((PotionData)item);
+
+                    //set stealth particles active
+                    stealthParticles.gameObject.SetActive(true);
 
                     // consume potion
                     potion.Consume();

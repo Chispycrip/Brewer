@@ -24,8 +24,5 @@ public class StealthPotion : Potion
             //get the script component and send it the tier number
             c.GetComponent<StealthCritter>().StealthPotion(data.tier);
         }
-
-        //create visual effects on the player
-        //to be implemented in Beta
     }
 }
