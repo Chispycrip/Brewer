@@ -22,5 +22,5 @@ MonoBehaviour:
   movementPath: 4
   movementPathScale: 1
   movementSpeed: 2
-  responseSpeed: 5
+  responseSpeed: 7
   detectionDistance: 7
