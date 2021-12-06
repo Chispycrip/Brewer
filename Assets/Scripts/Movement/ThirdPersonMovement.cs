@@ -48,6 +48,9 @@ public class ThirdPersonMovement : MonoBehaviour
             // simply... move
             controller.SimpleMove(moveDir * speed);
         }
+
+        // if the player is in the air for some reason
+        // TODO - fix this, make it so I'm not duplicating the code
         else if(!controller.isGrounded)
         {
                 // for camera rotation
@@ -58,10 +61,13 @@ public class ThirdPersonMovement : MonoBehaviour
                 // when the player is facing a direction, input is based on the axis relative to the camera not the playermodel
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
+                // adding gravity so that player can fall
                 moveDir += Physics.gravity;
-
+                
+                // falling, basically
                 controller.SimpleMove(moveDir * speed);
         }
+        // when the player is stopped
         else
         {
             // stop walking animation
@@ -92,8 +98,6 @@ public class ThirdPersonMovement : MonoBehaviour
     // start is called once before the first update frame
     void Start()
     {
-        //controller = GetComponent<CharacterController>();
-
         //if the current scene is brewer, lock the cursor
         if (SceneManager.GetActiveScene().name == "Brewer")
         {
@@ -101,6 +105,7 @@ public class ThirdPersonMovement : MonoBehaviour
         }
     }
 
+    // function names for CursorLock might actually be reversed by accident lol
     public void EnableCursorLock()
     {
         // unlocking cursor state to be able to interact with the UI (for now)
@@ -113,13 +118,18 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    // player can move
     public void EnableMovement()
     {
         inputsActive = true;
     }
 
+    // player can do the opposite of move
     public void DisableMovement()
     {
         inputsActive = false;
+
+        // stop walking animation
+        animator.SetBool("Walking", false);
     }
 }
