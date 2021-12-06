@@ -33,4 +33,10 @@ public class GoldenCritter : Critter
     }
 
 
+    //makes the golden critter catchable
+    public void GoldenPotion()
+    {
+        catchable = true;
+        willHide = false;
+    }
 }
