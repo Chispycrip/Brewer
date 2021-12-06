@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4493910330189223071}
   - component: {fileID: -8912006873434038816}
   m_Layer: 0
-  m_Name: rCritter_2_Blue
+  m_Name: StealthCritter_2_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
