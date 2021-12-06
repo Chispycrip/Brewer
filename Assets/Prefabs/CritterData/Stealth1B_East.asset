@@ -18,7 +18,7 @@ MonoBehaviour:
   description: 
   icon: {fileID: 21300000, guid: d8b000dc9a777cc4784f740544740b47, type: 3}
   spriteColour: {r: 1, g: 1, b: 1, a: 1}
-  model: {fileID: 1649668619881456243, guid: 84a694e8be924b64b9da7341d1f02ba0, type: 3}
+  model: {fileID: 2938683655391065437, guid: ac031286406e5c54aab0ae553ee76607, type: 3}
   movementPath: 3
   movementPathScale: 1
   movementSpeed: 0.8

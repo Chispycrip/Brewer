@@ -62,7 +62,6 @@ public class ConsumptionController : MonoBehaviour
                     StealthPotion potion = new StealthPotion();
                     potion.SetData((PotionData)item);
 
-                    //DEBUG//
                     //set stealth particles active
                     stealthParticles.SetActive(true);
 
@@ -83,5 +82,14 @@ public class ConsumptionController : MonoBehaviour
                 playerInventory.RemoveFromInventory(slot);
             }
         }
+    }
+
+
+    //resets all visual potion effects at the end of the day
+    public void EndOfDay()
+    {
+        //set stealth and speed particles inactive
+        stealthParticles.SetActive(false);
+        speedParticles.SetActive(false);
     }
 }
