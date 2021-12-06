@@ -5,24 +5,56 @@ using UnityEngine;
 public class PlayerForcer : MonoBehaviour
 {
     public Vector3 initialVelocity;
+    public Vector3 gravity;
 
+    CharacterController controller;
 
-    Vector3 velocity;
+    float yVelocity;
+    bool inFlight = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        controller = GetComponent<ThirdPersonMovement>().controller;
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+        if(inFlight)
+        {
+            UpdatePosition();
+        }
+        else
+        {
+            yVelocity = 0.0f;
+        }
+    }
+
+    void UpdatePosition()
+    {
+        //controller.SimpleMove(initialVelocity);
+
+        yVelocity += gravity.y * Time.deltaTime;
+        transform.position = new Vector3(
+            transform.position.x+initialVelocity.x*Time.deltaTime,
+            transform.position.y + yVelocity * Time.deltaTime,
+            transform.position.z
+        );
+
     }
 
     public void ApplyForce()
     {
-        velocity = initialVelocity;
+        inFlight = true;
+        yVelocity = initialVelocity.y;
+        UpdatePosition();
     }
+
+    public void StopPlayer()
+    {
+        inFlight = false;
+    }
+
+ 
 }
