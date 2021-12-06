@@ -32,11 +32,47 @@ public class GoldenCritter : Critter
         previousPos = initialPos;
     }
 
-
-    //makes the golden critter catchable
+    //makes changes to critter from potion consumption
     public void GoldenPotion()
     {
+        //set catchable to true
         catchable = true;
-        willHide = false;
+        
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("Player"))
+        {
+            if (!catchable)
+            {
+                // throw player off ledge
+                other.GetComponent<PlayerForcer>().ApplyForce();
+            }
+        }
+        else if (other.tag == "Net")
+        {
+            if (catchable == true && inventoryFull == false)
+            {
+                //get script from collider
+                PlayerNet net = other.transform.gameObject.GetComponent<PlayerNet>();
+                net.CatchCritter(this);
+
+                //set critter state to caught
+                state = States.Caught;
+
+                //destroy critter
+                Destroy(gameObject);
+
+                //the critter object no longer exists, set state to inactive
+                state = States.Inactive;
+            }
+            else
+            {
+                //call net event false
+            }
+        }
+    }
+
 }
