@@ -16,7 +16,7 @@ MonoBehaviour:
   tier: 1
   trait: 1
   description: 
-  icon: {fileID: 21300000, guid: 2c241a3095b7dc14d90f0b03f4813257, type: 3}
+  icon: {fileID: 21300000, guid: d8b000dc9a777cc4784f740544740b47, type: 3}
   spriteColour: {r: 1, g: 1, b: 1, a: 1}
   model: {fileID: 3427298496871567865, guid: fec42643419ba564faba5a865210f4e0, type: 3}
   movementPath: 4
