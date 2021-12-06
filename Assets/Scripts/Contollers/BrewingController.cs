@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BrewingController : MonoBehaviour
 {
+    [Header("UI's")]
     public GameObject brewUI;
     public GameObject endDayUI;
+    public GameObject journalUI;
 
+    [Header("Player")]
     public ThirdPersonMovement player;
 
     // Start is called before the first frame update
@@ -59,6 +62,11 @@ public class BrewingController : MonoBehaviour
         // disable player movement and cursor lock
         player.EnableCursorLock();
         player.DisableMovement();
+    }
+
+    public void EnableJournalUI()
+    {
+        journalUI.SetActive(true);
     }
 
     // collision trigger for day end collider
