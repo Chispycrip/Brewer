@@ -50,3 +50,5 @@ MonoBehaviour:
     rgba: 4285901002
   - serializedVersion: 2
     rgba: 4287088050
+  - serializedVersion: 2
+    rgba: 4294967295

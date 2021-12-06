@@ -24,7 +24,7 @@ public class TreeHueShifter : MonoBehaviour
                     int index = Random.Range(0, hues.Length);
                     // set material colour
                     Material material = renderer.material;
-                    if (material)
+                    if (material && material.name == "Trees_Maple (Instance)")
                     {
                         material.color = hues[index];
                     }
