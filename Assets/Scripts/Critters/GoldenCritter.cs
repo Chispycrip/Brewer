@@ -17,7 +17,7 @@ public class GoldenCritter : Critter
     public override void Init()
     {
         //set state to idle
-        state = States.Idle;
+        state = States.WaitingForPlayer;
 
         //set catchable to false and willHide to true
         catchable = false;
@@ -181,6 +181,20 @@ public class GoldenCritter : Critter
     }
 
 
+    //starts the critter's movement down and away from the tree
+    public void PlayerLeftCamp()
+    {
+        if (gameObject.transform.position == initialPos && !catchable)
+        {
+            //set critter state to idle
+            state = States.Idle;
+
+            //set critter to willHide
+            willHide = true;
+        }
+    }
+
+
     void OnTriggerEnter(Collider other)
     {
 
@@ -194,7 +208,7 @@ public class GoldenCritter : Critter
         }
         else if (other.tag == "Net")
         {
-            if (catchable == true && inventoryFull == false)
+            if (catchable && !inventoryFull)
             {
                 //get script from collider
                 PlayerNet net = other.transform.gameObject.GetComponent<PlayerNet>();
