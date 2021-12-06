@@ -19,8 +19,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   spriteColour: {r: 1, g: 1, b: 1, a: 1}
   model: {fileID: 2500936819369736752, guid: f549c12c10bde1f4fbb884b61ce23503, type: 3}
-  movementPath: 0
+  movementPath: 4
   movementPathScale: 1
-  movementSpeed: 1
-  responseSpeed: 1
-  detectionDistance: 0
+  movementSpeed: 2
+  responseSpeed: 7
+  detectionDistance: 7

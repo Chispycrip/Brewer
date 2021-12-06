@@ -36,6 +36,10 @@ public class CritterController : MonoBehaviour
         {
             s.GetComponent<StealthCritter>().playerObject = player;
         }
+
+        //find the golden critter and attach the player
+        GameObject golden = GameObject.FindGameObjectWithTag("Golden");
+        golden.GetComponent<GoldenCritter>().playerObject = player;
     }
 
 

@@ -53,16 +53,13 @@ public class SpawnPoint : MonoBehaviour
                 //add hidepoints array to critter
                 script.GetComponent<StealthCritter>().SetHidepoints(hidepoints);
             }
-            else if (data.trait == Traits.Golden)
-            {
-                //add StealthCritter script
-                script = critter.AddComponent<GoldenCritter>();
-            }
             else
             {
                 //add GoldenCritter script
-                //to be added
-                script = critter.AddComponent<SpeedCritter>();
+                script = critter.AddComponent<GoldenCritter>();
+
+                //add hidepoints array to critter
+                script.GetComponent<GoldenCritter>().SetHidepoints(hidepoints);
             }
 
             //add data file
