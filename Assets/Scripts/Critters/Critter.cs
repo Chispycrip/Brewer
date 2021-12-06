@@ -7,7 +7,7 @@ public class Critter : MonoBehaviour
 {
     protected CritterData data; //the object holding all of this critter's data
     public bool catchable = true; //if this critter is currently catchable, false if inactive
-    public enum States { Idle, RespondingToPlayer, Hiding, Dodging, Caught, Inactive }; //the list of states the critter can have
+    public enum States { Idle, RespondingToPlayer, Hiding, Dodging, Caught, Inactive, WaitingForPlayer }; //the list of states the critter can have
     public States state = States.Idle; //the current behavioural state of the critter //DEBUG// public during testing
     public bool inventoryFull = false; //if the inventory is full
 
