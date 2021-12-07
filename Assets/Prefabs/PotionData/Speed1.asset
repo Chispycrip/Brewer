@@ -19,7 +19,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7e98228f7b912c04a8cce47f61fbb205, type: 3}
   spriteColour: {r: 0.9245283, g: 0.44918123, b: 0.4518518, a: 1}
   model: {fileID: 0}
-  modelMaterial: {fileID: 0}
-  effectsIntensity: 0
+  effectsIntensity: 0.5
   critter1: 1
   critter2: 6
