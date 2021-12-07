@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour
     public void StartTimer()
     {
         //reset time remaining and start timer
-        timerLength = 181;
+        //timerLength = 181;
         timeRemaining = timerLength;
         timerIsRunning = true;
     }
