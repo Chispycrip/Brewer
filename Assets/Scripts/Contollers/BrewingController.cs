@@ -12,6 +12,9 @@ public class BrewingController : MonoBehaviour
     [Header("Player")]
     public ThirdPersonMovement player;
 
+    [Header("Controllers")]
+    public EndGameController endGameController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,7 +81,12 @@ public class BrewingController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            EnableEndDayUI();
+            // if hasn't got golden critter start brew menu
+            if (!endGameController.PlayerHasGoldenCritter())
+            {
+                EnableEndDayUI();
+            }
+            
         }
     }
 }
