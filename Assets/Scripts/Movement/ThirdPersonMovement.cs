@@ -98,11 +98,7 @@ public class ThirdPersonMovement : MonoBehaviour
     // start is called once before the first update frame
     void Start()
     {
-        //if the current scene is brewer, lock the cursor
-        if (SceneManager.GetActiveScene().name == "Brewer")
-        {
-            DisableCursorLock();
-        }
+        
     }
 
     // function names for CursorLock might actually be reversed by accident lol
