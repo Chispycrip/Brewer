@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8413178053344483145
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2056895648469508169, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16318daa250c57d409ba667077ab42af, type: 2}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565931854722167407, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_Name
+      value: SpeedCritter_2_Blue Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552767650140417122, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552767650140417122, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
