@@ -193,6 +193,6 @@ public class FadeController : MonoBehaviour
     public void SetBlack()
     {
         screen.enabled = true;
-        screen.color.a = 1;
+        screen.color = new Color(0,0,0,1);
     }
 }
