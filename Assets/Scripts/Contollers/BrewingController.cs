@@ -11,6 +11,7 @@ public class BrewingController : MonoBehaviour
 
     [Header("Player")]
     public ThirdPersonMovement player;
+    public InventoryUI playerInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,9 @@ public class BrewingController : MonoBehaviour
         // disable player movement and cursor lock
         player.DisableCursorLock();
         player.EnableMovement();
+
+        // clear bugs from player inventory
+        playerInventory.RemoveBugsFromInventory();
     }
 
     //swaps to the brewing UI
