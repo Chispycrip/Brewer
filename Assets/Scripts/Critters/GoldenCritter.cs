@@ -41,9 +41,9 @@ public class GoldenCritter : Critter
     //makes changes to critter from potion consumption
     public void GoldenPotion()
     {
-        //set catchable to true
+        //set catchable to true and willHide to false
         catchable = true;
-        
+        willHide = false;
     }
 
 
