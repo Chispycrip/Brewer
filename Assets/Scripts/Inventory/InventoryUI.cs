@@ -82,4 +82,15 @@ public class InventoryUI : MonoBehaviour
         //remove the item from the ItemUI and the inventory
         slots[index].UpdateItem(null);
     }
+
+    public void RemoveBugsFromInventory()
+    {
+        foreach(Slot slot in slots)
+        {
+            if(slot.itemUI.item is CritterData)
+            {
+                RemoveFromInventory(slot.index);
+            }
+        }
+    }
 }
