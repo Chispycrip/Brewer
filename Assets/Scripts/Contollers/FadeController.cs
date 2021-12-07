@@ -189,4 +189,10 @@ public class FadeController : MonoBehaviour
     {
         queue.Clear();
     }
+
+    public void SetBlack()
+    {
+        screen.enabled = true;
+        screen.color.a = 1;
+    }
 }
