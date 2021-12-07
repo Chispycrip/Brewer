@@ -16,8 +16,8 @@ MonoBehaviour:
   tier: 4
   trait: 2
   description: 
-  icon: {fileID: 0}
-  spriteColour: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 21300000, guid: 7e98228f7b912c04a8cce47f61fbb205, type: 3}
+  spriteColour: {r: 1, g: 0.84313726, b: 0, a: 1}
   model: {fileID: 0}
   effectsIntensity: 0
   critter1: 5

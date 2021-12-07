@@ -42,6 +42,9 @@ public class GameController : MonoBehaviour
         //initialise the critter controller
         critterControl.Init(player);
 
+        //initialise the consumption controller
+        consumptionController.Init();
+
         //Begin the first day (fade in)
         fadeToBlackScreen.AddState(FadeState.FadeOut, 1.0f);
         fadeToBlackScreen.StartActions();
