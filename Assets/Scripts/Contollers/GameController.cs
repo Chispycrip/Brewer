@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     public GameObject cauldronVCam;
     public CinemachineFreeLook cinTPCam;
     public GameObject postProcessingVolume;
+    public InventoryUI playerInventory;
 
     private Vector3 playerStartPos;
     private Quaternion playerStartRot;
@@ -97,6 +98,9 @@ public class GameController : MonoBehaviour
                     player.transform.position = playerStartPos;
                     player.transform.rotation = playerStartRot;
 
+                    // clear bugs from player inventory
+                    playerInventory.RemoveBugsFromInventory();
+
                     // show player
                     player.gameObject.SetActive(true);
                 }
@@ -107,6 +111,8 @@ public class GameController : MonoBehaviour
                 }
                 break;
             case GameState.Brewing:
+                break;
+            default:
                 break;
         }
     }
