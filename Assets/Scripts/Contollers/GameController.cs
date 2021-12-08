@@ -212,10 +212,8 @@ public class GameController : MonoBehaviour
 
         // Is HAX: add the outline component to the brewer character mesh
         // because for some reason it is messed up by start functions
-        var outline = player.transform.Find("Brewer_Character").gameObject.AddComponent<Outline>();
-        outline.OutlineMode = Outline.Mode.OutlineHidden;
-        outline.OutlineColor = Color.white;
-        outline.OutlineWidth = 2f;
+        var outline = player.transform.Find("Brewer_Character").gameObject.GetComponent<Outline>();
+        outline.enabled = true;
 
         // show timer text
         timer.timerText.enabled = true;
