@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     [Header("Game Components")]
     public GameObject player;
     public InventoryUI playerInventory;
+    public GameObject inventorySlots;
     public PlayerNet net;
     public Cauldron cauldron;
     public Journal journal;
@@ -59,6 +60,7 @@ public class GameController : MonoBehaviour
 
         // hide player inventory
         playerInventory.gameObject.SetActive(false);
+        inventorySlots.SetActive(false);
 
         // hide timer text
         timer.timerText.enabled = true;
@@ -113,6 +115,9 @@ public class GameController : MonoBehaviour
 
                     // clear bugs from player inventory
                     playerInventory.RemoveBugsFromInventory();
+
+                    // clear bugs from cauldron inventory
+                    cauldron.cauldronInventoryUI.RemoveBugsFromInventory();
 
                     // show player
                     player.gameObject.SetActive(true);
@@ -208,6 +213,7 @@ public class GameController : MonoBehaviour
     {
         // turn on player inventory
         playerInventory.gameObject.SetActive(true);
+        inventorySlots.SetActive(true);
 
         // fade from black
         fadeToBlackScreen.SetBlack();
@@ -263,5 +269,7 @@ public class GameController : MonoBehaviour
         brewingController.ContinueDay();
         //set depth of field to far range
         UpdateDepthOfField(11.03f, 1.1f);
+
+        state = GameState.Catching;
     }
 }

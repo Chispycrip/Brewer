@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6dfee780224d69a4fbe3e7da74879df1, type: 2}
     - target: {fileID: 2489218006500734076, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
       propertyPath: m_Name
-      value: Speed_Critter_1_Blue
+      value: Stealth_Critter_1_Blue Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3008591718230208198, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 7257238806301200849, guid: 52becfe7ae9163a4ea51591a9e8ccb9d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
