@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     [Header("Game Components")]
     public GameObject player;
     public InventoryUI playerInventory;
+    public GameObject inventorySlots;
     public PlayerNet net;
     public Cauldron cauldron;
     public Bestiary journal;
@@ -59,6 +60,7 @@ public class GameController : MonoBehaviour
 
         // hide player inventory
         playerInventory.gameObject.SetActive(false);
+        inventorySlots.SetActive(false);
 
         // hide timer text
         timer.timerText.enabled = true;
@@ -211,6 +213,7 @@ public class GameController : MonoBehaviour
     {
         // turn on player inventory
         playerInventory.gameObject.SetActive(true);
+        inventorySlots.SetActive(true);
 
         // fade from black
         fadeToBlackScreen.SetBlack();
