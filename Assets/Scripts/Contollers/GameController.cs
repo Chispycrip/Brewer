@@ -114,6 +114,9 @@ public class GameController : MonoBehaviour
                     // clear bugs from player inventory
                     playerInventory.RemoveBugsFromInventory();
 
+                    // clear bugs from cauldron inventory
+                    cauldron.cauldronInventoryUI.RemoveBugsFromInventory();
+
                     // show player
                     player.gameObject.SetActive(true);
                 }
