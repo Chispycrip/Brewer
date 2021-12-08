@@ -153,6 +153,9 @@ public class GameController : MonoBehaviour
         //show tutorial UI
         tutorialUI.EnableTutorial();
 
+        // start catching music
+        GetComponent<AudioSource>().Play();
+
         state = GameState.Catching;
     }
 
@@ -261,6 +264,9 @@ public class GameController : MonoBehaviour
         // hide timer text
         timer.timerText.enabled = false;
 
+        // stop catching music
+        GetComponent<AudioSource>().Stop();
+
         state = GameState.Brewing;
     }
 
@@ -269,6 +275,9 @@ public class GameController : MonoBehaviour
         brewingController.ContinueDay();
         //set depth of field to far range
         UpdateDepthOfField(11.03f, 1.1f);
+
+        // stop catching music
+        GetComponent<AudioSource>().Play();
 
         state = GameState.Catching;
     }

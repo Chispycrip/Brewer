@@ -15,6 +15,11 @@ public class BrewingController : MonoBehaviour
     [Header("Controllers")]
     public EndGameController endGameController;
 
+    [Header("Audio")]
+    public AudioSource musicBrewing;
+    public AudioSource musicCatching;
+    public AudioSource cauldronBubble;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +46,15 @@ public class BrewingController : MonoBehaviour
         // disable player movement and cursor lock
         player.DisableCursorLock();
         player.EnableMovement();
+
+        // stop brew music
+        musicBrewing.Stop();
+
+        // start catch music
+        musicCatching.Play();
+
+        // stop cauldron bubble
+        cauldronBubble.Stop();
     }
 
     //swaps to the brewing UI
@@ -51,6 +65,10 @@ public class BrewingController : MonoBehaviour
 
         // activate caudron UI
         brewUI.SetActive(true);
+
+
+        // start cauldron bubble
+        cauldronBubble.Play();
 
     }
 
@@ -68,6 +86,16 @@ public class BrewingController : MonoBehaviour
 
         // show player
         player.gameObject.SetActive(true);
+
+        // stop brew music
+        musicBrewing.Stop();
+
+        // start catch music
+        musicCatching.Play();
+
+
+        // stop cauldron bubble
+        cauldronBubble.Stop();
     }
 
     private void EnableEndDayUI()
@@ -77,6 +105,13 @@ public class BrewingController : MonoBehaviour
         // disable player movement and cursor lock
         player.EnableCursorLock();
         player.DisableMovement();
+
+        // start brew music
+        musicBrewing.Play();
+
+        // stop catch music
+        musicCatching.Stop();
+
     }
 
     public void EnableJournalUI()
