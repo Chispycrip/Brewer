@@ -5,6 +5,7 @@ using UnityEngine;
 public class ConsumptionController : MonoBehaviour
 {
     public InventoryUI playerInventory;
+    public Bestiary journal;
 
     [Header("Potion Visual Effects")]
     public GameObject stealthParticles;
@@ -21,9 +22,10 @@ public class ConsumptionController : MonoBehaviour
     private int topStealthTier = 0; //the highest tier stealth potion drunk today
 
 
-    //set the renderer and material arrays
-    public void Init()
+    //initialise controller
+    public void Init(PlayerNet playerNet)
     {
+        //set the renderer and material arrays
         skinRenderer = playerRenderer.GetComponent<SkinnedMeshRenderer>();
         mats = skinRenderer.materials;
     }
@@ -74,9 +76,6 @@ public class ConsumptionController : MonoBehaviour
 
                     //set potion data to variable
                     PotionData pData = (PotionData)item;
-
-                    //set speed particles active
-                    //speedParticles.SetActive(true);
 
                     //set the player and net movement speeds higher
                     netSwing.speed = 1.0f + pData.effectsIntensity;
@@ -133,6 +132,9 @@ public class ConsumptionController : MonoBehaviour
                     topSpeedTier = 4;
                     topStealthTier = 4;
                 }
+
+                //send potion to journal
+                journal.AddPotionToJournal((PotionData)item);
 
                 // clear slot
                 playerInventory.RemoveFromInventory(slot);
