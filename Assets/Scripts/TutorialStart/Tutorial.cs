@@ -7,34 +7,38 @@ using System;
 
 public class Tutorial : MonoBehaviour
 {
+    public float countdownTimer = 11f; //how long the UI is visible
+
     // changing properties of the canvas (and possibly text)
     [Header("Add Tutorial Canvas here")]
     public Canvas canvas;
 
-    // making the canvas wait to be activated because of the startup text
-    private float countdownTimer = 11f;
+    private bool hasBeenEnabled; //tracks if the tutorial has been enabled yet
 
     // Start is called before the first frame update
     void Start()
     {
         canvas.enabled = false;
+        hasBeenEnabled = false;
     }
 
-    void Update()
+
+    //turns on tutorial UI
+    public void EnableTutorial()
     {
-        if (countdownTimer <= 0)
+        //if tutorial has not been enabled yet, enable it
+        if (!hasBeenEnabled)
         {
-            countdownTimer = 99999999f;
+            hasBeenEnabled = true;
             StartCoroutine(TutorialKeys());
         }
-        countdownTimer -= Time.deltaTime;
     }
 
     IEnumerator TutorialKeys()
     {
         canvas.enabled = true;
 
-        yield return new WaitForSeconds(11f);
+        yield return new WaitForSeconds(countdownTimer);
 
         canvas.enabled = false;
     }

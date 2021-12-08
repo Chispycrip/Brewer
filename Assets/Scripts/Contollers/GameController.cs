@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
     public PlayerNet net;
     public Cauldron cauldron;
     public Bestiary journal;
+    public Tutorial tutorialUI;
 
     [Header("Controllers")]
     public CritterController critterControl;
@@ -135,14 +136,17 @@ public class GameController : MonoBehaviour
         //set up critters
         critterControl.StartNewDay();
 
+        // update brewing controller
+        brewingController.StartNewDay();
+
         //start timer
         timer.StartTimer();
 
         // show timer text
         timer.timerText.enabled = true;
 
-        // update brewing controller
-        brewingController.StartNewDay();
+        //show tutorial UI
+        tutorialUI.EnableTutorial();
 
         state = GameState.Catching;
     }
