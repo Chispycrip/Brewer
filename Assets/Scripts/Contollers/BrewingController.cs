@@ -15,18 +15,6 @@ public class BrewingController : MonoBehaviour
     [Header("Controllers")]
     public EndGameController endGameController;
 
-    [Header("Audio")]
-    public AudioSource musicBrewing;
-    public AudioSource musicCatching;
-    public AudioSource cauldronBubble;
-
-    //time variables for music fades
-    private float inFade; 
-    private float outFade;
-
-    //variable to make music start without delay on the first day
-    bool firstDay = true;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -53,15 +41,6 @@ public class BrewingController : MonoBehaviour
         // disable player movement and cursor lock
         player.DisableCursorLock();
         player.EnableMovement();
-
-        //fade out brew music
-        FadeOut(musicBrewing);
-
-        //fade in catch music
-        FadeIn(musicCatching);
-
-        // stop cauldron bubble
-        cauldronBubble.Stop();
     }
 
     //swaps to the brewing UI
@@ -72,16 +51,6 @@ public class BrewingController : MonoBehaviour
 
         // activate caudron UI
         brewUI.SetActive(true);
-
-        // start cauldron bubble
-        cauldronBubble.Play();
-
-        //fade in brew music
-        FadeIn(musicBrewing);
-
-        //fade out catch music
-        FadeOut(musicCatching);
-
     }
 
     public void ContinueDay()
@@ -107,6 +76,9 @@ public class BrewingController : MonoBehaviour
         // disable player movement and cursor lock
         player.EnableCursorLock();
         player.DisableMovement();
+
+        // stop player footsteps
+        player.gameObject.GetComponent<AudioSource>().enabled = false;
     }
 
 
@@ -128,92 +100,5 @@ public class BrewingController : MonoBehaviour
             }
             
         }
-    }
-
-
-    //fades music in slowly after 2 second delay
-    public void FadeIn(AudioSource music)
-    {
-        //start playing the music if first day
-        if (firstDay)
-        {
-            music.Play();
-        }
-        else
-        {
-            //play music with 2 second delay
-            music.PlayDelayed(2.0f);
-        }
-
-        //fades the music in over the next 7 seconds
-        StartCoroutine(FadeInCR(music));
-    }
-
-
-    //5 second coroutine that fades the music in
-    IEnumerator FadeInCR(AudioSource music)
-    {
-        //until volume is max
-        while (inFade < 1.0f)
-        {
-            //if first day, turn volume up over 5 seconds
-            if (firstDay)
-            {
-                //set the time variable
-                inFade += 0.2f * Time.deltaTime;
-
-                //set the music volume
-                music.volume = Mathf.Lerp(0.0f, 1.0f, inFade);
-            }
-            //if not first day, wait 2 seconds then turn the volume up
-            else
-            {
-                //set the time variable
-                inFade += 0.14f * Time.deltaTime;
-
-                //set the music volume
-                music.volume = Mathf.Lerp(-0.28f, 1.0f, inFade);
-            }
-
-
-            //yield the coroutine until next frame
-            yield return null;
-        }
-        //set first day to false
-        firstDay = false;
-
-        //reset timer and break
-        inFade = 0.0f;
-        yield break;
-    }
-
-
-    //fades music out slowly
-    public void FadeOut(AudioSource music)
-    {
-        //fades the music out over the next 5 seconds
-        StartCoroutine(FadeOutCR(music));
-    }
-
-
-    //5 second coroutine that fades the music out
-    IEnumerator FadeOutCR(AudioSource music)
-    {
-        //until volume is 0
-        while (outFade < 1.0f)
-        {
-            //set the time variable
-            outFade += 0.2f * Time.deltaTime;
-
-            //set the music volume
-            music.volume = Mathf.Lerp(1.0f, 0.0f, outFade);
-
-            //yield the coroutine until next frame
-            yield return null;
-        }
-
-        //reset timer and break
-        outFade = 0.0f;
-        yield return null;
     }
 }
