@@ -56,11 +56,9 @@ public class BrewingController : MonoBehaviour
 
         //fade out brew music
         FadeOut(musicBrewing);
-        //musicBrewing.Stop();
 
         //fade in catch music
         FadeIn(musicCatching);
-        //musicCatching.Play();
 
         // stop cauldron bubble
         cauldronBubble.Stop();
