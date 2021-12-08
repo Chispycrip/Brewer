@@ -44,6 +44,8 @@ public class GameController : MonoBehaviour
     public AudioSource musicCatching;
     public AudioSource cauldronBubble;
 
+    public GameObject startCanvas;
+
     private Vector3 playerStartPos;
     private Quaternion playerStartRot;
 
@@ -80,6 +82,9 @@ public class GameController : MonoBehaviour
 
         // hide timer text
         timer.timerText.enabled = true;
+
+        // activate start canvas
+        startCanvas.SetActive(true);
     }
 
     // Update is called once per frame

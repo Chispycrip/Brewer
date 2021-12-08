@@ -46,10 +46,15 @@ public class PlayerForcer : MonoBehaviour
         inFlight = true;
         yVelocity = initialVelocity.y;
         UpdatePosition();
+
+        // turn off player controller
+        GetComponent<ThirdPersonMovement>().DisableMovement();
     }
 
     public void StopPlayer()
     {
         inFlight = false;
+        // turn off player controller
+        GetComponent<ThirdPersonMovement>().EnableMovement();
     }
 }
