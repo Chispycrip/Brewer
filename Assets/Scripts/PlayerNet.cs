@@ -79,8 +79,12 @@ public class PlayerNet : MonoBehaviour
         netCollider.enabled = false;
         if (player)
         {
-            // disable player movement while swinging
-            player.EnableMovement();
+            // if player not in flight
+            if (!player.gameObject.GetComponent<PlayerForcer>().InFlight())
+            {
+                // disable player movement while swinging
+                player.EnableMovement();
+            }
             // disable collider for speed critter response
             player.GetComponent<BoxCollider>().enabled = false;
         }
