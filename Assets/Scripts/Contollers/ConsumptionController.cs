@@ -5,7 +5,7 @@ using UnityEngine;
 public class ConsumptionController : MonoBehaviour
 {
     public InventoryUI playerInventory;
-    public Bestiary journal;
+    public Journal journal;
 
     [Header("Potion Visual Effects")]
     public GameObject stealthParticles;
@@ -23,7 +23,7 @@ public class ConsumptionController : MonoBehaviour
 
 
     //initialise controller
-    public void Init(Bestiary bestiary)
+    public void Init(Journal bestiary)
     {
         //set the renderer and material arrays
         skinRenderer = playerRenderer.GetComponent<SkinnedMeshRenderer>();

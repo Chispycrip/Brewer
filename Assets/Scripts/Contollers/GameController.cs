@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     public InventoryUI playerInventory;
     public PlayerNet net;
     public Cauldron cauldron;
-    public Bestiary journal;
+    public Journal journal;
     public Tutorial tutorialUI;
 
     [Header("Controllers")]

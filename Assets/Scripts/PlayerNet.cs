@@ -7,7 +7,7 @@ public class PlayerNet : MonoBehaviour
     public InventoryUI playerInventory = null;
     public ThirdPersonMovement player = null;
     public Animator animator = null;
-    public Bestiary journal;
+    public Journal journal;
 
     public ParticleSystem grassPuff;
 
