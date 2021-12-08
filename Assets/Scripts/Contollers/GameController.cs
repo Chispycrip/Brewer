@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
                     cinTPCam.MoveToTopOfPrioritySubqueue();
 
                     //set depth of field to far range
-                    UpdateDepthOfField(11.03f, 1.1f);
+                    UpdateDepthOfField(12.5f, 1.1f);
 
                     //set player to start position
                     player.transform.position = playerStartPos;
