@@ -7,15 +7,14 @@ public class CauldronUI : MonoBehaviour
     public PotionData data = null;
     public Material cauldronWater; //the material of the water in the cauldron
     public ParticleSystem bubbles; //the bubble particles in the cauldron
-
-    private Color clearWater; //the default water colour
+    public Color clearWater; //the default water colour
 
     //start is called before the first frame update
     public void Start()
     {
-        //set default cauldron colour to a variable
-        clearWater = cauldronWater.color;
-
+        //set the water material to the default colour
+        cauldronWater.color = clearWater;
+        
         //set the bubble colour to the default color with half the alpha
         var main = bubbles.main;
         Color halfAlpha = clearWater;
