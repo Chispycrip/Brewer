@@ -15,7 +15,7 @@ MonoBehaviour:
   typeName: 5
   tier: 3
   trait: 0
-  description: 
+  description: "Drives around in a Honda Civic \nrunning over cyclists at intersections"
   icon: {fileID: 21300000, guid: e8d271b2db4e708478594be972bcf6be, type: 3}
   spriteColour: {r: 1, g: 1, b: 1, a: 1}
   model: {fileID: 5006602846566020928, guid: c2a37a2ff7e76d34bb53dca1700e3eaa, type: 3}

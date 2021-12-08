@@ -14,7 +14,7 @@ public class Data : ScriptableObject
     public Names typeName; //name of this item
     public int tier; //tier 1-4, golden is 4
     public Traits trait; //speed, stealth or golden
-    public string description; //brief flavour text
+    [Multiline(3)]public string description; //brief flavour text
 
     [Header("Appearance")]
     public Sprite icon; //2D image for UI
