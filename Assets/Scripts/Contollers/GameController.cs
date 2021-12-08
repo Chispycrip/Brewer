@@ -50,10 +50,11 @@ public class GameController : MonoBehaviour
 
         //initialise the other controllers
         critterControl.Init(player);
-        consumptionController.Init(net);
+        consumptionController.Init(journal);
 
-        //add the journal to the net
+        //add the journal to the net and cauldron
         net.journal = journal;
+        cauldron.journal = journal;
 
         playerInventory.gameObject.SetActive(false);
     }

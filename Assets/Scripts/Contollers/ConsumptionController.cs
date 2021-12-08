@@ -23,11 +23,14 @@ public class ConsumptionController : MonoBehaviour
 
 
     //initialise controller
-    public void Init(PlayerNet playerNet)
+    public void Init(Bestiary bestiary)
     {
         //set the renderer and material arrays
         skinRenderer = playerRenderer.GetComponent<SkinnedMeshRenderer>();
         mats = skinRenderer.materials;
+
+        //attach the journal
+        journal = bestiary;
     }
     
 
