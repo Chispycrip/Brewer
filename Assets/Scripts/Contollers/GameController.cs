@@ -159,10 +159,17 @@ public class GameController : MonoBehaviour
                 break;
         }
 
-        //if the esc key is pressed, open pause menu
+        //if the esc key is pressed, toggle pause menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseMenu.OpenPauseMenu();
+            if (pauseMenu.pauseMenuCanvas.activeSelf)
+            {
+                pauseMenu.ClosePauseMenu();
+            }
+            else
+            {
+                pauseMenu.OpenPauseMenu();
+            }
         }
     }
 

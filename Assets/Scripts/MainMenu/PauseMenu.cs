@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuCanvas; //the canvas with the pause menu
+    public GameObject startGameCanvas; //the screen that shows before the first day
 
     private GameController gameController; //the game controller
 
@@ -23,6 +24,12 @@ public class PauseMenu : MonoBehaviour
     //pauses the game and enables the menu
     public void OpenPauseMenu()
     {
+        //if the start screen is open, do not pause
+        if (startGameCanvas.activeSelf)
+        {
+            return;
+        }
+        
         //stop time
         Time.timeScale = 0;
 
