@@ -9,6 +9,8 @@ public class PlayerNet : MonoBehaviour
     public Animator animator = null;
     public Bestiary journal;
 
+    public ParticleSystem grassPuff;
+
     private BoxCollider netCollider = null;
 
     bool swinging = false;
@@ -78,6 +80,15 @@ public class PlayerNet : MonoBehaviour
     {
         playerInventory.AddToInventory(critter.GetData());
         journal.AddCritterToJournal(critter.GetData());
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //grassPuff.gameObject.transform.position = transform.position;
+        if (grassPuff)
+        {
+            grassPuff.Play();
+        }
     }
 
 }
