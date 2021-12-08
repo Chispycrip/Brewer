@@ -18,6 +18,7 @@ public class ThirdPersonMovement : MonoBehaviour
     // turns on and off player movement
     bool inputsActive = true;
 
+
     // Update is called once per frame
     void Update()
     {
@@ -47,8 +48,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
             // simply... move
             controller.SimpleMove(moveDir * speed);
-        }
 
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+        }
         // if the player is in the air for some reason
         // TODO - fix this, make it so I'm not duplicating the code
         else if(!controller.isGrounded)
@@ -66,12 +71,16 @@ public class ThirdPersonMovement : MonoBehaviour
                 
                 // falling, basically
                 controller.SimpleMove(moveDir * speed);
+
+            GetComponent<AudioSource>().Stop();
         }
         // when the player is stopped
         else
         {
             // stop walking animation
             animator.SetBool("Walking", false);
+
+            GetComponent<AudioSource>().Stop();
         }
 
         // if Middle mouse button is pressed, enable the cursor for UI.

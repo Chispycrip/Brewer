@@ -187,6 +187,8 @@ public class SpeedCritter : Critter
             else
             {
                 //call net event false
+                PlayerNet net = other.transform.gameObject.GetComponent<PlayerNet>();
+                net.CatchFailed();
             }
         }
         else if(other.CompareTag("Player"))
