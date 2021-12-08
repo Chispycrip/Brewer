@@ -11,6 +11,7 @@ public class Cauldron : Inventory
 
     private Data.Names secondCritter; //the critter that matches the critter in the first slot
     private PotionData potentialPotion; //the potion that the critter in the first slot can make
+    bool canBrew = false; // the bugs in the brew inventory match and can be brewed into a potion
 
     //Update is called once per frame
     void Update()
@@ -51,20 +52,7 @@ public class Cauldron : Inventory
             //check if the second critter can make a potion with the first critter
             if (items[1].typeName == secondCritter)
             {
-                //possible player interaction or animation//
-                
-                //send the potion to the cauldronUI
-                cauldronUI.SetPotion(potentialPotion);
-
-                //clear the inventory
-                items[0] = null;
-                items[1] = null;
-
-                //update stored count
-                itemsStored = 0;
-
-                //add recipe to journal
-                journal.AddRecipeToJournal(potentialPotion);
+                canBrew = true;
             }
             else
             { 
@@ -99,6 +87,31 @@ public class Cauldron : Inventory
         else
         {
             return false;
+        }
+    }
+
+    // brew a potion
+    public void BrewPotion()
+    {
+        if (canBrew)
+        {
+            //possible player interaction or animation//
+
+            //send the potion to the cauldronUI
+            cauldronUI.SetPotion(potentialPotion);
+
+            //clear the inventory
+            items[0] = null;
+            items[1] = null;
+
+            //update stored count
+            itemsStored = 0;
+
+            //add recipe to journal
+            journal.AddRecipeToJournal(potentialPotion);
+
+            // reset can brew flag
+            canBrew = false;
         }
     }
 }
