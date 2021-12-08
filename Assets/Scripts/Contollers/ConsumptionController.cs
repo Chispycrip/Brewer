@@ -70,6 +70,9 @@ public class ConsumptionController : MonoBehaviour
             Data item = playerInventory.inventory.items[slot];
             if (item && item is PotionData)
             {
+                // play drinking noise
+                //GetComponent<AudioSource>().Play();
+
                 // if speed and the strongest potion consumed today
                 if(item.trait == Traits.Speed && item.tier > topSpeedTier)
                 {

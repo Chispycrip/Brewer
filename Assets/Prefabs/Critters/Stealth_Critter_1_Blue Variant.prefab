@@ -63,5 +63,29 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 7257238806301200849, guid: 52becfe7ae9163a4ea51591a9e8ccb9d, type: 2}
+    - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
+      propertyPath: MinDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}

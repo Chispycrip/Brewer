@@ -262,6 +262,8 @@ public class GameController : MonoBehaviour
     public void StartFirstDay()
     {
 
+        FadeIn(musicCatching);
+
         // turn on player inventory
         playerInventory.gameObject.SetActive(true);
         inventorySlots.SetActive(true);

@@ -235,26 +235,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2801041421646997656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3050160086657575774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8c403f323cf9f48a1a200733d62856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInventory: {fileID: 0}
-  player: {fileID: 6888249076307109533}
-  animator: {fileID: 4918524486715630837}
-  journal: {fileID: 0}
-  grassPuff: {fileID: 0}
-  netSwoosh: {fileID: 1119779148747891440}
-  critterHit: {fileID: 8546449716621928001}
-  critterMiss: {fileID: 9091887499798996950}
 --- !u!82 &8546449716621928001
 AudioSource:
   m_ObjectHideFlags: 0
@@ -447,6 +427,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2801041421646997656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3050160086657575774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8c403f323cf9f48a1a200733d62856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 0}
+  player: {fileID: 6888249076307109533}
+  animator: {fileID: 4918524486715630837}
+  journal: {fileID: 0}
+  grassPuff: {fileID: 0}
+  netSwoosh: {fileID: 1119779148747891440}
+  critterHit: {fileID: 8546449716621928001}
+  critterMiss: {fileID: 9091887499798996950}
 --- !u!1 &3380269235638874349
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 6888249076307109533}
   - component: {fileID: 2801041423291196600}
   - component: {fileID: 5673460102024422893}
+  - component: {fileID: 8052660609790013014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -701,6 +702,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &8052660609790013014
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8641045736061117951}
+  m_Enabled: 1
 --- !u!1001 &2801041422278957615
 PrefabInstance:
   m_ObjectHideFlags: 0
