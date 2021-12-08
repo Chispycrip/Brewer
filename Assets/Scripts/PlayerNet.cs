@@ -11,6 +11,10 @@ public class PlayerNet : MonoBehaviour
 
     public ParticleSystem grassPuff;
 
+    public AudioSource netSwoosh;
+    public AudioSource critterHit;
+    public AudioSource critterMiss;
+
     private BoxCollider netCollider = null;
 
     bool swinging = false;
@@ -40,6 +44,7 @@ public class PlayerNet : MonoBehaviour
         else if (swinging && animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             StopSwing();
+            
         }
     }
 
@@ -60,7 +65,10 @@ public class PlayerNet : MonoBehaviour
             player.GetComponent<BoxCollider>().enabled = true;
         }
 
-        
+        netSwoosh.Play();
+
+
+
     }
 
     void StopSwing()
@@ -82,6 +90,13 @@ public class PlayerNet : MonoBehaviour
     {
         playerInventory.AddToInventory(critter.GetData());
         journal.AddCritterToJournal(critter.GetData());
+
+        critterHit.Play();
+    }
+
+    public void CatchFailed()
+    {
+        critterMiss.Play();
     }
 
     private void OnTriggerEnter(Collider other)

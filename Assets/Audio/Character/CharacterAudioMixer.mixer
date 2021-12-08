@@ -14,6 +14,39 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-6095607516814485201
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CritterNetResponses
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 2cc858b0ed2095f42956a0c8864240e0
+  m_Children: []
+  m_Volume: fd3b85e8d027fd745ab5ab8544aca594
+  m_Pitch: c8e90d2f8da2efb438c3fa9f56a809e7
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4005284541352899102}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-4005284541352899102
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: f0e50f022fae65a4ab51fbafbfbed80b
+  m_EffectName: Attenuation
+  m_MixLevel: 5d0f7ab6d323cdf40af5d9f34e52f779
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-3488895883480197465
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -87,6 +120,7 @@ AudioMixerController:
     - 8824bbc1898987f45ad70f292fe8606b
     - f3975a7aada66ca48bc401d4d6bd657a
     - 191bbe6b0c7f2a8408f941507eee7994
+    - 2cc858b0ed2095f42956a0c8864240e0
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -102,6 +136,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -949405644466145791}
   - {fileID: -3488895883480197465}
+  - {fileID: -6095607516814485201}
   m_Volume: 016c763bdf988c046bf088f307423106
   m_Pitch: b149238816b0b88428384e6f3e3ccf73
   m_Send: 00000000000000000000000000000000
@@ -134,5 +169,8 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 7b67e63f39fea13439520a4d5589945c
-  m_FloatValues: {}
+  m_FloatValues:
+    fd3b85e8d027fd745ab5ab8544aca594: -15
+    8e3d0dcc228ba8d4ba0e249f076b9836: 0
+    18aa673fd868ab2449b9950209e819e4: -13.8
   m_TransitionOverrides: {}
