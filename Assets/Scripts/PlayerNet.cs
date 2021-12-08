@@ -7,6 +7,7 @@ public class PlayerNet : MonoBehaviour
     public InventoryUI playerInventory = null;
     public ThirdPersonMovement player = null;
     public Animator animator = null;
+    public Bestiary journal;
 
     private BoxCollider netCollider = null;
 
@@ -72,10 +73,11 @@ public class PlayerNet : MonoBehaviour
             player.GetComponent<BoxCollider>().enabled = false;
         }
     }
-    // Add critter to inventory
+    // Add critter to inventory and journal
     public void CatchCritter(Critter critter)
     {
         playerInventory.AddToInventory(critter.GetData());
+        journal.AddCritterToJournal(critter.GetData());
     }
 
 }
