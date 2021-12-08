@@ -19,9 +19,9 @@ public class GoldenCritter : Critter
         //set state to idle
         state = States.WaitingForPlayer;
 
-        //set catchable to false and willHide to true
+        //set catchable and willHide to false initially
         catchable = false;
-        willHide = true;
+        willHide = false;
 
         //set tag
         gameObject.tag = "Golden";
