@@ -33,15 +33,12 @@ public class PlayerForcer : MonoBehaviour
 
     void UpdatePosition()
     {
-        //controller.SimpleMove(initialVelocity);
-
         yVelocity += gravity.y * Time.deltaTime;
         transform.position = new Vector3(
             transform.position.x+initialVelocity.x*Time.deltaTime,
             transform.position.y + yVelocity * Time.deltaTime,
             transform.position.z
         );
-
     }
 
     public void ApplyForce()
@@ -55,6 +52,4 @@ public class PlayerForcer : MonoBehaviour
     {
         inFlight = false;
     }
-
- 
 }

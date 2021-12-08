@@ -81,12 +81,10 @@ public class BrewingController : MonoBehaviour
         player.gameObject.GetComponent<AudioSource>().enabled = false;
     }
 
-
     public void EnableJournalUI()
     {
         journalUI.SetActive(true);
     }
-
 
     // collision trigger for day end collider
     private void OnTriggerEnter(Collider other)
