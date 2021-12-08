@@ -1127,6 +1127,7 @@ MonoBehaviour:
   acceptsPotions: 0
   jarsVisibile: 1
   cauldronUI: {fileID: 7080512082747035434}
+  cauldronInventoryUI: {fileID: 7080512083694903227}
   recipes:
   - {fileID: 11400000, guid: 8a09e874d4144df4ebb884f13db9559d, type: 2}
   journal: {fileID: 0}
@@ -1310,6 +1311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e61e0da5cb98754aaff1d6c833e84c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cauldron: {fileID: 7080512082484844080}
   data: {fileID: 0}
   cauldronWater: {fileID: 0}
   bubbles: {fileID: 0}

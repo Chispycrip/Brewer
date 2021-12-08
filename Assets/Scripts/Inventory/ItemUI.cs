@@ -65,7 +65,7 @@ public class ItemUI : Draggable
 
 
     //puts the cauldron's contents into the dragged slot
-    protected override void TakePotionFromCauldron(CauldronUI cauldron)
+    protected override void CauldronFound(CauldronUI cauldron)
     {
         //if this itemUI is empty
         if (item == null)
@@ -75,6 +75,18 @@ public class ItemUI : Draggable
 
             //clear the potion's contents
             cauldron.ClearPotion();
+        }
+        else
+        {
+            //get the cauldron inventory from the cauldronUI
+            Cauldron cauldronInventory = cauldron.cauldron;
+
+            //if the cauldron inventory is not full, it will add the dropped item
+            if (cauldronInventory.DroppedInCauldron(item))
+            {
+                //remove the item from this inventory
+                slot.parentInv.RemoveFromInventory(slot.index);
+            }
         }
     }
 }

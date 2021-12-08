@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cauldron : Inventory
 {
     public CauldronUI cauldronUI; //the image of the cauldron that can interact with itemUIs
+    public InventoryUI cauldronInventoryUI; //the attached UI component
     public PotionData[] recipes; //the potion recipes
     public Bestiary journal; //the journal
 
@@ -69,6 +70,35 @@ public class Cauldron : Inventory
             { 
                 //potion failed effect
             }
+        }
+    }
+
+
+    //Adds items to the cauldron inventory if dropped in the cauldron UI, returns if a slot is empty
+    public bool DroppedInCauldron(Data droppedItem)
+    {
+        //if the item is a critter
+        if (droppedItem is CritterData)
+        {
+            //if there is an empty slot, add item
+            if (itemsStored == 0 || itemsStored == 1)
+            {
+                //get the first slot
+                cauldronInventoryUI.AddToInventory(droppedItem);
+
+                //return that a slot is empty
+                return true;
+            }
+            //if not return inventory full
+            else
+            {
+                return false;
+            }
+        }
+        //item was not a critter, return false
+        else
+        {
+            return false;
         }
     }
 }
