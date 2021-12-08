@@ -81,11 +81,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
       propertyPath: MaxDistance
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
       propertyPath: MinDistance
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
+      propertyPath: Priority
+      value: 94
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}

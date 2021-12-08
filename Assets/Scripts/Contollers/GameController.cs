@@ -103,7 +103,7 @@ public class GameController : MonoBehaviour
                     UpdateDepthOfField(1.75f, 2.4f);
 
                     // hide player
-                    player.gameObject.SetActive(false);
+                    player.transform.Find("Brewer_Character").gameObject.SetActive(false);
 
                     // end the day
                     EndOfDay();
@@ -134,7 +134,7 @@ public class GameController : MonoBehaviour
                     cauldron.cauldronInventoryUI.RemoveBugsFromInventory();
 
                     // show player
-                    player.gameObject.SetActive(true);
+                    player.transform.Find("Brewer_Character").gameObject.SetActive(true);
 
                     // start day
                     StartNewDay();
