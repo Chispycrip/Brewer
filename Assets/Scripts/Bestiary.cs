@@ -11,6 +11,27 @@ public class Bestiary : MonoBehaviour
     public bool[] recipeMask; //stores which recipes have been unlocked
 
 
+    //sets up the journal to be blank by default
+    public void Start()
+    {
+        //set size of critter mask and set everything to false
+        critterMask = new bool[critters.Length];
+        for (int i = 0; i < critters.Length; i++)
+        {
+            critterMask[i] = false;
+        }
+
+        //set size of potion and recipe masks and set everything to false
+        potionMask = new bool[potions.Length];
+        recipeMask = new bool[potions.Length];
+        for (int i = 0; i < potions.Length; i++)
+        {
+            potionMask[i] = false;
+            recipeMask[i] = false;
+        }
+    }
+
+
     //takes in a critter data file and unlocks its entry
     public void AddCritterToJournal(CritterData newCritter)
     {
