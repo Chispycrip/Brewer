@@ -16,16 +16,25 @@ public enum GameState
 public class GameController : MonoBehaviour
 {
     public Timer timer;
+
+    [Header("Game Components")]
     public GameObject player;
+    public InventoryUI playerInventory;
+    public PlayerNet net;
+    public Cauldron cauldron;
+    public Bestiary journal;
+
+    [Header("Controllers")]
     public CritterController critterControl;
     public BrewingController brewingController;
     public ConsumptionController consumptionController;
     public FadeController fadeToBlackScreen;
+
+    [Header("Visual Effects")]
     public CinemachineVirtualCamera cinVCam;
     public GameObject cauldronVCam;
     public CinemachineFreeLook cinTPCam;
     public GameObject postProcessingVolume;
-    public InventoryUI playerInventory;
 
     private Vector3 playerStartPos;
     private Quaternion playerStartRot;
@@ -39,13 +48,12 @@ public class GameController : MonoBehaviour
         playerStartPos = player.transform.position;
         playerStartRot = player.transform.rotation;
 
-        //start will be used to display any opening menu/animation desired//
-
-        //initialise the critter controller
+        //initialise the other controllers
         critterControl.Init(player);
+        consumptionController.Init(net);
 
-        //initialise the consumption controller
-        consumptionController.Init();
+        //add the journal to the net
+        net.journal = journal;
 
         //Begin the first day (fade in)
         fadeToBlackScreen.SetBlack();
@@ -219,8 +227,6 @@ public class GameController : MonoBehaviour
     {
         //clear critters
         critterControl.EndOfDay();
-
-        //play any day ending animations/transistions//
 
         //clear potion effects
         consumptionController.EndOfDay();

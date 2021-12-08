@@ -6,6 +6,7 @@ public class Cauldron : Inventory
 {
     public CauldronUI cauldronUI; //the image of the cauldron that can interact with itemUIs
     public PotionData[] recipes; //the potion recipes
+    public Bestiary journal; //the journal
 
     private Data.Names secondCritter; //the critter that matches the critter in the first slot
     private PotionData potentialPotion; //the potion that the critter in the first slot can make
@@ -60,6 +61,9 @@ public class Cauldron : Inventory
 
                 //update stored count
                 itemsStored = 0;
+
+                //add recipe to journal
+                journal.AddRecipeToJournal(potentialPotion);
             }
             else
             { 
