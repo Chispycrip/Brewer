@@ -9,6 +9,9 @@ public class Cauldron : Inventory
     public PotionData[] recipes; //the potion recipes
     public Journal journal; //the journal
 
+    public AudioSource successSound;
+    public AudioSource failureSound;
+
     private Data.Names secondCritter; //the critter that matches the critter in the first slot
     private PotionData potentialPotion; //the potion that the critter in the first slot can make
     bool canBrew = false; // the bugs in the brew inventory match and can be brewed into a potion
@@ -112,6 +115,12 @@ public class Cauldron : Inventory
 
             // reset can brew flag
             canBrew = false;
+
+            successSound.Play();
+        }
+        else
+        {
+            failureSound.Play();
         }
     }
 }
