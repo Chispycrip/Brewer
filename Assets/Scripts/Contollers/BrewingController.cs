@@ -18,7 +18,15 @@ public class BrewingController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // deactivate endDayUI
+        endDayUI.SetActive(false);
+
+        // deactivate caudron UI
+        brewUI.SetActive(false);
+
+        // disable player movement and cursor lock
+        player.EnableCursorLock();
+        player.DisableMovement();
     }
 
 

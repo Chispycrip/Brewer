@@ -55,15 +55,7 @@ public class GameController : MonoBehaviour
         //add the journal to the net
         net.journal = journal;
 
-        //Begin the first day (fade in)
-        fadeToBlackScreen.SetBlack();
-        fadeToBlackScreen.SetText("The town apothecary of Babblebrook is running low on inventory. The pharmacist has tasked you with heading into Sylhaste Forest to gather supplies.\n\n You have heard tall tales of a golden critter that contains magical properties and resides in the nearby Sylhaste Forest, obtaining such a critter will ensure your name echoes in the halls of legend for eras to come.\n\nHead forth little brewer, there is much to do.");
-        fadeToBlackScreen.AddShowText();
-        fadeToBlackScreen.AddState(FadeState.Wait, 10.0f);
-        fadeToBlackScreen.AddHideText();
-        fadeToBlackScreen.AddState(FadeState.FadeOut, 1.0f);
-        fadeToBlackScreen.StartActions();
-
+        playerInventory.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -72,11 +64,6 @@ public class GameController : MonoBehaviour
         switch(state)
         {
             case GameState.StartingGame:
-                if (!fadeToBlackScreen.IsActive())
-                {
-                    StartNewDay();
-                    state = GameState.Catching;
-                }
                 break;
             case GameState.Catching:
                 // check if timer running (i.e. if 3 mins is up)
@@ -112,7 +99,7 @@ public class GameController : MonoBehaviour
                     cinTPCam.MoveToTopOfPrioritySubqueue();
 
                     //set depth of field to far range
-                    UpdateDepthOfField(11.03f, 1.1f);
+                    UpdateDepthOfField(12.5f, 1.1f);
 
                     //set player to start position
                     player.transform.position = playerStartPos;
@@ -206,6 +193,15 @@ public class GameController : MonoBehaviour
 
         state = GameState.TransitionStartDay;
 
+    }
+
+    public void StartFirstDay()
+    {
+        playerInventory.gameObject.SetActive(true);
+        fadeToBlackScreen.SetBlack();
+        fadeToBlackScreen.AddState(FadeState.FadeOut, 1.0f);
+        fadeToBlackScreen.StartActions();
+        StartNewDay();
     }
 
     // update the depth of field setting
