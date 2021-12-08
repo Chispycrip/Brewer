@@ -80,7 +80,7 @@ public abstract class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler
         //if there is a cauldron under the object and the object is empty, take the contents from the cauldron
         else if (caulFound)
         {
-            TakePotionFromCauldron(caulFound);
+            CauldronFound(caulFound);
         }
 
         //set dragging back to false
@@ -91,6 +91,6 @@ public abstract class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler
     protected abstract void Swap(Slot newParent);
 
 
-    //abstract function the puts the cauldron's contents into the dragged slot
-    protected abstract void TakePotionFromCauldron(CauldronUI cauldron);
+    //abstract function that swaps items with the cauldron
+    protected abstract void CauldronFound(CauldronUI cauldron);
 }

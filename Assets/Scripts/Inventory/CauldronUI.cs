@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CauldronUI : MonoBehaviour
 {
+    public Cauldron cauldron; //the cauldron attached to this UI
     public PotionData data = null;
     public Material cauldronWater; //the material of the water in the cauldron
     public ParticleSystem bubbles; //the bubble particles in the cauldron
