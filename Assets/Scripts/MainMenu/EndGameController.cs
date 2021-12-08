@@ -54,6 +54,9 @@ public class EndGameController : MonoBehaviour
         player.DisableMovement();
 
         gameController.EndOfDay();
+
+        // stop player footsteps
+        player.GetComponent<AudioSource>().enabled = false;
     }
 
     public bool PlayerHasGoldenCritter()
