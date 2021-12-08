@@ -56,7 +56,11 @@ public class GameController : MonoBehaviour
         net.journal = journal;
         cauldron.journal = journal;
 
+        // hide player inventory
         playerInventory.gameObject.SetActive(false);
+
+        // hide timer text
+        timer.timerText.enabled = true;
     }
 
     // Update is called once per frame
@@ -198,10 +202,25 @@ public class GameController : MonoBehaviour
 
     public void StartFirstDay()
     {
+        // turn on player inventory
         playerInventory.gameObject.SetActive(true);
+
+        // fade from black
         fadeToBlackScreen.SetBlack();
         fadeToBlackScreen.AddState(FadeState.FadeOut, 1.0f);
         fadeToBlackScreen.StartActions();
+
+        // Is HAX: add the outline component to the brewer character mesh
+        // because for some reason it is messed up by start functions
+        var outline = player.transform.Find("Brewer_Character").gameObject.AddComponent<Outline>();
+        outline.OutlineMode = Outline.Mode.OutlineHidden;
+        outline.OutlineColor = Color.white;
+        outline.OutlineWidth = 2f;
+
+        // show timer text
+        timer.timerText.enabled = true;
+
+        // Start day
         StartNewDay();
     }
 
