@@ -269,5 +269,7 @@ public class GameController : MonoBehaviour
         brewingController.ContinueDay();
         //set depth of field to far range
         UpdateDepthOfField(11.03f, 1.1f);
+
+        state = GameState.Catching;
     }
 }

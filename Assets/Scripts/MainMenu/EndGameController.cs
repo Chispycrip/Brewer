@@ -52,6 +52,8 @@ public class EndGameController : MonoBehaviour
         // disable player movement and cursor lock
         player.EnableCursorLock();
         player.DisableMovement();
+
+        gameController.EndOfDay();
     }
 
     public bool PlayerHasGoldenCritter()

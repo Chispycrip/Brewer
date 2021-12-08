@@ -59,6 +59,8 @@ public class PlayerNet : MonoBehaviour
             // enable collider for speed critter response
             player.GetComponent<BoxCollider>().enabled = true;
         }
+
+        
     }
 
     void StopSwing()
