@@ -66,7 +66,7 @@ public class BrewingController : MonoBehaviour
         player.EnableMovement();
 
         // show player
-        player.gameObject.SetActive(true);
+        player.transform.Find("Brewer_Character").gameObject.SetActive(true);
     }
 
     private void EnableEndDayUI()

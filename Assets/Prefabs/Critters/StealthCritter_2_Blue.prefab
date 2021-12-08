@@ -26,6 +26,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2884700065294388160, guid: 2b3372ce25c93d74ea810ed862bf0f41, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2884700065294388160, guid: 2b3372ce25c93d74ea810ed862bf0f41, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2884700065294388160, guid: 2b3372ce25c93d74ea810ed862bf0f41, type: 3}
+      propertyPath: MaxDistance
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -2884700065294388160, guid: 2b3372ce25c93d74ea810ed862bf0f41, type: 3}
+      propertyPath: MinDistance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2884700065294388160, guid: 2b3372ce25c93d74ea810ed862bf0f41, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2884700065294388160, guid: 2b3372ce25c93d74ea810ed862bf0f41, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4760597086289798870, guid: 2b3372ce25c93d74ea810ed862bf0f41, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

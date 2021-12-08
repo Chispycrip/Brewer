@@ -11,6 +11,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 16318daa250c57d409ba667077ab42af, type: 2}
+    - target: {fileID: 2509064349969469240, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: MinDistance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509064349969469240, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: MaxDistance
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509064349969469240, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509064349969469240, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509064349969469240, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509064349969469240, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3753365975872481493, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -66,6 +90,18 @@ PrefabInstance:
     - target: {fileID: 5552767650140417122, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871657509748473911, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9143313
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871657509748473911, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_Center.y
+      value: 0.14027411
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871657509748473911, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0003912151
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
