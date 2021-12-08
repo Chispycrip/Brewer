@@ -51,7 +51,7 @@ public class ItemUI : Draggable
         if (other)
         {
             //if the other slot accepts potions or the transfered data is a not a potion
-            if (other.acceptsPotions || !(item is PotionData))
+            if ((other.acceptsPotions || !(item is PotionData)) && (acceptsPotions || !(other.item is PotionData)))
             {
                 //store both item Data and then swap them into the opposite slot
                 Data ours = item;

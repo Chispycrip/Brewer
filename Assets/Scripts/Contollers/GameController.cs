@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     public Cauldron cauldron;
     public Journal journal;
     public Tutorial tutorialUI;
+    public PauseMenu pauseMenu;
 
     [Header("Controllers")]
     public CritterController critterControl;
@@ -66,6 +67,9 @@ public class GameController : MonoBehaviour
         critterControl.Init(player);
         consumptionController.Init(journal);
 
+        //initialise the pause menu
+        pauseMenu.Init(this);
+
         //add the journal to the net and cauldron
         net.journal = journal;
         cauldron.journal = journal;
@@ -81,7 +85,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        switch(state)
+            switch (state)
         {
             case GameState.StartingGame:
                 break;
@@ -101,6 +105,10 @@ public class GameController : MonoBehaviour
 
                     //set depth of field to close range
                     UpdateDepthOfField(1.75f, 2.4f);
+
+                    //set player to start position
+                    player.transform.position = playerStartPos;
+                    player.transform.rotation = playerStartRot;
 
                     // hide player
                     player.transform.Find("Brewer_Character").gameObject.SetActive(false);
@@ -149,6 +157,12 @@ public class GameController : MonoBehaviour
                 break;
             default:
                 break;
+        }
+
+        //if the esc key is pressed, open pause menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.OpenPauseMenu();
         }
     }
 
