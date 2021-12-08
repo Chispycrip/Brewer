@@ -188,7 +188,7 @@ public class GameController : MonoBehaviour
 
         // fade to black and show text, then fade out
         fadeToBlackScreen.AddState(FadeState.FadeIn, 1.0f);
-        fadeToBlackScreen.SetText("You have grown tired and have returned to camp...");
+        fadeToBlackScreen.SetText("You have grown tired and have returned to camp...\n\nTime to brew!");
         fadeToBlackScreen.AddShowText();
         fadeToBlackScreen.AddState(FadeState.Wait, 3.0f);
         fadeToBlackScreen.AddHideText();
