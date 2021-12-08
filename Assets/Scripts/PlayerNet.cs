@@ -51,6 +51,10 @@ public class PlayerNet : MonoBehaviour
     void StartSwing()
     {
 
+        if(!swinging)
+        {
+            netSwoosh.Play();
+        }
         animator.SetBool("Walking", false);
 
         // start unity swing animation
@@ -64,10 +68,6 @@ public class PlayerNet : MonoBehaviour
             // enable collider for speed critter response
             player.GetComponent<BoxCollider>().enabled = true;
         }
-
-        netSwoosh.Play();
-
-
 
     }
 
