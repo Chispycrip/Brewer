@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2509064349969469240, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
       propertyPath: MaxDistance
-      value: 13
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2509064349969469240, guid: 1aeefb73c74ee054f9d497a47718cb06, type: 3}
       propertyPath: rolloffMode

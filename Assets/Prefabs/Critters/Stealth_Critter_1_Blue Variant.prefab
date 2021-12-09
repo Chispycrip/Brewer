@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
       propertyPath: MaxDistance
-      value: 13
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6014594465992606692, guid: 4b9f93413ff263543a16a3cf7da7ca42, type: 3}
       propertyPath: MinDistance

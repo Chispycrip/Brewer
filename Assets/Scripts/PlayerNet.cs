@@ -51,6 +51,10 @@ public class PlayerNet : MonoBehaviour
     void StartSwing()
     {
 
+        if(!swinging)
+        {
+            netSwoosh.Play();
+        }
         animator.SetBool("Walking", false);
 
         // start unity swing animation
@@ -65,10 +69,6 @@ public class PlayerNet : MonoBehaviour
             player.GetComponent<BoxCollider>().enabled = true;
         }
 
-        netSwoosh.Play();
-
-
-
     }
 
     void StopSwing()
@@ -79,8 +79,12 @@ public class PlayerNet : MonoBehaviour
         netCollider.enabled = false;
         if (player)
         {
-            // disable player movement while swinging
-            player.EnableMovement();
+            // if player not in flight
+            if (!player.gameObject.GetComponent<PlayerForcer>().InFlight())
+            {
+                // disable player movement while swinging
+                player.EnableMovement();
+            }
             // disable collider for speed critter response
             player.GetComponent<BoxCollider>().enabled = false;
         }

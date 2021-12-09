@@ -15,6 +15,10 @@ public class ConsumptionController : MonoBehaviour
     public Animator netSwing;
     public GameObject playerRenderer;
 
+    [Header("Audio")]
+    public AudioSource drinkSuccess;
+    public AudioSource drinkFailure;
+
     private SkinnedMeshRenderer skinRenderer;
     private Material[] mats;
 
@@ -71,7 +75,7 @@ public class ConsumptionController : MonoBehaviour
             if (item && item is PotionData)
             {
                 // play drinking noise
-                //GetComponent<AudioSource>().Play();
+                drinkSuccess.Play();
 
                 // if speed and the strongest potion consumed today
                 if(item.trait == Traits.Speed && item.tier > topSpeedTier)
@@ -144,6 +148,11 @@ public class ConsumptionController : MonoBehaviour
 
                 // clear slot
                 playerInventory.RemoveFromInventory(slot);
+            }
+            else
+            {
+                // play drinking failure noise
+                drinkFailure.Play();
             }
         }
     }
