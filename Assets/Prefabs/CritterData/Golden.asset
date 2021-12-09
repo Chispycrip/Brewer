@@ -21,6 +21,6 @@ MonoBehaviour:
   model: {fileID: 361986129081274800, guid: c2c06a0bf8071064c895c20945efb349, type: 3}
   movementPath: 4
   movementPathScale: 1
-  movementSpeed: 2
+  movementSpeed: 3
   responseSpeed: 7
   detectionDistance: 7

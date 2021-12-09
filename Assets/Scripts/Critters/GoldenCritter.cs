@@ -12,6 +12,8 @@ public class GoldenCritter : Critter
 
     private Quaternion initialRot; //the rotation the critter has at spawn
 
+    private bool hasMoved; //if the critter has moved today
+
 
     //Init is called upon instantiation by the spawnpoint 
     public override void Init()
@@ -22,6 +24,9 @@ public class GoldenCritter : Critter
         //set catchable and willHide to false initially
         catchable = false;
         willHide = false;
+
+        //set hasMoved to false
+        hasMoved = true;
 
         //set tag
         gameObject.tag = "Golden";
@@ -41,9 +46,11 @@ public class GoldenCritter : Critter
     //makes changes to critter from potion consumption
     public void GoldenPotion()
     {
-        //set catchable to true and willHide to false
+        //set catchable to true
         catchable = true;
-        willHide = false;
+
+        //set hasMoved to false
+        hasMoved = false;
     }
 
 
@@ -184,13 +191,16 @@ public class GoldenCritter : Critter
     //starts the critter's movement down and away from the tree
     public void PlayerLeftCamp()
     {
-        if (gameObject.transform.position == initialPos && !catchable)
+        if (gameObject.transform.position == initialPos && (!catchable || !hasMoved))
         {
             //set critter state to idle
             state = States.Idle;
 
             //set critter to willHide
             willHide = true;
+
+            //set hasMoved to true
+            hasMoved = true;
         }
     }
 
