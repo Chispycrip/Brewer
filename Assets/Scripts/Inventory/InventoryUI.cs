@@ -76,6 +76,21 @@ public class InventoryUI : MonoBehaviour
     }
 
 
+    //adds item to the inventory in a given slot
+    public void AddToInventorySlot(int index, Data item)
+    {
+        //if the slot is empty
+        if (inventory.items[index] == null)
+        {
+            //add item to empty slot
+            inventory.items[index] = item;
+
+            //add item to ItemUI
+            slots[index].UpdateItem(item);
+        }
+    }
+
+
     //removes an item from the inventory
     public void RemoveFromInventory(int index)
     {
@@ -92,5 +107,12 @@ public class InventoryUI : MonoBehaviour
                 RemoveFromInventory(slot.index);
             }
         }
+    }
+
+
+    //get the item image in a given slot
+    public Transform GetItemTransform(int index)
+    {
+        return slots[index].itemUI.gameObject.transform.GetChild(1);
     }
 }
