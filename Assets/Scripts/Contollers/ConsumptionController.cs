@@ -90,6 +90,9 @@ public class ConsumptionController : MonoBehaviour
                     //set the player and net movement speeds higher
                     netSwing.speed = 1.0f + pData.effectsIntensity;
 
+                    //set speed particles active
+                    speedParticles.SetActive(true);
+
                     // consume potion
                     potion.Consume();
 
@@ -130,7 +133,7 @@ public class ConsumptionController : MonoBehaviour
                     //clear stealth effects
                     stealthParticles.SetActive(false);
                     stealthParticles.GetComponent<ParticleSystem>().Clear();
-                    
+
                     //set the player material to a golden appearance
                     mats[1] = goldenMaterial;
                     skinRenderer.materials = mats;
