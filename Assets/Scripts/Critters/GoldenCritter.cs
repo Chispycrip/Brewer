@@ -26,7 +26,7 @@ public class GoldenCritter : Critter
         willHide = false;
 
         //set hasMoved to false
-        hasMoved = false;
+        hasMoved = true;
 
         //set tag
         gameObject.tag = "Golden";
@@ -46,9 +46,11 @@ public class GoldenCritter : Critter
     //makes changes to critter from potion consumption
     public void GoldenPotion()
     {
-        //set catchable to true and willHide to false
+        //set catchable to true
         catchable = true;
-        willHide = false;
+
+        //set hasMoved to false
+        hasMoved = false;
     }
 
 
@@ -62,12 +64,6 @@ public class GoldenCritter : Critter
     //checks if the player is within the detection distance
     private bool PlayerWithin()
     {
-        //if the critter has not moved yet, return false
-        if (!hasMoved)
-        {
-            return false;
-        }
-        
         //get player and critter positions
         Vector3 playerPos = playerObject.transform.position;
         Vector3 critterPos = gameObject.transform.position;
