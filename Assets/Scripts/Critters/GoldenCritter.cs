@@ -14,6 +14,8 @@ public class GoldenCritter : Critter
 
     private bool hasMoved; //if the critter has moved today
 
+    private Animator anim; //Animator
+
 
     //Init is called upon instantiation by the spawnpoint 
     public override void Init()
@@ -40,6 +42,9 @@ public class GoldenCritter : Critter
 
         //set waypointIndex to 1;
         waypointIndex = 1;
+
+        //set Animator
+        anim = GetComponent<Animator>();
     }
 
 
@@ -108,6 +113,10 @@ public class GoldenCritter : Critter
             //the golden critter will not idle path towards the first waypoint, set it to waiting for player state
             state = States.WaitingForPlayer;
 
+            //Animation
+            anim.SetBool("Idle", true);
+            anim.SetBool("Walk", false);
+
             //set waypoint index to 1
             waypointIndex = 1;
         }
@@ -118,6 +127,10 @@ public class GoldenCritter : Critter
             //update state and respond to player
             state = States.RespondingToPlayer;
             RespondToPlayer();
+
+            //Animation
+            anim.SetBool("Idle", false);
+            anim.SetBool("Walk", true);
         }
 
         //if the critter is hiding, continue to update its position as it moves
@@ -128,6 +141,10 @@ public class GoldenCritter : Critter
         //if the critter is waiting for a player action and not at its initial position, look at the player on the z axis
         else if (state == States.WaitingForPlayer)
         {
+            //Animation
+            anim.SetBool("Idle", true);
+            anim.SetBool("Walk", false);
+
             //get position of player
             Vector3 playerPos = playerObject.transform.position;
 
@@ -148,6 +165,9 @@ public class GoldenCritter : Critter
         else if (state == States.Idle)
         {
             IdleMovement();
+            //Animation
+            anim.SetBool("Idle", false);
+            anim.SetBool("Walk", true);
         }
     }
 
@@ -214,6 +234,9 @@ public class GoldenCritter : Critter
             {
                 // throw player off ledge
                 other.GetComponent<PlayerForcer>().ApplyForce();
+
+                //Attack animation
+                anim.Play("Attack");
             }
         }
         else if (other.tag == "Net")
