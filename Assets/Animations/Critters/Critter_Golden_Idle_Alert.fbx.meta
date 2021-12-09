@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 45f37df1bdd81d54181d20a3a28ec6bf
+guid: 3fd9e25e862e82f4ab56fe5391a0bb8b
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
-      74: -3100369314251171874
-    second: Idle
+      74: 6265910034772985584
+    second: Idle_Alert
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,8 +35,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
-      takeName: Idle
+      name: Idle_Alert
+      takeName: Idle_Alert
       internalID: 0
       firstFrame: 1
       lastFrame: 50
