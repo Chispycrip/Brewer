@@ -26,6 +26,9 @@ public class GameController : MonoBehaviour
     public Journal journal;
     public Tutorial tutorialUI;
     public PauseMenu pauseMenu;
+    public GameObject ingredientsTutorial;
+    public GameObject brewTutorial;
+
 
     [Header("Controllers")]
     public CritterController critterControl;
@@ -57,6 +60,10 @@ public class GameController : MonoBehaviour
 
     //variable to make music start without delay on the first day
     bool firstDay = true;
+
+    // flag if played brew tutorials
+    bool ingredientsTuteShown = false;
+    bool brewTuteShown = false;
 
     //Start is called before the first frame update
     void Start()
@@ -340,6 +347,18 @@ public class GameController : MonoBehaviour
 
         // hide timer text
         timer.timerText.enabled = false;
+
+        //if(!ingredientsTuteShown)
+        //{
+        //    ingredientsTutorial.SetActive(true);
+        //    ingredientsTuteShown = true;
+        //}
+        //
+        //if (!brewTuteShown)
+        //{
+        //    brewTutorial.SetActive(true);
+        //    brewTuteShown = true;
+        //}
     }
 
     public void ContinueDay()
