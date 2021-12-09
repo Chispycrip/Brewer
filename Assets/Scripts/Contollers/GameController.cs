@@ -373,6 +373,29 @@ public class GameController : MonoBehaviour
     //fades music in slowly after 2 second delay
     public void FadeIn(AudioSource music)
     {
+        //if there is already a music transition, stop coroutines and swap the inFade and outFade values
+        if (inFade != 0.0f)
+        {
+
+            //stop playing music
+            musicBrewing.Stop();
+            musicCatching.Stop();
+
+            //stop all posible coroutines
+            StopCoroutine(FadeInCR(musicBrewing));
+            StopCoroutine(FadeOutCR(musicBrewing));
+            StopCoroutine(FadeInCR(musicCatching));
+            StopCoroutine(FadeOutCR(musicCatching));
+
+            //swap in and out fade values
+            float Temp = inFade;
+            inFade = outFade;
+            outFade = Temp;
+
+            //set to first day to restart the music playing instantly
+            firstDay = true;
+        }
+        
         //start playing the music if first day
         if (firstDay)
         {
