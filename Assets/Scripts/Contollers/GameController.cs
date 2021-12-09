@@ -376,21 +376,17 @@ public class GameController : MonoBehaviour
         //if there is already a music transition, stop coroutines and swap the inFade and outFade values
         if (inFade != 0.0f)
         {
-
             //stop playing music
             musicBrewing.Stop();
             musicCatching.Stop();
+            music.Stop();
 
-            //stop all posible coroutines
-            StopCoroutine(FadeInCR(musicBrewing));
-            StopCoroutine(FadeOutCR(musicBrewing));
-            StopCoroutine(FadeInCR(musicCatching));
-            StopCoroutine(FadeOutCR(musicCatching));
+            //stop all coroutines
+            StopAllCoroutines();
 
-            //swap in and out fade values
-            float Temp = inFade;
-            inFade = outFade;
-            outFade = Temp;
+            //reset in and out fade values
+            inFade = 0.0f;
+            outFade = 0.0f;
 
             //set to first day to restart the music playing instantly
             firstDay = true;
@@ -399,50 +395,49 @@ public class GameController : MonoBehaviour
         //start playing the music if first day
         if (firstDay)
         {
-            music.Play();
+            //if music playing already, do not restart it
+            if (!music.isPlaying)
+            {
+                //start playing music
+                music.Play();
+            }
+             
+            //set first day to false
+            firstDay = false;
+
+            //fades the music in over the next 5 seconds
+            StartCoroutine(FadeInCR(music, 0.2f, 0.0f));
         }
         else
         {
-            //play music with 2 second delay
-            music.PlayDelayed(2.0f);
-        }
+            //if music is already playing, do not restart it
+            if (!music.isPlaying)
+            {
+                //play music
+                music.Play();
+            }
 
-        //fades the music in over the next 7 seconds
-        StartCoroutine(FadeInCR(music));
+            //fades the music in over the next 7 seconds
+            StartCoroutine(FadeInCR(music, 0.14f, -0.28f));
+        }
     }
 
 
     //5 second coroutine that fades the music in
-    IEnumerator FadeInCR(AudioSource music)
+    IEnumerator FadeInCR(AudioSource music, float timeStep, float startValue)
     {
         //until volume is max
         while (inFade < 1.0f)
         {
-            //if first day, turn volume up over 5 seconds
-            if (firstDay)
-            {
-                //set the time variable
-                inFade += 0.2f * Time.deltaTime;
+            //set the time variable
+            inFade += timeStep * Time.deltaTime;
 
-                //set the music volume
-                music.volume = Mathf.Lerp(0.0f, 1.0f, inFade);
-            }
-            //if not first day, wait 2 seconds then turn the volume up
-            else
-            {
-                //set the time variable
-                inFade += 0.14f * Time.deltaTime;
-
-                //set the music volume
-                music.volume = Mathf.Lerp(-0.28f, 1.0f, inFade);
-            }
-
+            //set the music volume
+            music.volume = Mathf.Lerp(startValue, 1.0f, inFade);
 
             //yield the coroutine until next frame
             yield return null;
         }
-        //set first day to false
-        firstDay = false;
 
         //reset timer and break
         inFade = 0.0f;
