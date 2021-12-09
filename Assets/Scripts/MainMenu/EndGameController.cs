@@ -65,10 +65,10 @@ public class EndGameController : MonoBehaviour
     void EndGame()
     {
         //start end of day fade
-        //gameController.FadeEndDayNoText();
+        gameController.FadeEndDayNoText();
 
         //disable the brewingUI and player
-        //Invoke("DisableBrewingUI", 1.1f);
+        Invoke("DisableBrewingUI", 1.1f);
 
         // stop player footsteps and music
         player.GetComponent<AudioSource>().enabled = false;
@@ -77,14 +77,12 @@ public class EndGameController : MonoBehaviour
         Jar3Transform = (RectTransform)playerInventory.GetItemTransform(2);
 
         //raise the golden critter up
-        //StartCoroutine(RaiseGolden());
+        StartCoroutine(RaiseGolden());
 
         // enable end game UI
-        endGameUI.SetActive(true);
+        //endGameUI.SetActive(true);
 
-        gameController.EndOfDay();
-
-        player.GetComponent<ThirdPersonMovement>().EnableCursorLock();
+        //gameController.EndOfDay();
     }
 
 
