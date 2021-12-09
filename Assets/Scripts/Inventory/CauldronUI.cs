@@ -10,6 +10,8 @@ public class CauldronUI : MonoBehaviour
     public ParticleSystem bubbles; //the bubble particles in the cauldron
     public Color clearWater; //the default water colour
 
+    public GameObject brewTotorial; // UI for brew tutorial
+
     //start is called before the first frame update
     public void Start()
     {
@@ -52,6 +54,8 @@ public class CauldronUI : MonoBehaviour
     //clears potion data
     public void ClearPotion()
     {
+        brewTotorial.SetActive(false);
+
         data = null;
 
         //reset cauldron colour

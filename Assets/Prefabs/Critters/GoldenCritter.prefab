@@ -180,6 +180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoldenCritter
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 60fa6352fceadae489a4ec1ae061aa65, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 08887b0d696648d458b07c8d077718ae, type: 2}
     - target: {fileID: 8913987742362513620, guid: 60fa6352fceadae489a4ec1ae061aa65, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

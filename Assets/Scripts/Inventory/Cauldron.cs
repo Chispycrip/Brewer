@@ -9,6 +9,8 @@ public class Cauldron : Inventory
     public PotionData[] recipes; //the potion recipes
     public Journal journal; //the journal
 
+    public GameObject ingredientsTutorial;
+
     public AudioSource successSound;
     public AudioSource failureSound;
 
@@ -16,12 +18,16 @@ public class Cauldron : Inventory
     private PotionData potentialPotion; //the potion that the critter in the first slot can make
     bool canBrew = false; // the bugs in the brew inventory match and can be brewed into a potion
 
+
     //Update is called once per frame
     void Update()
     {
         //check if the first inventory slot is occupied
         if (items[0] != null)
         {
+
+            ingredientsTutorial.SetActive(false);
+            
             //check the recipes to see which critter matches this one to make a potion
             foreach (PotionData r in recipes)
             {
