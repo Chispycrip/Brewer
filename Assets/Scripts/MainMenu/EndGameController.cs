@@ -73,6 +73,9 @@ public class EndGameController : MonoBehaviour
         // stop player footsteps and music
         player.GetComponent<AudioSource>().enabled = false;
 
+        //set jar3 transform
+        Jar3Transform = (RectTransform)playerInventory.GetItemTransform(2);
+
         //raise the golden critter up
         StartCoroutine(RaiseGolden());
 
