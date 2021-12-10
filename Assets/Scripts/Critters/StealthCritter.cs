@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// The StealthCritter derives from the Critter class and has its own behaviours.
+/// If the player does not have a stealthpotion active, and it goes within a certain detection radius, the creature will flee.
+/// </summary>
 public class StealthCritter : Critter
 {
     public bool willHide; //if the critter will hide when it sees the player, default false only for tier 1
@@ -9,7 +11,6 @@ public class StealthCritter : Critter
 
     public Vector3[] hidepoints; //the points the stealth critter will follow to hide if it detects the player nearby //DEBUG// public during testing
     public int hidepointIndex = 0; //the current hidepoint the critter is moving towards if it is hiding
-
 
     //Init is called upon instantiation by the spawnpoint 
     public override void Init()
@@ -38,7 +39,6 @@ public class StealthCritter : Critter
         previousPos = initialPos;
     }
 
-
     //change behaviour to respond to player's actions
     public override void RespondToPlayer()
     {
@@ -52,7 +52,6 @@ public class StealthCritter : Critter
             state = States.Idle;
         }
     }
-
 
     //checks if the player is within the detection distance
     private bool PlayerWithin()
@@ -74,7 +73,6 @@ public class StealthCritter : Critter
             return false;
         }
     }
-
 
     //calls required behaviour on updates
     protected override void OnUpdate()
@@ -103,7 +101,6 @@ public class StealthCritter : Critter
         }
     }
 
-
     //makes changes to critter based on potion tier level
     public void StealthPotion(int potionTier)
     {
@@ -115,13 +112,11 @@ public class StealthCritter : Critter
         }
     }
 
-
     //sets the array of hidepoints
     public void SetHidepoints(Vector3[] hide)
     {
         hidepoints = hide;
     }
-
 
     //move the critter into a hiding location via a waypoint system using the hidepoints
     private void Hide()

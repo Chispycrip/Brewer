@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Apply the Stealth effect to the player.
+/// </summary>
 public class StealthPotion : Potion
 {
     public float transparencyIncrement; //the change in transparency value

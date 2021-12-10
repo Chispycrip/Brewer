@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
+﻿using UnityEngine;
 
 //public list of movement patterns
 public enum Movements { None, Circle, Oval, Figure8, Waypoint };
+
+/// <summary>
+/// CritterData is used for calculated technical details like movementspeeds, and detection distances.
+/// </summary>
 
 [CreateAssetMenu(menuName = "DataTemplates/CritterData")]
 

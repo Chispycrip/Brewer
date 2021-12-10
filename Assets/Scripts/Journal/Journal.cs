@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Journal deals with having the recipes/critters not shown by default until the player has crafted a potion.
+/// </summary>
 public class Journal : MonoBehaviour
 {
     public CritterData[] critters; //all unique critter data files 
@@ -9,7 +10,6 @@ public class Journal : MonoBehaviour
     public bool[] critterMask; //stores which critter entries have been unlocked
     public bool[] potionMask; //store which potion entries have been unlocked
     public bool[] recipeMask; //stores which recipes have been unlocked
-
 
     //sets up the journal to be blank by default
     public void Start()
@@ -31,7 +31,6 @@ public class Journal : MonoBehaviour
         }
     }
 
-
     //takes in a critter data file and unlocks its entry
     public void AddCritterToJournal(CritterData newCritter)
     {
@@ -47,7 +46,6 @@ public class Journal : MonoBehaviour
         }
     }
 
-
     //takes in a potion data file and unlocks its entry
     public void AddPotionToJournal(PotionData newPotion)
     {
@@ -62,7 +60,6 @@ public class Journal : MonoBehaviour
             }
         }
     }
-
 
     //takes in a potion data file and unlocks its recipe
     public void AddRecipeToJournal(PotionData newRecipe)

@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Dealing with the actual cauldron back-end and being able to interact with it, creating potions etc. is the main purpose of this.
+/// </summary>
 public class Cauldron : Inventory
 {
     public CauldronUI cauldronUI; //the image of the cauldron that can interact with itemUIs
@@ -18,14 +19,12 @@ public class Cauldron : Inventory
     private PotionData potentialPotion; //the potion that the critter in the first slot can make
     bool canBrew = false; // the bugs in the brew inventory match and can be brewed into a potion
 
-
     //Update is called once per frame
     void Update()
     {
         //check if the first inventory slot is occupied
         if (items[0] != null)
         {
-
             ingredientsTutorial.SetActive(false);
             
             //check the recipes to see which critter matches this one to make a potion
@@ -47,13 +46,13 @@ public class Cauldron : Inventory
                 }
             }
         }
+
         //if the first inventory slot is empty, erase any stored critter data
         else
         {
             secondCritter = Data.Names.None;
             potentialPotion = null;
         }
-
 
         //if the second inventory slot is occupied, and there is stored data, compare them
         if (items[1] != null && secondCritter != Data.Names.None)
@@ -63,13 +62,13 @@ public class Cauldron : Inventory
             {
                 canBrew = true;
             }
+
             else
             { 
                 //potion failed effect
             }
         }
     }
-
 
     //Adds items to the cauldron inventory if dropped in the cauldron UI, returns if a slot is empty
     public bool DroppedInCauldron(Data droppedItem)
@@ -86,12 +85,14 @@ public class Cauldron : Inventory
                 //return that a slot is empty
                 return true;
             }
+
             //if not return inventory full
             else
             {
                 return false;
             }
         }
+
         //item was not a critter, return false
         else
         {
@@ -104,8 +105,6 @@ public class Cauldron : Inventory
     {
         if (canBrew)
         {
-            //possible player interaction or animation//
-
             //send the potion to the cauldronUI
             cauldronUI.SetPotion(potentialPotion);
 
@@ -124,6 +123,7 @@ public class Cauldron : Inventory
 
             successSound.Play();
         }
+
         else
         {
             failureSound.Play();

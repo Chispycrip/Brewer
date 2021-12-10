@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// The SpeedPotion. Speeds the character up
+/// </summary>
 public class SpeedPotion : Potion
 {
     public float speedIncrement; //the increase in rate of movement speed

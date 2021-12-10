@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// SpeedCritter derives from the Critter class, and has it's own values.
+/// It is uncatchable and keeps speeding around unless the character has the specific potion (bar tier 1)
+/// </summary>
 public class SpeedCritter : Critter
 {
     public bool defaultCatchable; //if the critter is catchable by default, true only for tier 1
@@ -36,7 +38,6 @@ public class SpeedCritter : Critter
         previousPos = initialPos;
     }
 
-
     //change behaviour to respond to player's actions
     public override void RespondToPlayer()
     {
@@ -70,7 +71,6 @@ public class SpeedCritter : Critter
         state = States.Dodging;
     }
 
-
     //calls required behaviour on updates
     protected override void OnUpdate()
     {
@@ -85,7 +85,6 @@ public class SpeedCritter : Critter
         }
     }
 
-
     //makes changes to critter based on potion tier level
     public void SpeedPotion(int potionTier)
     {
@@ -96,13 +95,11 @@ public class SpeedCritter : Critter
         }
     }
 
-
     //sets the array of dodgepoints
     public void SetDodgepoints(Vector3[] dodge)
     {
         dodgepoints = dodge;
     }
-
 
     //move towards the closest dodgepoint
     private void Dodge()

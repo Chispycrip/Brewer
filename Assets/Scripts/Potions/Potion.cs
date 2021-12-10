@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Potion class that is the parent for other potions.
+/// </summary>
 public class Potion
 {
     protected PotionData data; //the object holding all of this potion's data

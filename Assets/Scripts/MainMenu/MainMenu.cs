@@ -1,8 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// The Main Menu for the game. This has a play and an exit.
+/// It also shows the initial campsite.
+/// </summary>
 public class MainMenu : MonoBehaviour
 {
     public string gameScene;
@@ -16,12 +19,6 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         loadingScreen.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Play()
@@ -48,7 +45,6 @@ public class MainMenu : MonoBehaviour
         //fades the music out over the next 5 seconds
         StartCoroutine(FadeOutCR(music));
     }
-
 
     //5 second coroutine that fades the music out
     IEnumerator FadeOutCR(AudioSource music)

@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
+
+/// <summary>
+/// The Data needed for each potion type.
+/// </summary>
 
 [CreateAssetMenu(menuName = "DataTemplates/PotionData")]
 public class PotionData : Data

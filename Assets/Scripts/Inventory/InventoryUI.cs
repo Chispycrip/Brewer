@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// InventoryUI is the front-end of the inventory script. This allows for jars, potions and critters to be visible and interacted with.
+/// </summary>
 public class InventoryUI : MonoBehaviour
 {
     public Inventory inventory; //the attached inventory
@@ -24,7 +25,6 @@ public class InventoryUI : MonoBehaviour
             slots[i].Init(this, i, slots[i].itemUI, inventory.jarsVisibile, inventory.acceptsPotions);
         }
     }
-
 
     //every update, clear Data from itemUIs that are empty in the Inventory
     private void Update()
@@ -50,7 +50,6 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-
     //adds item to the inventory
     public void AddToInventory(Data item)
     {
@@ -75,7 +74,6 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-
     //adds item to the inventory in a given slot
     public void AddToInventorySlot(int index, Data item)
     {
@@ -89,7 +87,6 @@ public class InventoryUI : MonoBehaviour
             slots[index].UpdateItem(item);
         }
     }
-
 
     //removes an item from the inventory
     public void RemoveFromInventory(int index)
@@ -108,7 +105,6 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
-
 
     //get the item image in a given slot
     public Transform GetItemTransform(int index)

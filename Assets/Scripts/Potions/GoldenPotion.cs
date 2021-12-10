@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Final Golden Potion.
+/// </summary>
 public class GoldenPotion : Potion
 {
     //consumes the potion and triggers its effects in every stealth critter on the map

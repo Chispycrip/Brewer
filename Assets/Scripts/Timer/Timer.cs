@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Countdown timer of 3 minutes.
+/// </summary>
 public class Timer : MonoBehaviour
 {
     // timer related stuff

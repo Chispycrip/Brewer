@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Slot relates to what is inside of the jar, in the back end.
+/// </summary>
 public class Slot : MonoBehaviour
 {
     public ItemUI itemUI; //the ItemUI stored in this slot
@@ -28,7 +29,6 @@ public class Slot : MonoBehaviour
             itemUI.jar.enabled = false;
         }
     }
-
 
     //updates the contents of this slot
     public void UpdateItem(Data item)

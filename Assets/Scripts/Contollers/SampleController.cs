@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Testing Controller added as a hidden testing mechanism. (I believe? lol)
+/// </summary>
 public class SampleController : MonoBehaviour
 {
     public GameObject player;
@@ -46,9 +47,6 @@ public class SampleController : MonoBehaviour
             //trigger all stealth critters
             foreach (GameObject s in stealths)
                 s.GetComponent<Critter>().RespondToPlayer();
-
-            //trigger golden critter
-            //golden.GetComponent<Critter>().RespondToPlayer();
         }
     }
 }

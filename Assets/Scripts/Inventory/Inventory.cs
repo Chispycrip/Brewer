@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Inventory deals with the backend data to deal with the jars, critters and potions.
+/// </summary>
 public class Inventory : MonoBehaviour
 {
     public Data[] items; //the array of items stored in this inventory

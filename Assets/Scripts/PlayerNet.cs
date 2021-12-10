@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerNet : MonoBehaviour
 {
@@ -18,7 +16,6 @@ public class PlayerNet : MonoBehaviour
     private BoxCollider netCollider = null;
 
     bool swinging = false;
-  
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +45,7 @@ public class PlayerNet : MonoBehaviour
         }
     }
 
+
     void StartSwing()
     {
 
@@ -71,6 +69,7 @@ public class PlayerNet : MonoBehaviour
 
     }
 
+
     void StopSwing()
     {
         swinging = false;
@@ -89,6 +88,7 @@ public class PlayerNet : MonoBehaviour
             player.GetComponent<BoxCollider>().enabled = false;
         }
     }
+
     // Add critter to inventory and journal
     public void CatchCritter(Critter critter)
     {

@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// JournalUI is the visual elements as part of the Journal script. It also visually shows the recipes for the critters in the journal.
+/// </summary>
 public class JournalUI : MonoBehaviour
 {
     public Journal journal; //the attached journal
@@ -29,7 +30,6 @@ public class JournalUI : MonoBehaviour
         unlockedSprites[5].SetActive(true);
     }
 
-
     //sets the journal canvas active and updates recipes
     public void OpenJournal()
     {
@@ -50,7 +50,6 @@ public class JournalUI : MonoBehaviour
         //set journal canvas active
         journalCanvas.SetActive(true);
     }
-
 
     //sets the journal canvas inactive
     public void CloseJournal()

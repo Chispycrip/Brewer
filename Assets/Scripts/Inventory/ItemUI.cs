@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// ItemUI is the data that relates to whatever is inside the Jar.
+/// </summary>
 public class ItemUI : Draggable
 {
     public Image image; //the displayed image of the item
@@ -33,13 +34,11 @@ public class ItemUI : Draggable
         }
     }
 
-
     //returns the stored item data
     public ScriptableObject GetItem()
     {
         return item;
     }
-
 
     //swaps the contents of the slots
     protected override void Swap(Slot newParent)
@@ -62,7 +61,6 @@ public class ItemUI : Draggable
             }
         }
     }
-
 
     //puts the cauldron's contents into the dragged slot
     protected override void CauldronFound(CauldronUI cauldron)

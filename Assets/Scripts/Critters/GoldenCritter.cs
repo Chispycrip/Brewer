@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// All the back-end information for the GoldenCritter, its hidePoints, and other technical details.
+/// </summary>
 public class GoldenCritter : Critter
 {
     public bool willHide; //if the critter will hide when it sees the player, default true
@@ -15,7 +16,6 @@ public class GoldenCritter : Critter
     private bool hasMoved; //if the critter has moved today
 
     private Animator anim; //Animator
-
 
     //Init is called upon instantiation by the spawnpoint 
     public override void Init()
@@ -47,7 +47,6 @@ public class GoldenCritter : Critter
         anim = GetComponent<Animator>();
     }
 
-
     //makes changes to critter from potion consumption
     public void GoldenPotion()
     {
@@ -58,13 +57,11 @@ public class GoldenCritter : Critter
         hasMoved = false;
     }
 
-
     //sets the array of hidepoints
     public void SetHidepoints(Vector3[] hide)
     {
         hidepoints = hide;
     }
-
 
     //checks if the player is within the detection distance
     private bool PlayerWithin()
@@ -87,7 +84,6 @@ public class GoldenCritter : Critter
         }
     }
 
-
     //change behaviour to respond to player's actions
     public override void RespondToPlayer()
     {
@@ -102,7 +98,6 @@ public class GoldenCritter : Critter
             state = States.WaitingForPlayer;
         }
     }
-
 
     //calls required behaviour on updates
     protected override void OnUpdate()
@@ -138,6 +133,7 @@ public class GoldenCritter : Critter
         {
             Hide();
         }
+
         //if the critter is waiting for a player action and not at its initial position, look at the player on the z axis
         else if (state == States.WaitingForPlayer)
         {
@@ -159,8 +155,8 @@ public class GoldenCritter : Critter
             {
                 gameObject.transform.rotation = initialRot;
             }
-
         }
+
         //if the critter is idle, continue its idle movement
         else if (state == States.Idle)
         {
@@ -170,7 +166,6 @@ public class GoldenCritter : Critter
             anim.SetBool("Walk", true);
         }
     }
-
 
     //move the critter to the next hidepoint hiding location via a waypoint system using the hidepoints
     private void Hide()
@@ -207,7 +202,6 @@ public class GoldenCritter : Critter
         previousPos = gameObject.transform.position;
     }
 
-
     //starts the critter's movement down and away from the tree
     public void PlayerLeftCamp()
     {
@@ -224,7 +218,6 @@ public class GoldenCritter : Critter
         }
     }
 
-
     void OnTriggerEnter(Collider other)
     {
 
@@ -239,6 +232,7 @@ public class GoldenCritter : Critter
                 anim.Play("Attack");
             }
         }
+
         else if (other.tag == "Net")
         {
             if (catchable && !inventoryFull)
@@ -256,6 +250,7 @@ public class GoldenCritter : Critter
                 //the critter object no longer exists, set state to inactive
                 state = States.Inactive;
             }
+
             else
             {
                 //call net event false

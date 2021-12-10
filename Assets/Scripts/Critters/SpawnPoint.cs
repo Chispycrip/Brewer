@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
+/// <summary>
+/// SpawnPoints is used to Spawn the Waypoints, and the Critters.
+/// </summary>
 public class SpawnPoint : MonoBehaviour
 {
     public CritterData data; //all of the data needed to create a critter
@@ -14,12 +14,6 @@ public class SpawnPoint : MonoBehaviour
     public Vector3[] waypoints; //array of all attached waypoint locations //DEBUG// public during testing
     public Vector3[] dodgepoints; //array of all attached dodgepoint locations - only for Speed/Golden
     public Vector3[] hidepoints; //array of all attached hidepoint locations - only for Stealth/Golden
-
-
-    //Start is called before the first frame update
-    void Start()
-    { }
-
 
     //spawns a critter based on the stored data and rotation
     public void SpawnCritter()
@@ -75,7 +69,6 @@ public class SpawnPoint : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
 
     //sets up the waypoint system
     private void SetupWaypoints()

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.Rendering.PostProcessing;
 
+/// <summary>
+/// GameStates used within GameController
+/// </summary>
 public enum GameState
 {
     StartingGame,
@@ -13,8 +15,14 @@ public enum GameState
     TransitionStartDay
 }
 
+/// <summary>
+/// GameController is used to handle certain events like fading things in and out based on the current day.
+/// The music is also controlled here, as well as other aspects such as the journal, tutorial, pause menu etc.
+/// This is the primary way of being able to handle events in the game.
+/// </summary>
 public class GameController : MonoBehaviour
 {
+    [Header("Timer")]
     public Timer timer;
 
     [Header("Game Components")]
@@ -28,7 +36,6 @@ public class GameController : MonoBehaviour
     public PauseMenu pauseMenu;
     public GameObject ingredientsTutorial;
     public GameObject brewTutorial;
-
 
     [Header("Controllers")]
     public CritterController critterControl;
@@ -47,11 +54,14 @@ public class GameController : MonoBehaviour
     public AudioSource musicCatching;
     public AudioSource cauldronBubble;
 
+    [Header("StartGame Canvas")]
     public GameObject startCanvas;
 
+    // players starting rotation and position
     private Vector3 playerStartPos;
     private Quaternion playerStartRot;
 
+    // setting initial state to be startingGame
     private GameState state = GameState.StartingGame;
 
     //time variables for music fades
@@ -131,7 +141,6 @@ public class GameController : MonoBehaviour
                 if(!fadeToBlackScreen.IsActive())
                 {
                     state = GameState.Brewing;
-
                 }
                 break;
             case GameState.TransitionStartDay:
@@ -162,7 +171,6 @@ public class GameController : MonoBehaviour
                 if(!fadeToBlackScreen.IsActive())
                 {
                     state = GameState.Catching;
-
                 }
                 break;
             case GameState.Brewing:
@@ -218,7 +226,6 @@ public class GameController : MonoBehaviour
         // stop player footsteps
         player.GetComponent<AudioSource>().enabled = false;
 
-
         // fade to black and show text, then fade out
         fadeToBlackScreen.AddState(FadeState.FadeIn, 1.0f);
         fadeToBlackScreen.SetText("You have grown tired and have returned to camp...\n\nTime to brew!");
@@ -227,16 +234,15 @@ public class GameController : MonoBehaviour
         fadeToBlackScreen.AddHideText();
         fadeToBlackScreen.AddState(FadeState.FadeOut, 1.0f);
         fadeToBlackScreen.StartActions();
-       
 
         // disable player movement and cursor lock
         player.GetComponent<ThirdPersonMovement>().EnableCursorLock();
         player.GetComponent<ThirdPersonMovement>().DisableMovement();
 
         state = GameState.TransitionEndDay;
-
     }
 
+    // fade in end day with no text on screen
     public void FadeEndDayNoText()
     {
         //fade in brew music
@@ -262,9 +268,9 @@ public class GameController : MonoBehaviour
         player.GetComponent<ThirdPersonMovement>().DisableMovement();
 
         state = GameState.TransitionEndDay;
-
     }
 
+    // fade to the start of a new day
     public void FadeStartDay()
     {
         //fade out brew music
@@ -289,12 +295,11 @@ public class GameController : MonoBehaviour
         fadeToBlackScreen.StartActions();
 
         state = GameState.TransitionStartDay;
-
     }
 
+    // starting the first day for initially
     public void StartFirstDay()
     {
-
         FadeIn(musicCatching);
 
         // turn on player inventory
@@ -347,23 +352,13 @@ public class GameController : MonoBehaviour
 
         // hide timer text
         timer.timerText.enabled = false;
-
-        //if(!ingredientsTuteShown)
-        //{
-        //    ingredientsTutorial.SetActive(true);
-        //    ingredientsTuteShown = true;
-        //}
-        //
-        //if (!brewTuteShown)
-        //{
-        //    brewTutorial.SetActive(true);
-        //    brewTuteShown = true;
-        //}
     }
 
+    // if player chooses to continue day
     public void ContinueDay()
     {
         brewingController.ContinueDay();
+
         //set depth of field to far range
         UpdateDepthOfField(11.03f, 1.1f);
 
@@ -408,6 +403,7 @@ public class GameController : MonoBehaviour
             //fades the music in over the next 5 seconds
             StartCoroutine(FadeInCR(music, 0.2f, 0.0f));
         }
+        // play the music otherwise
         else
         {
             //if music is already playing, do not restart it
@@ -421,7 +417,6 @@ public class GameController : MonoBehaviour
             StartCoroutine(FadeInCR(music, 0.14f, -0.28f));
         }
     }
-
 
     //5 second coroutine that fades the music in
     IEnumerator FadeInCR(AudioSource music, float timeStep, float startValue)
@@ -444,14 +439,12 @@ public class GameController : MonoBehaviour
         yield break;
     }
 
-
     //fades music out slowly
     public void FadeOut(AudioSource music)
     {
         //fades the music out over the next 5 seconds
         StartCoroutine(FadeOutCR(music));
     }
-
 
     //5 second coroutine that fades the music out
     IEnumerator FadeOutCR(AudioSource music)

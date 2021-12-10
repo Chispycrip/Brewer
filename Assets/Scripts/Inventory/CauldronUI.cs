@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// CauldronUI deals with the front-end, visible elements of the brewing.
+/// It also deals with the visual effects of the cauldron itself.
+/// </summary>
 public class CauldronUI : MonoBehaviour
 {
     public Cauldron cauldron; //the cauldron attached to this UI
@@ -43,13 +45,11 @@ public class CauldronUI : MonoBehaviour
         bubbles.Clear();
     }
 
-
     //returns potion data
     public PotionData GetPotion()
     {
         return data;
     }
-
 
     //clears potion data
     public void ClearPotion()

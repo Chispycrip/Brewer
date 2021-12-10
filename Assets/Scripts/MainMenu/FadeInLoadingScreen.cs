@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Simply Fading in a LoadingScreen on load.
+/// </summary>
 public class FadeInLoadingScreen : MonoBehaviour
 {
     public float fadeInSpeed;

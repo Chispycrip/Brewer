@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System;
 
+/// <summary>
+/// Initial Tutorial for the player.
+/// </summary>
 public class Tutorial : MonoBehaviour
 {
     public float countdownTimer = 11f; //how long the UI is visible

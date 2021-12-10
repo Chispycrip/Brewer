@@ -1,8 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
+/// <summary>
+/// The EndGameController deals with the very end-game scenario when the player brings the goldenCritter back to the camp.
+/// </summary>
 public class EndGameController : MonoBehaviour
 {
     [Header("UI's")]
@@ -41,11 +42,6 @@ public class EndGameController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Continue()
     {
         // deactivate endGameUI
@@ -57,6 +53,7 @@ public class EndGameController : MonoBehaviour
         //gameController.fadeToBlackScreen.StartActions();
         gameController.FadeStartDay();
     }
+
     public void Quit()
     {
         Application.Quit();
@@ -78,13 +75,7 @@ public class EndGameController : MonoBehaviour
 
         //raise the golden critter up
         StartCoroutine(RaiseGolden());
-
-        // enable end game UI
-        //endGameUI.SetActive(true);
-
-        //gameController.EndOfDay();
     }
-
 
     //if the player has the golden critter, start end game sequence
     public bool PlayerHasGoldenCritter()
@@ -102,7 +93,6 @@ public class EndGameController : MonoBehaviour
         return false;
 
     }
-
 
     //disables brewingUI and moves golden critter to the middle of the inventory
     private void DisableBrewingUI()
@@ -124,7 +114,6 @@ public class EndGameController : MonoBehaviour
         //disable UI
         brewingUI.SetActive(false);
     }
-
 
     //raises the golden critter up to the middle of the screen
     IEnumerator RaiseGolden()

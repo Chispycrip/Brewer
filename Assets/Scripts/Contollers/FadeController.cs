@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +23,6 @@ public struct FadeAction
 
 public class FadeController : MonoBehaviour
 {
-
     private float timer = 0.0f;
     private FadeAction currentAction;
     private Image screen;
@@ -189,7 +187,7 @@ public class FadeController : MonoBehaviour
     {
         queue.Clear();
     }
-
+    // set to black
     public void SetBlack()
     {
         screen.enabled = true;

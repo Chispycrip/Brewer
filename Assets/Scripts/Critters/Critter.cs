@@ -1,12 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
+/// <summary>
+/// Parent class for all critters, they all derive from this class.
+/// Also handles properties for getting and setting data so it's inaccessible outside of child classes.
+/// This class also handles all movement for the bugs and it's derived classes.
+/// </summary>
 public class Critter : MonoBehaviour
 {
     protected CritterData data; //the object holding all of this critter's data
     public bool catchable = true; //if this critter is currently catchable, false if inactive
+
     public enum States { Idle, RespondingToPlayer, Hiding, Dodging, Caught, Inactive, WaitingForPlayer }; //the list of states the critter can have
     public States state = States.Idle; //the current behavioural state of the critter //DEBUG// public during testing
     public bool inventoryFull = false; //if the inventory is full
@@ -17,13 +21,11 @@ public class Critter : MonoBehaviour
     protected Vector3[] waypoints; //the waypoints the critter can follow as its idle movement path
     protected int waypointIndex = 0; //the index of the waypoint currently being moved towards
 
-
     //Init is called upon instantiation by the spawnpoint 
     public virtual void Init()
     {
         //overwritten by subclasses
     }
-
 
     //Update is called once per frame
     public void Update()
@@ -31,20 +33,17 @@ public class Critter : MonoBehaviour
         OnUpdate();
     }
 
-
     //calls required behaviour on updates
     protected virtual void OnUpdate()
     { 
         //overwritten by subclasses
     }
 
-
     //change behaviour to respond to player's actions
     public virtual void RespondToPlayer()
     { 
         //overwritten by subclasses
     }
-
 
     //performs idle movement behaviour
     protected void IdleMovement()
@@ -144,20 +143,17 @@ public class Critter : MonoBehaviour
         previousPos = gameObject.transform.position;
     }
 
-
     //returns if critter is catchable
     public bool IsCaught()
     {
         return catchable;
     }
 
-
     //sets the critterData
     public void SetData(CritterData cData)
     {
         data = cData;
     }
-
 
     //returns the critterData
     public CritterData GetData()

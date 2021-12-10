@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This script deals with the character movement, as well as camera movement within the world.
+/// </summary>
 public class ThirdPersonMovement : MonoBehaviour
 {
     [Header("Controller & Camera")]
@@ -102,12 +104,6 @@ public class ThirdPersonMovement : MonoBehaviour
                     break;
             }
         }
-    }
-
-    // start is called once before the first update frame
-    void Start()
-    {
-        
     }
 
     // function names for CursorLock might actually be reversed by accident lol

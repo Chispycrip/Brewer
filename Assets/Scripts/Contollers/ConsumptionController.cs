@@ -1,30 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// The ConsumptionControllers primary purpose was to handle the technical side of consuming a potion.
+/// This also included consuming the potion itself, applying the properties of said potion,
+/// applying a different material when using the golden potion, etc.
+/// </summary>
 public class ConsumptionController : MonoBehaviour
 {
     public InventoryUI playerInventory;
     public Journal journal;
 
     [Header("Potion Visual Effects")]
-    public GameObject stealthParticles;
-    public GameObject speedParticles;
-    public Material playerMaterial;
-    public Material goldenMaterial;
-    public Animator netSwing;
-    public GameObject playerRenderer;
+    public GameObject stealthParticles; // stealth particles
+    public GameObject speedParticles; // speed particles
+    public Material playerMaterial; // player materials
+    public Material goldenMaterial; // golden player-applied materials
+    public Animator netSwing; // net swing animation
+    public GameObject playerRenderer; // renderer for player
 
     [Header("Audio")]
-    public AudioSource drinkSuccess;
-    public AudioSource drinkFailure;
+    public AudioSource drinkSuccess; // audio source for successful consumption
+    public AudioSource drinkFailure; // audio source for failure of consumption
 
-    private SkinnedMeshRenderer skinRenderer;
-    private Material[] mats;
+    private SkinnedMeshRenderer skinRenderer; // skin renderer?
+    private Material[] mats; // materials for (something)
 
     private int topSpeedTier = 0; //the highest tier speed potion drunk today
     private int topStealthTier = 0; //the highest tier stealth potion drunk today
-
 
     //initialise controller
     public void Init(Journal bestiary)
@@ -36,7 +38,6 @@ public class ConsumptionController : MonoBehaviour
         //attach the journal
         journal = bestiary;
     }
-    
 
     // Update is called once per frame
     void Update()
@@ -64,7 +65,7 @@ public class ConsumptionController : MonoBehaviour
         }
     }
 
-
+    // consumption of potion in a given slot
     private void ConsumePotion(int slot)
     {
         // check inventory capacity is <= slot size
@@ -99,7 +100,9 @@ public class ConsumptionController : MonoBehaviour
                     //set this potion tier as the highest
                     topSpeedTier = item.tier;
                 }
-                else if (item.trait == Traits.Stealth && item.tier > topStealthTier) // if stealth and the strongest potion consumed today
+
+                // if stealth and the strongest potion consumed today
+                else if (item.trait == Traits.Stealth && item.tier > topStealthTier) 
                 {
                     // construct potion from potion data
                     StealthPotion potion = new StealthPotion();
@@ -121,7 +124,9 @@ public class ConsumptionController : MonoBehaviour
                     //set this potion tier as the highest
                     topStealthTier = item.tier;
                 }
-                else if (item.trait == Traits.Golden && topSpeedTier < 4) // if golden and no golden already consumed today
+
+                // if golden and no golden already consumed today
+                else if (item.trait == Traits.Golden && topSpeedTier < 4) 
                 {
                     // construct potion from potion data
                     GoldenPotion potion = new GoldenPotion();

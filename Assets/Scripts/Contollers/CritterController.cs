@@ -1,7 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// The CritterController is used for when spawning critters is needed.
+/// When the day started, they are initialized at their spawnpoints.
+/// When the day ended, they are destroyed.
+/// </summary>
 public class CritterController : MonoBehaviour
 {
     public GameObject player;
@@ -16,7 +19,6 @@ public class CritterController : MonoBehaviour
         //find all spawners and store them
         spawnpoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
     }
-    
 
     //spawn in all the critters to start a new day
     public void StartNewDay()
@@ -41,7 +43,6 @@ public class CritterController : MonoBehaviour
         GameObject golden = GameObject.FindGameObjectWithTag("Golden");
         golden.GetComponent<GoldenCritter>().playerObject = player;
     }
-
 
     //destroy all the critters to end the day
     public void EndOfDay()

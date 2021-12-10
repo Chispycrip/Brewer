@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
+/// <summary>
+/// A Pause menu used while in-game.
+/// </summary>
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuCanvas; //the canvas with the pause menu
@@ -19,7 +19,6 @@ public class PauseMenu : MonoBehaviour
         //set the game controller
         gameController = gameControl;
     }
-
 
     //pauses the game and enables the menu
     public void OpenPauseMenu()
@@ -43,7 +42,6 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-
     //unpauses the game and disables the menu
     public void ClosePauseMenu()
     {
@@ -57,7 +55,6 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = cursorState;
     }
 
-
     //disables the pause menu then fades to end of day
     public void EndDay()
     {
@@ -67,7 +64,6 @@ public class PauseMenu : MonoBehaviour
         //start the end of day fade out
         gameController.FadeEndDayNoText();
     }
-
 
     //quits program
     public void ExitGame()
